@@ -1,0 +1,1351 @@
+
+
+
+/* ================= ENHANCED PROFESSIONAL CERTIFICATIONS & ACHIEVEMENTS ================= */
+
+/* ================= ULTRA-PROFESSIONAL CERTIFICATIONS SECTION ================= */
+.certifications-section {
+    position: relative;
+    padding: 4rem 0;
+    overflow: hidden;
+    background: linear-gradient(135deg,
+            rgba(251, 237, 82, 0.015) 0%,
+            rgba(255, 157, 0, 0.01) 100%);
+}
+
+[data-theme="light"] .certifications-section {
+    background: linear-gradient(135deg,
+            rgba(255, 157, 0, 0.008) 0%,
+            rgba(255, 157, 0, 0.003) 100%);
+}
+
+/* Professional background pattern */
+.certifications-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(251, 237, 82, 0.012) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 157, 0, 0.008) 0%, transparent 40%);
+    z-index: -1;
+}
+
+[data-theme="light"] .certifications-section::before {
+    background:
+        radial-gradient(circle at 10% 20%, rgba(251, 237, 82, 0.006) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 157, 0, 0.004) 0%, transparent 40%);
+}
+
+/* Professional Section Header */
+.certifications-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.certifications-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.certifications-header h2 i {
+    font-size: 1.75rem;
+}
+
+.certifications-header .title-gradient,
+.certifications-header i.fas.fa-award {
+    background: var(--primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.certifications-header .title-solid {
+    color: var(--light);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+[data-theme="light"] .certifications-header .title-solid {
+    color: #111;
+}
+
+.certifications-header .section-subtitle {
+    font-size: 0.95rem;
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+[data-theme="light"] .certifications-header .section-subtitle {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* Professional Filter Container */
+.certifications-filter-container {
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    position: relative;
+}
+
+.certifications-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 3rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .certifications-filter {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 157, 0, 0.08);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* Professional Filter Buttons */
+.certifications-filter .filter-btn {
+    padding: 0.6rem 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--light);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    letter-spacing: 0.1px;
+    position: relative;
+    overflow: hidden;
+    min-width: 100px;
+    justify-content: center;
+}
+
+[data-theme="light"] .certifications-filter .filter-btn {
+    background: rgba(0, 0, 0, 0.015);
+    color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.certifications-filter .filter-btn:hover:not(.active) {
+    background: rgba(251, 237, 82, 0.06);
+    border-color: rgba(251, 237, 82, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(251, 237, 82, 0.08);
+}
+
+[data-theme="light"] .certifications-filter .filter-btn:hover:not(.active) {
+    background: rgba(255, 157, 0, 0.04);
+    border-color: rgba(255, 157, 0, 0.12);
+    box-shadow: 0 2px 8px rgba(255, 157, 0, 0.06);
+}
+
+/* Active filter button */
+.certifications-filter .filter-btn.active {
+    background: var(--primary);
+    color: #000;
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(251, 237, 82, 0.2);
+    transform: translateY(-1px);
+}
+
+.certifications-filter .filter-btn.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.15),
+            transparent);
+    transition: left 0.4s ease;
+}
+
+.certifications-filter .filter-btn.active:hover::before {
+    left: 100%;
+}
+
+[data-theme="light"] .certifications-filter .filter-btn.active {
+    box-shadow: 0 2px 10px rgba(255, 157, 0, 0.15);
+}
+
+/* Filter button count badge */
+.filter-btn .count-badge {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--light);
+    padding: 0.1rem 0.3rem;
+    border-radius: 8px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    margin-left: 0.2rem;
+}
+
+.filter-btn.active .count-badge {
+    background: rgba(0, 0, 0, 0.15);
+    color: #000;
+}
+
+/* Active Filter Display */
+.active-filter-display {
+    text-align: center;
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: rgba(251, 237, 82, 0.04);
+    border-radius: 8px;
+    border: 1px solid rgba(251, 237, 82, 0.08);
+    font-size: 0.8rem;
+    color: var(--primary);
+    font-weight: 500;
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.active-filter-display.show {
+    display: inline-block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-3px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Professional Certifications Grid - 3 PER ROW */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Professional Certification Card - Compact */
+.certification-card {
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.04) 0%,
+            rgba(255, 255, 255, 0.015) 100%);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .certification-card {
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.97) 0%,
+            rgba(255, 255, 255, 0.94) 100%);
+    border: 1px solid rgba(255, 157, 0, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.certification-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(251, 237, 82, 0.15);
+    box-shadow: 0 8px 25px rgba(251, 237, 82, 0.1);
+}
+
+[data-theme="light"] .certification-card:hover {
+    box-shadow: 0 8px 25px rgba(255, 157, 0, 0.06);
+    border-color: rgba(255, 157, 0, 0.12);
+}
+
+/* Professional Badge */
+.certification-badge {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    background: rgba(251, 237, 82, 0.1);
+    backdrop-filter: blur(6px);
+    color: var(--primary);
+    padding: 0.25rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    z-index: 2;
+    border: 1px solid rgba(251, 237, 82, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .certification-badge {
+    background: rgba(255, 157, 0, 0.08);
+    color: #ff9d00;
+    border: 1px solid rgba(255, 157, 0, 0.12);
+}
+
+/* Featured Card (SQL Series) */
+.certification-card.featured {
+    background: linear-gradient(145deg,
+            rgba(251, 237, 82, 0.05) 0%,
+            rgba(255, 157, 0, 0.03) 100%);
+    border: 1px solid rgba(251, 237, 82, 0.12);
+    box-shadow: 0 5px 20px rgba(251, 237, 82, 0.08);
+}
+
+[data-theme="light"] .certification-card.featured {
+    background: linear-gradient(145deg,
+            rgba(255, 157, 0, 0.04) 0%,
+            rgba(255, 157, 0, 0.02) 100%);
+    border: 1px solid rgba(255, 157, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(255, 157, 0, 0.04);
+}
+
+/* Professional Certification Image */
+.certification-image {
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.certification-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.15) 0%,
+            rgba(0, 0, 0, 0.08) 100%);
+    z-index: 1;
+}
+
+.certification-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.certification-card:hover .certification-image img {
+    transform: scale(1.04);
+}
+
+/* Compact Professional Certificates Vertical Scrollable Grid */
+.certificates-scroll-container {
+    position: relative;
+    margin: 0.75rem 0;
+    padding: 0.375rem;
+    background: rgba(255, 255, 255, 0.015);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    max-height: 280px;
+    /* Reduced height */
+}
+
+[data-theme="light"] .certificates-scroll-container {
+    background: rgba(0, 0, 0, 0.008);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.certificates-scroll-wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.125rem;
+    margin: -0.125rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+    max-height: 240px;
+    /* Reduced height */
+}
+
+/* Webkit Scrollbar Styles - Compact */
+.certificates-scroll-wrapper::-webkit-scrollbar {
+    width: 4px;
+    /* Thinner scrollbar */
+}
+
+.certificates-scroll-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 2px;
+}
+
+[data-theme="light"] .certificates-scroll-wrapper::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.certificates-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Grid layout - Compact */
+.certificates-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* Reduced gap */
+    padding: 0.125rem;
+}
+
+/* Compact Certificate Item Styles */
+.certificate-item {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    /* Reduced gap */
+    padding: 0.6rem;
+    /* Reduced padding */
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .certificate-item {
+    background: rgba(0, 0, 0, 0.006);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.certificate-item:hover {
+    background: rgba(251, 237, 82, 0.04);
+    border-color: rgba(251, 237, 82, 0.08);
+    transform: translateX(2px);
+    /* Smaller movement */
+}
+
+[data-theme="light"] .certificate-item:hover {
+    background: rgba(255, 157, 0, 0.03);
+    border-color: rgba(255, 157, 0, 0.06);
+}
+
+/* Compact Icon */
+.certificate-icon {
+    width: 28px;
+    /* Smaller icon */
+    height: 28px;
+    background: var(--primary);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 0.75rem;
+    /* Smaller font */
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(251, 237, 82, 0.15);
+}
+
+/* Compact Details */
+.certificate-details {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    padding-right: 50px;
+    /* Less space for status badge */
+}
+
+.certificate-details h4 {
+    font-size: 0.8rem;
+    /* Smaller font */
+    font-weight: 600;
+    color: var(--light);
+    margin: 0 0 0.1rem 0;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* Single line */
+    -webkit-box-orient: vertical;
+}
+
+[data-theme="light"] .certificate-details h4 {
+    color: #111;
+}
+
+.certificate-meta {
+    font-size: 0.65rem;
+    /* Smaller font */
+    color: var(--gray);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+[data-theme="light"] .certificate-meta {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+/* Compact Status Badges */
+.status-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.15rem 0.4rem;
+    /* Smaller padding */
+    border-radius: 10px;
+    font-size: 0.55rem;
+    /* Smaller font */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .status-badge {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.status-badge.completed {
+    background: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+    border-color: rgba(46, 204, 113, 0.2);
+}
+
+.status-badge.in-progress {
+    background: rgba(52, 152, 219, 0.1);
+    color: #3498db;
+    border-color: rgba(52, 152, 219, 0.2);
+}
+
+.status-badge.upcoming {
+    background: rgba(155, 89, 182, 0.1);
+    color: #9b59b6;
+    border-color: rgba(155, 89, 182, 0.2);
+}
+
+/* Compact Scroll Indicator - Optional, can be removed */
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.25rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.scroll-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+[data-theme="light"] .scroll-dot {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.scroll-dot.active {
+    width: 5px;
+    height: 5px;
+    background: var(--primary);
+    box-shadow: 0 0 4px rgba(251, 237, 82, 0.3);
+}
+
+[data-theme="light"] .scroll-dot.active {
+    box-shadow: 0 0 4px rgba(255, 157, 0, 0.3);
+}
+
+/* Remove unnecessary elements for compact design */
+.scroll-progress,
+.scroll-position,
+.certificates-scroll-container::after {
+    display: none;
+    /* Remove to save space */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .certificates-scroll-container {
+        max-height: 250px;
+        margin: 0.5rem 0;
+        padding: 0.25rem;
+    }
+
+    .certificates-scroll-wrapper {
+        max-height: 220px;
+    }
+
+    .certificate-item {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .certificate-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 0.7rem;
+    }
+
+    .certificate-details h4 {
+        font-size: 0.75rem;
+    }
+
+    .certificate-meta {
+        font-size: 0.6rem;
+    }
+
+    .certificates-scroll-wrapper::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    .scroll-indicator {
+        display: none;
+        /* Hide on mobile for more space */
+    }
+}
+
+/* Animation for new items - Faster */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.certificate-item {
+    animation: slideInUp 0.3s ease-out forwards;
+}
+
+.certificate-item:nth-child(2) {
+    animation-delay: 0.03s;
+}
+
+.certificate-item:nth-child(3) {
+    animation-delay: 0.06s;
+}
+
+.certificate-item:nth-child(4) {
+    animation-delay: 0.09s;
+}
+
+.certificate-item:nth-child(5) {
+    animation-delay: 0.12s;
+}
+
+.certificate-item:nth-child(6) {
+    animation-delay: 0.15s;
+}
+
+/* Hide scroll indicator on all sizes for minimal design */
+.scroll-indicator {
+    display: none;
+    /* Completely hide to save space */
+}
+
+/* Touch device optimization */
+@media (hover: none) {
+    .certificate-item:active {
+        background: rgba(251, 237, 82, 0.06);
+        transform: scale(0.98);
+    }
+}
+
+/* Minimal hover effects */
+@media (hover: hover) {
+    .certificate-item:hover .certificate-icon {
+        transform: scale(1.05);
+    }
+}
+
+/* Ultra compact version for very small screens */
+@media (max-width: 480px) {
+    .certificates-scroll-container {
+        max-height: 220px;
+        margin: 0.4rem 0;
+        padding: 0.2rem;
+        border-radius: 8px;
+    }
+
+    .certificates-scroll-wrapper {
+        max-height: 190px;
+        padding: 0.1rem;
+    }
+
+    .certificate-item {
+        padding: 0.4rem;
+        gap: 0.4rem;
+        border-radius: 6px;
+    }
+
+    .certificate-icon {
+        width: 22px;
+        height: 22px;
+        font-size: 0.65rem;
+    }
+
+    .certificate-details h4 {
+        font-size: 0.7rem;
+    }
+
+    .certificate-meta {
+        font-size: 0.55rem;
+    }
+
+    .status-badge {
+        padding: 0.1rem 0.3rem;
+        font-size: 0.5rem;
+    }
+}
+
+/* Even more compact option (remove meta on mobile) */
+@media (max-width: 360px) {
+    .certificate-meta {
+        display: none;
+        /* Hide meta on very small screens */
+    }
+
+    .certificate-details h4 {
+        margin: 0;
+        line-height: 1.2;
+    }
+}
+
+/* Professional SQL Series Grid */
+.sql-series-grid {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.015);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .sql-series-grid {
+    background: rgba(0, 0, 0, 0.01);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.sql-series-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.sql-cert {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem;
+    margin-bottom: 0.4rem;
+    background: rgba(255, 255, 255, 0.015);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+[data-theme="light"] .sql-cert {
+    background: rgba(0, 0, 0, 0.008);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.sql-cert:hover {
+    background: rgba(251, 237, 82, 0.04);
+    border-color: rgba(251, 237, 82, 0.08);
+    transform: translateX(4px);
+}
+
+[data-theme="light"] .sql-cert:hover {
+    background: rgba(255, 157, 0, 0.03);
+    border-color: rgba(255, 157, 0, 0.06);
+}
+
+.sql-icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    box-shadow: 0 1px 4px rgba(251, 237, 82, 0.15);
+}
+
+.sql-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.sql-details h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--light);
+    margin: 0 0 0.1rem 0;
+    line-height: 1.3;
+}
+
+[data-theme="light"] .sql-details h4 {
+    color: #111;
+}
+
+.sql-meta {
+    font-size: 0.7rem;
+    color: var(--gray);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+[data-theme="light"] .sql-meta {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+/* Professional Certification Content */
+.certification-content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.certification-header {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .certification-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.certification-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--light);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+    letter-spacing: 0.05px;
+}
+
+[data-theme="light"] .certification-title {
+    color: #111;
+}
+
+.certification-issuer {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--gray);
+    font-weight: 500;
+}
+
+[data-theme="light"] .certification-issuer {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.certification-issuer i {
+    font-size: 0.75rem;
+    color: var(--primary);
+}
+
+/* Professional Certification Details */
+.certification-details {
+    flex: 1;
+}
+
+.certification-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding: 0.6rem;
+    background: rgba(255, 255, 255, 0.015);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="light"] .certification-meta {
+    background: rgba(0, 0, 0, 0.01);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--gray);
+    font-weight: 500;
+}
+
+[data-theme="light"] .meta-item {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.meta-item i {
+    font-size: 0.75rem;
+    color: var(--primary);
+}
+
+.certification-description {
+    font-size: 0.85rem;
+    color: var(--light);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+[data-theme="light"] .certification-description {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* Professional Skills Tags */
+.certification-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+}
+
+.skill-tag {
+    background: rgba(251, 237, 82, 0.06);
+    color: var(--primary);
+    padding: 0.25rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border: 1px solid rgba(251, 237, 82, 0.1);
+    transition: all 0.15s ease;
+    letter-spacing: 0.05px;
+}
+
+[data-theme="light"] .skill-tag {
+    background: rgba(255, 157, 0, 0.05);
+    color: #ff9d00;
+    border: 1px solid rgba(255, 157, 0, 0.08);
+}
+
+.skill-tag:hover {
+    background: rgba(251, 237, 82, 0.12);
+    transform: translateY(-1px);
+}
+
+[data-theme="light"] .skill-tag:hover {
+    background: rgba(255, 157, 0, 0.1);
+}
+
+/* Professional CTA Section */
+/* Remove CTA from the grid flow */
+.certifications-grid {
+    margin-bottom: 3rem; /* Add space before CTA */
+}
+
+/* Style CTA as standalone centered section */
+.certifications-cta {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    text-align: center;
+    background: linear-gradient(135deg,
+            rgba(251, 237, 82, 0.05) 0%,
+            rgba(255, 157, 0, 0.025) 100%);
+    border-radius: 14px;
+    border: 1px solid rgba(251, 237, 82, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+/* Center all CTA content */
+.certifications-cta .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Ensure text is centered */
+.certifications-cta h3,
+.certifications-cta p {
+    text-align: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Center the button */
+.certifications-cta .cta-button {
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .certifications-cta {
+        margin: 0 1rem;
+        padding: 2rem 1.25rem;
+    }
+}
+
+.certifications-cta {
+    grid-column: 1 / -1; /* Takes full width */
+}
+
+.cta-content {
+    text-align: center;
+}
+
+.cta-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.cta-content h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--light);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.05px;
+}
+
+[data-theme="light"] .cta-content h3 {
+    color: #111;
+}
+
+.cta-content p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin: 0;
+    max-width: 450px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+[data-theme="light"] .cta-content p {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background: var(--primary);
+    color: #000;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    box-shadow: 0 4px 15px rgba(251, 237, 82, 0.18);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+/* Professional shine effect */
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.25),
+            transparent);
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Professional hover state - text becomes pure black */
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(251, 237, 82, 0.35);
+    color: #000000;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+/* Professional active state */
+.cta-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(251, 237, 82, 0.25);
+    transition: all 0.1s ease;
+}
+
+/* Professional focus state */
+.cta-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(251, 237, 82, 0.3),
+        0 8px 25px rgba(251, 237, 82, 0.35);
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .cta-button {
+    box-shadow: 0 4px 15px rgba(255, 157, 0, 0.15);
+}
+
+[data-theme="light"] .cta-button:hover {
+    box-shadow: 0 8px 25px rgba(255, 157, 0, 0.25);
+    color: #000000;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="light"] .cta-button:focus {
+    box-shadow: 0 0 0 3px rgba(255, 157, 0, 0.25),
+        0 8px 25px rgba(255, 157, 0, 0.25);
+}
+
+[data-theme="light"] .cta-button:active {
+    box-shadow: 0 4px 15px rgba(255, 157, 0, 0.2);
+}
+
+/* Button icon animation */
+.cta-button i {
+    font-size: 0.9rem;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-button:hover i {
+    transform: translateX(4px);
+}
+
+/* Disabled state */
+.cta-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: 0 4px 15px rgba(251, 237, 82, 0.1) !important;
+}
+
+.cta-button:disabled:hover::before {
+    left: -100%;
+}
+
+/* Loading state */
+.cta-button.loading {
+    position: relative;
+    color: transparent;
+}
+
+.cta-button.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: button-spin 0.6s linear infinite;
+}
+
+@keyframes button-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Size variations */
+.cta-button.small {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8rem;
+    gap: 0.4rem;
+}
+
+.cta-button.large {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    gap: 0.75rem;
+    border-radius: 12px;
+}
+
+.cta-button.large i {
+    font-size: 1rem;
+}
+
+/* Outline variant */
+.cta-button.outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    box-shadow: none;
+}
+
+.cta-button.outline:hover {
+    background: var(--primary);
+    color: #000;
+    border-color: transparent;
+    box-shadow: 0 8px 25px rgba(251, 237, 82, 0.3);
+}
+
+.cta-button.outline::before {
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+}
+
+[data-theme="light"] .cta-button.outline {
+    color: #ff9d00;
+    border-color: #ff9d00;
+}
+
+[data-theme="light"] .cta-button.outline:hover {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #000;
+}
+
+/* Full width variant */
+.cta-button.full-width {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 1200px) {
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .certifications-section {
+        padding: 3rem 0;
+    }
+
+    .certifications-header h2 {
+        font-size: 1.75rem;
+        gap: 0.6rem;
+    }
+
+    .certifications-header .section-subtitle {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+
+    .certifications-filter-container {
+        margin-bottom: 2rem;
+    }
+
+    .certifications-filter {
+        padding: 0.75rem;
+        gap: 0.4rem;
+    }
+
+    .certifications-filter .filter-btn {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.75rem;
+        min-width: 85px;
+    }
+
+    .certifications-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 1rem;
+    }
+
+    .certifications-cta {
+        padding: 2rem 1.25rem;
+        margin: 0 1rem;
+    }
+
+    .cta-content h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .certifications-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .certifications-filter {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .certifications-filter .filter-btn {
+        width: 100%;
+        max-width: 180px;
+    }
+
+    .certification-meta {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .sql-cert {
+        padding: 0.5rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 220px;
+        justify-content: center;
+        padding: 0.7rem 1.5rem;
+    }
+}
+

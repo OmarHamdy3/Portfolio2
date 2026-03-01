@@ -1,0 +1,483 @@
+:root {
+    /* Dark mode variables */
+    --primary: #fbed52;
+    --secondary: #ff9d00;
+    --dark: #0a0a12;
+    --darker: #05050a;
+    --light: #f0f0f5;
+    --gray: #6c757d;
+    --dark-gray: #12121a;
+    --card-bg: #12121a;
+    --border-radius: 12px;
+    --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Light mode variables */
+[data-theme="light"] {
+    --primary: linear-gradient(135deg, #ff9d00, #fbed52);
+    --primary-solid: #ff9d00;
+    --secondary: #ff6b00;
+    --dark: #f8f9fa;
+    --darker: #e9ecef;
+    --light: #212529;
+    --gray: #495057;
+    --dark-gray: #dee2e6;
+    --card-bg: #ffffff;
+    --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    line-height: 1.7;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+::selection {
+    background: var(--primary-solid, var(--primary));
+    color: var(--dark);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-solid, var(--primary));
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* ================= MOBILE-FRIENDLY SCROLLBAR ================= */
+/* For WebKit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(10, 10, 15, 0.8);
+    border-radius: 3px;
+}
+
+[data-theme="light"]::-webkit-scrollbar-track {
+    background: rgba(228, 228, 228, 0.8);
+  
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+
+    border-radius: 3px;
+    border: 1px solid rgba(10, 10, 15, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:  var(--primary);
+}
+
+/* Sections Common Styles */
+.section {
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 157, 0, 0.05) 0%, transparent 60%);
+    z-index: -1;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 1.8rem;
+    display: inline-block;
+    position: relative;
+    color: var(--light);
+    font-weight: 700;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background: var(--primary);
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark Mode (Default) – Yellow Pulse */
+@keyframes pulse-yellow {
+    0% {
+        transform: scale(0.98);
+        opacity: 0.8;
+        box-shadow:
+            0 0 60px rgba(251, 237, 82, 0.4),
+            0 0 120px rgba(251, 237, 82, 0.2);
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 1;
+        box-shadow:
+            0 0 80px rgba(251, 237, 82, 0.6),
+            0 0 140px rgba(251, 237, 82, 0.3);
+    }
+    100% {
+        transform: scale(0.98);
+        opacity: 0.8;
+        box-shadow:
+            0 0 60px rgba(251, 237, 82, 0.4),
+            0 0 120px rgba(251, 237, 82, 0.2);
+    }
+}
+
+/* Light Mode – Orange Pulse */
+@keyframes pulse-orange {
+    0% {
+        transform: scale(0.98);
+        opacity: 0.8;
+        box-shadow:
+            0 0 60px rgba(255, 157, 0, 0.45),
+            0 0 120px rgba(255, 157, 0, 0.25);
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 1;
+        box-shadow:
+            0 0 80px rgba(255, 157, 0, 0.65),
+            0 0 140px rgba(255, 157, 0, 0.35);
+    }
+    100% {
+        transform: scale(0.98);
+        opacity: 0.8;
+        box-shadow:
+            0 0 60px rgba(255, 157, 0, 0.45),
+            0 0 120px rgba(255, 157, 0, 0.25);
+    }
+}
+
+.animate {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fade-in {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary);
+    color: var(--dark);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(251, 237, 82, 0.2);
+}
+
+.btn:hover {
+    background: var(--secondary);
+    color: var(--light);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 157, 0, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-solid, var(--primary));
+    color: var(--primary-solid, var(--primary));
+    margin-left: 1rem;
+}
+
+.btn-outline:hover {
+    background: var(--primary-solid, var(--primary));
+    color: var(--dark);
+    border-color: var(--primary-solid, var(--primary));
+}
+
+
+/* Professional Badge */
+.modern-badge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode - Solid yellow background with black text */
+[data-theme="dark"] .modern-badge {
+    background: #fbed52;
+    color: #000000;
+    box-shadow: 
+        0 4px 12px rgba(251, 237, 82, 0.15),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Light mode - Gradient between orange and yellow */
+[data-theme="light"] .modern-badge {
+    background: linear-gradient(135deg, #ff9d00 0%, #FFD700 100%);
+    color: #000000;
+    box-shadow: 
+        0 4px 12px rgba(255, 157, 0, 0.15),
+        0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Hover effects */
+.modern-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .modern-badge:hover {
+    box-shadow: 
+        0 6px 20px rgba(251, 237, 82, 0.25),
+        0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .modern-badge:hover {
+    box-shadow: 
+        0 6px 20px rgba(255, 157, 0, 0.25),
+        0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Active/click effect */
+.modern-badge:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Shine effect on hover */
+.modern-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent);
+    transition: left 0.5s ease;
+}
+
+.modern-badge:hover::before {
+    left: 100%;
+}
+
+/* Optional: With icon */
+.modern-badge.with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem 0.5rem 1rem;
+}
+
+.modern-badge.with-icon i {
+    font-size: 0.9rem;
+}
+
+[data-theme="dark"] .modern-badge.with-icon i {
+    color: #000000;
+}
+
+[data-theme="light"] .modern-badge.with-icon i {
+    color: #000000;
+}
+
+/* Outline variant */
+.modern-badge.outline {
+    background: transparent;
+    border: 2px solid;
+}
+
+[data-theme="dark"] .modern-badge.outline {
+    border-color: #fbed52;
+    color: #fbed52;
+    box-shadow: none;
+}
+
+[data-theme="light"] .modern-badge.outline {
+    border-color: #ff9d00;
+    color: #ff9d00;
+    box-shadow: none;
+}
+
+.modern-badge.outline:hover {
+    transform: translateY(-2px);
+}
+
+[data-theme="dark"] .modern-badge.outline:hover {
+    background: rgba(251, 237, 82, 0.1);
+    box-shadow: 0 4px 12px rgba(251, 237, 82, 0.1);
+}
+
+[data-theme="light"] .modern-badge.outline:hover {
+    background: rgba(255, 157, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(255, 157, 0, 0.1);
+}
+
+/* Small variant */
+.modern-badge.small {
+    padding: 0.35rem 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Large variant */
+.modern-badge.large {
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+/* Pulse animation for attention */
+@keyframes badge-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(251, 237, 82, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(251, 237, 82, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(251, 237, 82, 0);
+    }
+}
+
+[data-theme="dark"] .modern-badge.pulse {
+    animation: badge-pulse 2s infinite;
+}
+
+@keyframes badge-pulse-light {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 157, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 157, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 157, 0, 0);
+    }
+}
+
+[data-theme="light"] .modern-badge.pulse {
+    animation: badge-pulse-light 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modern-badge {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .modern-badge.large {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modern-badge {
+        padding: 0.35rem 0.8rem;
+        font-size: 0.75rem;
+    }
+    
+    .modern-badge.with-icon {
+        padding: 0.35rem 0.8rem 0.35rem 0.7rem;
+        gap: 0.4rem;
+    }
+}

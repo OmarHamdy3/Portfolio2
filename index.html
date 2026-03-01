@@ -1,0 +1,3523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Hamdy | Data Analyst Portfolio</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/analyst (3).png">
+    <link rel="apple-touch-icon" href="assets/images/analyst (3).png">
+    <link rel="shortcut icon" href="assets/images/analyst (3).png">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+  
+    <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/experience.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/project.css">
+    <link rel="stylesheet" href="css/certificaties.css">
+    <link rel="stylesheet" href="css/achievements.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE73VXT4Z1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-YE73VXT4Z1');
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <!-- Header content here -->
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span class="logo-gradient animated">Omar</span>
+                <span class="logo-solid">Hamdy</span>
+            </a>
+
+            <div class="header-nav-container">
+                <nav>
+                    <ul class="nav-links" id="navLinks">
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#experience">Experience</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#certifications">Certifications</a>
+                        <a href="#achievements">Achievements</a>
+                        <a href="#contact">Contact</a>
+                    </ul>
+                </nav>
+
+                <!-- Theme Toggle -->
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </div>
+
+                <!-- Hamburger -->
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars" id="menu-icon"></i>
+                    <i class="fas fa-times" id="close-icon" style="display: none;"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar -->
+<!-- Mobile Sidebar -->
+<aside class="mobile-sidebar" id="mobileSidebar">
+    <!-- Close Button -->
+    <button class="sidebar-close" id="closeSidebar" aria-label="Close sidebar">
+        <i class="fas fa-times"></i>
+    </button>
+
+    <!-- ================= ENHANCED MOBILE SIDEBAR HEADER ================= -->
+    <div class="sidebar-header">
+        <div class="profile-image-container">
+            <div class="profile-image">
+                <div class="profile-initials">
+                    OH
+                </div>
+            </div>
+            <div class="profile-badge">
+                <i class="fas fa-chart-line"></i>
+            </div>
+        </div>
+
+        <div class="profile-info">
+            <h1 class="profile-name">
+                <span class="name-gradient">Omar</span>
+                <span class="name-solid">Hamdy</span>
+            </h1>
+            <p class="profile-title">Data Analyst | BI Developer</p>
+
+            <div class="profile-meta">
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cairo, Egypt</span>
+                </div>
+                <div class="status">
+                    <div class="status-dot"></div>
+                    <span class="status-text">Available</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav" aria-label="Main navigation">
+        <div class="nav-section">
+            <h3 class="nav-section-title">Main</h3>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#home" class="nav-item active" aria-current="page">
+                        <div class="nav-icon"><i class="fas fa-home"></i></div>
+                        <div class="nav-content">
+                            <span class="nav-text">Home</span>
+                            <span class="nav-subtext">Welcome dashboard</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about" class="nav-item">
+                        <div class="nav-icon"><i class="fas fa-user"></i></div>
+                        <div class="nav-content">
+                            <span class="nav-text">About Me</span>
+                            <span class="nav-subtext">Profile & expertise</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#experience" class="nav-item">
+                        <div class="nav-icon"><i class="fas fa-briefcase"></i></div>
+                        <div class="nav-content">
+                            <span class="nav-text">Experience</span>
+                            <span class="nav-subtext">Professional journey</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#skills" class="nav-item">
+                        <div class="nav-icon"><i class="fas fa-code"></i></div>
+                        <div class="nav-content">
+                            <span class="nav-text">Skills</span>
+                            <span class="nav-subtext">Technical competencies</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav-section">
+            <h3 class="nav-section-title">Portfolio</h3>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#projects" class="nav-item">
+                        <div class="nav-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="nav-content">
+                            <span class="nav-text">Projects</span>
+                            <span class="nav-subtext">Case studies</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#certifications" class="nav-item">
+                        <div class="nav-icon"><i class="fas fa-certificate"></i></div>
+                        <div class="nav-content">
+                            <span class="nav-text">Certifications</span>
+                            <span class="nav-subtext">Accreditations</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#achievements" class="nav-item">
+                        <div class="nav-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="nav-content">
+                            <span class="nav-text">Achievements</span>
+                            <span class="nav-subtext">Awards & honors</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact & CV -->
+    <div class="sidebar-contact">
+        <p class="contact-cta">Ready to transform your data into insights?</p>
+        <a href="#contact" class="btn" aria-label="Get in Touch">
+            <i class="fas fa-paper-plane"></i>Get in Touch
+        </a>
+    </div>
+
+    <div class="sidebar-cv-download">
+        <a href="new-folder/CV/Omar Hamdy - Data Analyst & BI Developer.pdf" 
+           download 
+           class="btn"
+           aria-label="Download CV">
+            <i class="fas fa-download"></i>Download CV
+        </a>
+    </div>
+
+    <!-- Social Links -->
+    <div class="sidebar-footer">
+        <div class="sidebar-socials">
+            <a href="https://www.linkedin.com/in/omar--hamdy/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="social-link linkedin"
+               aria-label="LinkedIn Profile">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/omarhamdy20" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="social-link github"
+               aria-label="GitHub Profile">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://wa.me/+201003359775" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="social-link whatsapp"
+               aria-label="WhatsApp Chat">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:omarhamdy2000@gmail.com" 
+               class="social-link email"
+               aria-label="Send Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="tel:+201003359775" 
+               class="social-link phone"
+               aria-label="Call Phone">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div>
+    </div>
+</aside>
+
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Hero content here -->
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="animate fade-in">Hi, I'm Omar Hamdy</h1>
+
+                <h2 class="animate fade-in delay-1">
+                    Data Analyst | Business Intelligence Professional
+                </h2>
+
+                <p class="animate fade-in delay-2">
+                    Analytical and detail-oriented data professional specializing in data cleaning,
+                    transformation, and visualization. Focused on delivering accurate insights
+                    that support informed business and strategic decision-making.
+                </p>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/omarhamdy" class="linkedin" title="LinkedIn" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/omarhamdy" class="github" title="GitHub" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/201118938276" class="whatsapp" title="WhatsApp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:omarhamdi328@gmail.com" class="email" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+201118938276" class="phone" title="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+
+                <div class="btn-group animate fade-in delay-4">
+                    <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                    <a href="https://drive.google.com/file/d/1FlDebD6CheOQZfdEfqm0Je7jkq2UKHKb/view"
+                        class="btn btn-outline">
+                        <i class="fas fa-download"></i> View Resume
+                    </a>
+                </div>
+            </div>
+
+           <div class="hero-image animate fade-in delay-3">
+                <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Profile Picture\Omar-ProfilePicture.jpg" alt="Omar Hamdy's Photo" class="data-analyst-img">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+        <!-- About content here -->
+        <div class="container">
+            <!-- Section Header -->
+            <div class="achievements-header">
+                <div class="header-content">
+                    <div class="modern-badge with-icon">PROFESSIONAL PROFILE</div>
+                    <h2>
+                        <span class="title-gradient">Data</span>
+                        <span class="title-solid">Analyst</span>
+                    </h2>
+                    <p class="section-subtitle">Transforming complex data into actionable business intelligence</p>
+                </div>
+            </div>
+
+            <!-- About Content Grid -->
+            <div class="about-grid">
+                <!-- Professional Summary Card -->
+                <div class="about-main-card animate fade-in">
+                    <div class="professional-header">
+                        <div class="professional-badge">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Data Analytics Professional</span>
+                        </div>
+                        <div class="experience-highlight">
+                            <span class="experience-item">
+                                <i class="fas fa-briefcase"></i>
+                                <strong>2+ Years</strong> Data Experience
+                            </span>
+                            <span class="experience-item">
+                                <i class="fas fa-certificate"></i>
+                                <strong>8+</strong> Certifications
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="professional-statement">
+                        <h3>Driving Business Decisions Through Data Intelligence</h3>
+                        <p class="lead-text">
+                            I specialize in transforming raw data into strategic insights that drive measurable business
+                            outcomes.
+                            With expertise across the full data lifecycle—from extraction and cleaning to advanced
+                            analysis and
+                            visualization—I bridge the gap between technical data processes and strategic business
+                            needs.
+                        </p>
+
+                        <div class="value-proposition">
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <div class="value-content">
+                                    <h4>Strategic Focus</h4>
+                                    <p>Aligning data initiatives with business objectives to maximize ROI</p>
+                                </div>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div class="value-content">
+                                    <h4>Technical Excellence</h4>
+                                    <p>Mastery of modern analytics tools and best practices</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Expertise Card -->
+                <div class="about-expertise-card animate fade-in delay-1">
+                    <div class="expertise-header">
+                        <h3>
+                            <i class="fas fa-laptop-code"></i>
+                            Core Competencies
+                        </h3>
+                        <p class="expertise-subtitle">Technical skills driving data-driven decision making</p>
+                    </div>
+
+                    <div class="competency-grid">
+                        <div class="competency-category">
+                            <h4 class="category-title">
+                                <i class="fas fa-chart-bar"></i>
+                                Data Analysis & Visualization
+                            </h4>
+                            <div class="competency-items">
+                                <span class="competency-item">
+                                    <i class="fab fa-python"></i>
+                                    Python Analytics
+                                </span>
+                                <span class="competency-item">
+                                    <i class="fas fa-database"></i>
+                                    SQL Optimization
+                                </span>
+                                <span class="competency-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    Power BI Dashboards
+                                </span>
+                                <span class="competency-item">
+                                    <i class="fas fa-chart-pie"></i>
+                                    Tableau Storytelling
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="competency-category">
+                            <h4 class="category-title">
+                                <i class="fas fa-cogs"></i>
+                                Data Engineering
+                            </h4>
+                            <div class="competency-items">
+                                <span class="competency-item">
+                                    <i class="fas fa-exchange-alt"></i>
+                                    ETL Processes
+                                </span>
+                                <span class="competency-item">
+                                    <i class="fas fa-broom"></i>
+                                    Data Cleaning
+                                </span>
+                                <span class="competency-item">
+                                    <i class="fas fa-project-diagram"></i>
+                                    Data Modeling
+                                </span>
+                                <span class="competency-item">
+                                    <i class="fas fa-check-double"></i>
+                                    Quality Assurance
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Approach Card -->
+                <div class="about-approach-card animate fade-in delay-2">
+                    <div class="approach-header">
+                        <h3>
+                            <i class="fas fa-chess"></i>
+                            Analytical Approach
+                        </h3>
+                        <p class="approach-subtitle">Methodology for delivering impactful insights</p>
+                    </div>
+
+                    <div class="approach-steps">
+                        <div class="approach-step">
+                            <div class="step-number">01</div>
+                            <div class="step-content">
+                                <h4>Business Understanding</h4>
+                                <p>Deep dive into organizational goals and success metrics</p>
+                            </div>
+                        </div>
+                        <div class="approach-step">
+                            <div class="step-number">02</div>
+                            <div class="step-content">
+                                <h4>Data Strategy</h4>
+                                <p>Design robust data collection and processing pipelines</p>
+                            </div>
+                        </div>
+                        <div class="approach-step">
+                            <div class="step-number">03</div>
+                            <div class="step-content">
+                                <h4>Analysis & Insight</h4>
+                                <p>Advanced analytics to uncover actionable opportunities</p>
+                            </div>
+                        </div>
+                        <div class="approach-step">
+                            <div class="step-number">04</div>
+                            <div class="step-content">
+                                <h4>Strategic Implementation</h4>
+                                <p>Translating insights into measurable business impact</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Career Philosophy Card -->
+                <div class="about-philosophy-card animate fade-in delay-3">
+                    <div class="philosophy-header">
+                        <h3>
+                            <i class="fas fa-lightbulb"></i>
+                            Professional Philosophy
+                        </h3>
+                        <p class="philosophy-subtitle">Principles guiding my data practice</p>
+                    </div>
+
+                    <div class="philosophy-principles">
+                        <div class="principle-item">
+                            <div class="principle-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="principle-content">
+                                <h4>Data Integrity First</h4>
+                                <p>Ensuring accuracy and reliability in every analysis</p>
+                            </div>
+                        </div>
+                        <div class="principle-item">
+                            <div class="principle-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="principle-content">
+                                <h4>Collaborative Approach</h4>
+                                <p>Working closely with stakeholders to align objectives</p>
+                            </div>
+                        </div>
+                        <div class="principle-item">
+                            <div class="principle-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="principle-content">
+                                <h4>Continuous Innovation</h4>
+                                <p>Leveraging emerging technologies for competitive advantage</p>
+                            </div>
+                        </div>
+                        <div class="principle-item">
+                            <div class="principle-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="principle-content">
+                                <h4>Impact-Driven Results</h4>
+                                <p>Focusing on measurable outcomes and ROI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience-section" id="experience">
+        <!-- Experience content here -->
+        <!-- Remove the section-container div and move its content directly -->
+        <div class="achievements-header">
+            <div class="header-content">
+                <div class="modern-badge with-icon">WORK HISTORY</div>
+                <h2>
+                    <span class="title-gradient">Professional</span>
+                    <span class="title-solid">Experience</span>
+                </h2>
+                <p class="section-subtitle">Career journey and key responsibilities</p>
+            </div>
+        </div>
+
+
+        <!-- Experience 1 - Center Aligned -->
+        <!-- Experience 1 - Center Aligned -->
+        <div class="experience-card animate fade-in delay-1">
+            <div class="experience-card-content">
+                <div class="experience-header">
+                    <h3 class="role-title gradient-text">Business Intelligence & Data Analysis Intern</h3>
+                    <span class="experience-date">Jan 2025 – Jun 2025</span>
+                </div>
+
+                <div class="company-info">
+                    <div class="company-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div>
+                        <h4 class="company-name">E-Youth</h4>
+                        <p class="company-location">
+                            <i class="fas fa-map-marker-alt"></i> Remote, Egypt
+                        </p>
+                    </div>
+                </div>
+
+                <div class="responsibilities">
+                    <h5 class="responsibilities-title">
+                        <i class="fas fa-tasks"></i> Key Responsibilities
+                    </h5>
+                    <ul class="responsibilities-list">
+                        <li class="responsibility-item">
+                            Analyzed business datasets using Excel, SQL, and Power BI
+                        </li>
+                        <li class="responsibility-item">
+                            Designed interactive dashboards for KPI tracking
+                        </li>
+                        <li class="responsibility-item">
+                            Ensured 99.8% data accuracy through validation processes
+                        </li>
+                        <li class="responsibility-item">
+                            Automated reporting, saving 40+ hours monthly
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="experience-skills">
+                    <h5 class="skills-title">
+                        <i class="fas fa-code"></i> Technologies
+                    </h5>
+                    <div class="skills-tags">
+                        <span class="skill-tag"><i class="fas fa-chart-line"></i> Power BI</span>
+                        <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+                        <span class="skill-tag"><i class="fas fa-file-excel"></i> Excel</span>
+                        <span class="skill-tag"><i class="fas fa-project-diagram"></i> Data Modeling</span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- Experience 2 - Center Aligned -->
+
+        <div class="experience-card animate fade-in delay-2">
+            <div class="experience-card-content">
+                <div class="experience-header">
+                    <h3 class="role-title gradient-text">Data Analysis Intern</h3>
+                    <span class="experience-date">Oct 2025 – May 2025</span>
+                </div>
+
+                <div class="company-info">
+                    <div class="company-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div>
+                        <h4 class="company-name">Digital Egypt Pioneers Initiative</h4>
+                        <p class="company-location">
+                            <i class="fas fa-map-marker-alt"></i> Remote, Egypt
+                        </p>
+                    </div>
+                </div>
+
+                <div class="responsibilities">
+                    <h5 class="responsibilities-title">
+                        <i class="fas fa-tasks"></i> Key Responsibilities
+                    </h5>
+                    <ul class="responsibilities-list">
+                        <li class="responsibility-item">
+                            Data cleaning, analysis & visualization with Python, Power BI, Tableau
+                        </li>
+                        <li class="responsibility-item">
+                            Built automated dashboards for program monitoring
+                        </li>
+                        <li class="responsibility-item">
+                            Applied data governance best practices
+                        </li>
+                        <li class="responsibility-item">
+                            Developed predictive models for outcomes forecasting
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="experience-skills">
+                    <h5 class="skills-title">
+                        <i class="fas fa-code skills-icon"></i> Technologies
+                    </h5>
+                    <div class="skills-tags">
+                        <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="skill-tag"><i class="fas fa-chart-bar"></i> Tableau</span>
+                        <span class="skill-tag"><i class="fas fa-chart-line"></i> Power BI</span>
+                        <span class="skill-tag"><i class="fas fa-brain"></i> Predictive Analytics</span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills-section" id="skills">
+        <!-- Skills content here -->
+        <div class="container">
+            <!-- Header -->
+            <div class="section-container">
+                <div class="achievements-header">
+                    <div class="header-content">
+                        <div class="modern-badge with-icon">EXPERTISE</div>
+                        <h2>
+                            <span class="title-gradient">Technical</span>
+                            <span class="title-solid">Skills</span>
+                        </h2>
+                        <p class="section-subtitle">Tools, technologies, and methodologies mastered</p>
+                    </div>
+                </div>
+
+                <!-- Compact Skills Grid -->
+                <div class="skills-grid-compact">
+
+                    <!-- Category 1: Data Analysis & Visualization -->
+                    <div class="skill-category-compact animate fade-in">
+                        <div class="category-header-compact">
+                            <div class="category-icon-compact">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="category-title-compact">
+                                <h3>Data Analysis & Visualization</h3>
+                                <p>Transforming data into insights</p>
+                            </div>
+                        </div>
+                        <div class="skills-list-compact">
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="skill-name-compact">Power BI</div>
+                            </div>
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <div class="skill-name-compact">Tableau</div>
+                            </div>
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-file-excel"></i>
+                                </div>
+                                <div class="skill-name-compact">Excel</div>
+                            </div>
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-chart-area"></i>
+                                </div>
+                                <div class="skill-name-compact">DAX</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Programming & Querying -->
+                    <div class="skill-category-compact animate fade-in delay-1">
+                        <div class="category-header-compact">
+                            <div class="category-icon-compact">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="category-title-compact">
+                                <h3>Programming & Querying</h3>
+                                <p>Data pipelines and analysis</p>
+                            </div>
+                        </div>
+                        <div class="skills-list-compact">
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <div class="skill-name-compact">Python</div>
+                            </div>
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="skill-name-compact">SQL</div>
+                            </div>
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-random"></i>
+                                </div>
+                                <div class="skill-name-compact">Power Query</div>
+                            </div>
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div class="skill-name-compact">Power Pivot</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Data Engineering -->
+                    <div class="skill-category-compact animate fade-in delay-2">
+                        <div class="category-header-compact">
+                            <div class="category-icon-compact">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="category-title-compact">
+                                <h3>Data Engineering</h3>
+                                <p>Data infrastructure</p>
+                            </div>
+                        </div>
+                        <div class="skills-list-compact">
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <div class="skill-name-compact">ETL Processes</div>
+                            </div>
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="skill-name-compact">SQL Server</div>
+                            </div>
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-broom"></i>
+                                </div>
+                                <div class="skill-name-compact">Data Cleaning</div>
+                            </div>
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-check-double"></i>
+                                </div>
+                                <div class="skill-name-compact">Data Validation</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 4: Business Intelligence -->
+                    <div class="skill-category-compact animate fade-in delay-3">
+                        <div class="category-header-compact">
+                            <div class="category-icon-compact">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <div class="category-title-compact">
+                                <h3>Business Intelligence</h3>
+                                <p>Data-driven decisions</p>
+                            </div>
+                        </div>
+                        <div class="skills-list-compact">
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="skill-name-compact">Interactive Reports</div>
+                            </div>
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <div class="skill-name-compact">KPI Tracking</div>
+                            </div>
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="skill-name-compact">Automated Dashboards</div>
+                            </div>
+                            <div class="skill-item-compact">
+                                <div class="skill-icon-compact">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <div class="skill-name-compact">Statistical Analysis</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects-section" id="projects">
+        <!-- Projects content here -->
+        <div class="container">
+            <!-- Header -->
+            <div class="section-container">
+                <div class="achievements-header">
+                    <div class="header-content">
+                        <div class="modern-badge with-icon">PORTFOLIO</div>
+                        <h2>
+                            <span class="title-gradient">Featured</span>
+                            <span class="title-solid">Projects</span>
+                        </h2>
+                        <p class="section-subtitle">Notable work and case studies</p>
+                    </div>
+                </div>
+
+                <!-- Projects Filter -->
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-layer-group"></i> All
+                    </button>
+                    <button class="filter-btn" data-filter="analytics">
+                        <i class="fas fa-chart-bar"></i> Analytics
+                    </button>
+                    <button class="filter-btn" data-filter="visualization">
+                        <i class="fas fa-tachometer-alt"></i> Dashboards
+                    </button>
+                    <button class="filter-btn" data-filter="bi">
+                        <i class="fas fa-chart-line"></i> BI
+                    </button>
+                    <button class="filter-btn" data-filter="excel">
+                        <i class="fas fa-file-excel"></i> Excel
+                    </button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid">
+
+                    <!-- Project 1: Superstore Business Performance -->
+                    <div class="project-card-premium" data-category="analytics visualization bi">
+                        <div class="project-image-premium">
+                            <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2026\assest\images\Projects\Superstore-Project\Overview_Dashboard.png"
+                                alt="Superstore Business Performance Dashboard">
+                            <div class="project-status">
+                                <i class="fas fa-star"></i> Featured
+                            </div>
+                        </div>
+
+                        <div class="project-content-premium">
+                            <div class="project-header-premium">
+                                <h3 class="project-title">Superstore Business Analysis</h3>
+                                <p class="project-subtitle">Retail Analytics & Dashboard Development</p>
+                            </div>
+
+                            <div class="project-description">
+                                <p>Comprehensive retail sales analysis identifying revenue trends, profit drivers, and
+                                    underperforming segments.</p>
+                            </div>
+
+                            <div class="project-tech">
+                                <div class="tech-title">
+                                    <i class="fas fa-code"></i> Tech Stack
+                                </div>
+                                <div class="tech-tags">
+                                    <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                                    <span class="tech-tag"><i class="fas fa-database"></i> SQL</span>
+                                    <span class="tech-tag"><i class="fas fa-chart-bar"></i> Tableau</span>
+                                    <span class="tech-tag"><i class="fab fa-figma"></i> Figma</span>
+                                </div>
+                            </div>
+
+
+
+                            <div class="project-actions">
+                                <a href="#" class="project-btn primary" data-modal="superstore-modal">
+                                    <i class="fas fa-arrow-right"></i> View Case Study
+                                </a>
+                                <a href="#" class="project-btn secondary">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Road Accident Data Intelligence -->
+                    <div class="project-card-premium" data-category="analytics excel">
+                        <div class="project-image-premium">
+                            <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2026\assest\images\Projects\RoadAccident-Project\Main Sheet.png" alt="Road Accident Analysis Dashboard">
+                            <div class="project-status">
+                                <i class="fas fa-check-circle"></i> Completed
+                            </div>
+                        </div>
+
+                        <div class="project-content-premium">
+                            <div class="project-header-premium">
+                                <h3 class="project-title">Road Accident Intelligence</h3>
+                                <p class="project-subtitle">Transportation Analytics & Safety</p>
+                            </div>
+
+                            <div class="project-description">
+                                <p>Excel-based analytical solution for accident pattern analysis with interactive
+                                    dashboards for safety planning.</p>
+                            </div>
+
+                            <div class="project-tech">
+                                <div class="tech-title">
+                                    <i class="fas fa-code"></i> Tech Stack
+                                </div>
+                                <div class="tech-tags">
+                                    <span class="tech-tag"><i class="fas fa-file-excel"></i> Excel</span>
+                                    <span class="tech-tag"><i class="fas fa-random"></i> Power Query</span>
+                                    <span class="tech-tag"><i class="fas fa-project-diagram"></i> Power Pivot</span>
+                                    <span class="tech-tag"><i class="fas fa-chart-line"></i> Pivot Tables</span>
+                                </div>
+                            </div>
+
+
+
+                            <div class="project-actions">
+                                <a href="#" class="project-btn primary" data-modal="road-accident-modal">
+                                    <i class="fas fa-arrow-right"></i> View Case Study
+                                </a>
+                                <a href="#" class="project-btn secondary">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <!-- Certifications Section -->
+    <section class="section certifications-section" id="certifications">
+        <!-- Certifications content here -->
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-container">
+                <div class="achievements-header">
+                    <div class="header-content">
+                        <div class="modern-badge with-icon">CREDENTIALS</div>
+                        <h2>
+                            <span class="title-gradient">Professional</span>
+                            <span class="title-solid">Certifications</span>
+                        </h2>
+                        <p class="section-subtitle">Validated skills and qualifications</p>
+                    </div>
+                </div>
+
+                <!-- Certification Filter -->
+                <div class="certifications-filter">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-layer-group"></i> All
+                    </button>
+                    <button class="filter-btn" data-filter="data-analysis">
+                        <i class="fas fa-chart-bar"></i> Data Analysis
+                    </button>
+                    <button class="filter-btn" data-filter="sql">
+                        <i class="fas fa-database"></i> SQL
+                    </button>
+                    <button class="filter-btn" data-filter="bi">
+                        <i class="fas fa-chart-line"></i> BI Tools
+                    </button>
+                    <button class="filter-btn" data-filter="professional">
+                        <i class="fas fa-user-tie"></i> Professional
+                    </button>
+                </div>
+
+                <!-- Certifications Grid -->
+                <div class="certifications-grid">
+
+                    <!-- Google Data Analyst Specialist -->
+                    <div class="certification-card" data-category="data-analysis professional">
+                        <div class="certification-badge">
+                            <i class="fab fa-google"></i>
+                            <span class="badge-label">Premium</span>
+                        </div>
+                        <div class="certification-image">
+                            <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2026\assest\certificates\DEPI\Google Data Analysis Specialist.jpg"
+                                alt="Google Data Analyst Specialist Certificate" loading="lazy">
+                        </div>
+                        <div class="certification-content">
+                            <div class="certification-header">
+                                <h3 class="certification-title">Google Data Analyst Specialist</h3>
+                                <div class="certification-issuer">
+                                    <i class="fas fa-building"></i>
+                                    <span>Digital Egypt Pioneers Initiative</span>
+                                </div>
+                            </div>
+                            <div class="certification-details">
+                                <div class="certification-meta">
+                                    <span class="meta-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Jul 2025
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fas fa-clock"></i>
+                                        Advanced
+                                    </span>
+                                </div>
+                                <p class="certification-description">Comprehensive data analytics training covering data
+                                    collection, processing, analysis, and visualization techniques.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Intelligence & Data Analysis -->
+                    <div class="certification-card" data-category="data-analysis bi">
+                        <div class="certification-badge">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="badge-label">BI</span>
+                        </div>
+                        <div class="certification-image">
+                            <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2026\assest\certificates\Link Program\BusinessIntelligence&DataAnalysis.jpg"
+                                alt="Business Intelligence & Data Analysis Certificate" loading="lazy">
+                        </div>
+                        <div class="certification-content">
+                            <div class="certification-header">
+                                <h3 class="certification-title">Business Intelligence & Data Analysis</h3>
+                                <div class="certification-issuer">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>E-Youth</span>
+                                </div>
+                            </div>
+                            <div class="certification-details">
+                                <div class="certification-meta">
+                                    <span class="meta-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Jun 2025
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fas fa-clock"></i>
+                                        Advanced
+                                    </span>
+                                </div>
+                                <p class="certification-description">Advanced BI concepts including data modeling,
+                                    dashboard development, and business reporting strategies.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITIDA Gigs Freelance Program -->
+                    <div class="certification-card" data-category="professional">
+                        <div class="certification-badge">
+                            <i class="fas fa-laptop-code"></i>
+                            <span class="badge-label">Freelance</span>
+                        </div>
+                        <div class="certification-image">
+                            <img src="new-folder/Certificate/ITIDA + Gigs.jpg"
+                                alt="ITIDA Gigs Freelance Training Certificate" loading="lazy">
+                        </div>
+                        <div class="certification-content">
+                            <div class="certification-header">
+                                <h3 class="certification-title">ITIDA Gigs Freelance Program</h3>
+                                <div class="certification-issuer">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>ITIDA + Gigs</span>
+                                </div>
+                            </div>
+                            <div class="certification-details">
+                                <div class="certification-meta">
+                                    <span class="meta-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Jul 2025
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fas fa-clock"></i>
+                                        Professional
+                                    </span>
+                                </div>
+                                <p class="certification-description">Comprehensive freelance training covering client
+                                    management, project delivery, and professional business practices.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Analysis Using Power BI -->
+                    <div class="certification-card" data-category="bi">
+                        <div class="certification-badge">
+                            <i class="fab fa-microsoft"></i>
+                            <span class="badge-label">Power BI</span>
+                        </div>
+                        <div class="certification-image">
+                            <img src="new-folder/Certificate/Data Analysis Using Power BI.jpg"
+                                alt="Data Analysis Using Power BI Certificate" loading="lazy">
+                        </div>
+                        <div class="certification-content">
+                            <div class="certification-header">
+                                <h3 class="certification-title">Data Analysis Using Power BI</h3>
+                                <div class="certification-issuer">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>E-Youth</span>
+                                </div>
+                            </div>
+                            <div class="certification-details">
+                                <div class="certification-meta">
+                                    <span class="meta-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Apr 2025
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fas fa-clock"></i>
+                                        Intermediate
+                                    </span>
+                                </div>
+                                <p class="certification-description">Hands-on training in Power BI for data
+                                    visualization, dashboard creation, and business analytics.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Analysis -->
+                    <div class="certification-card" data-category="data-analysis">
+                        <div class="certification-badge">
+                            <i class="fas fa-chart-pie"></i>
+                            <span class="badge-label">Analysis</span>
+                        </div>
+                        <div class="certification-image">
+                            <img src="new-folder/Certificate/Data Analysis.jpg" alt="Data Analysis Certificate"
+                                loading="lazy">
+                        </div>
+                        <div class="certification-content">
+                            <div class="certification-header">
+                                <h3 class="certification-title">Data Analysis Fundamentals</h3>
+                                <div class="certification-issuer">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>E-Youth</span>
+                                </div>
+                            </div>
+                            <div class="certification-details">
+                                <div class="certification-meta">
+                                    <span class="meta-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Mar 2025
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fas fa-clock"></i>
+                                        Intermediate
+                                    </span>
+                                </div>
+                                <p class="certification-description">Foundational principles of data analysis including
+                                    statistical methods and data interpretation techniques.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Database Design -->
+                    <div class="certification-card" data-category="sql">
+                        <div class="certification-badge">
+                            <i class="fas fa-database"></i>
+                            <span class="badge-label">Database</span>
+                        </div>
+                        <div class="certification-image">
+                            <img src="new-folder/Certificate/Database Design.jpg" alt="Database Design Certificate"
+                                loading="lazy">
+                        </div>
+                        <div class="certification-content">
+                            <div class="certification-header">
+                                <h3 class="certification-title">Database Design</h3>
+                                <div class="certification-issuer">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>E-Youth</span>
+                                </div>
+                            </div>
+                            <div class="certification-details">
+                                <div class="certification-meta">
+                                    <span class="meta-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Feb 2025
+                                    </span>
+                                    <span class="meta-item">
+                                        <i class="fas fa-clock"></i>
+                                        Intermediate
+                                    </span>
+                                </div>
+                                <p class="certification-description">Database architecture, normalization, and design
+                                    principles for efficient data management systems.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tableau Certifications Group Card -->
+                    <div class="certification-card featured" data-category="tableau">
+                        <div class="certification-badge">
+                            <i class="fas fa-chart-bar"></i>
+                            <span class="badge-label">Tableau Series</span>
+                        </div>
+
+                        <div class="certificates-scroll-container">
+                            <div class="certificates-scroll-wrapper">
+                                <div class="certificates-grid">
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-play-circle"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Introduction to Tableau</h4>
+                                            <p class="certificate-meta">DataCamp • Jan 2025 • Beginner</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Analyzing Data in Tableau</h4>
+                                            <p class="certificate-meta">DataCamp • Feb 2025 • Intermediate</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-dashboard"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Creating Dashboards in Tableau</h4>
+                                            <p class="certificate-meta">DataCamp • Mar 2025 • Advanced</p>
+                                            <span class="status-badge in-progress">In Progress</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-map"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Mapping Data in Tableau</h4>
+                                            <p class="certificate-meta">DataCamp • Upcoming • Advanced</p>
+                                            <span class="status-badge upcoming">Upcoming</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Advanced Calculations</h4>
+                                            <p class="certificate-meta">DataCamp • Upcoming • Expert</p>
+                                            <span class="status-badge upcoming">Upcoming</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="certification-content">
+                            <div class="certification-header">
+                                <h3 class="certification-title">Tableau Data Visualization Mastery</h3>
+                                <div class="certification-issuer">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>DataCamp & Tableau University</span>
+                                </div>
+                            </div>
+                            <div class="certification-details">
+                                <p class="certification-description">Comprehensive Tableau training series covering data
+                                    visualization fundamentals to advanced dashboard creation, data analysis, and
+                                    business intelligence reporting.</p>
+                                <div class="certification-skills">
+                                    <span class="skill-tag">Data Visualization</span>
+                                    <span class="skill-tag">Dashboard Design</span>
+                                    <span class="skill-tag">Business Intelligence</span>
+                                    <span class="skill-tag">Data Analysis</span>
+                                    <span class="skill-tag">Storytelling with Data</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SQL Certifications Group Card -->
+                    <div class="certification-card featured" data-category="sql">
+                        <div class="certification-badge">
+                            <i class="fas fa-database"></i>
+                            <span class="badge-label">SQL Series</span>
+                        </div>
+
+                        <div class="certificates-scroll-container">
+                            <div class="certificates-scroll-wrapper">
+                                <div class="certificates-grid">
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-play-circle"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Introduction to SQL</h4>
+                                            <p class="certificate-meta">DataCamp • Jan 2025 • Beginner</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Intermediate SQL</h4>
+                                            <p class="certificate-meta">DataCamp • Jan 2025 • Intermediate</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-code-branch"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Joining Data in SQL</h4>
+                                            <p class="certificate-meta">DataCamp • Feb 2025 • Intermediate</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Database Design</h4>
+                                            <p class="certificate-meta">DataCamp • Mar 2025 • Advanced</p>
+                                            <span class="status-badge in-progress">In Progress</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-rocket"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>SQL Performance</h4>
+                                            <p class="certificate-meta">DataCamp • Upcoming • Advanced</p>
+                                            <span class="status-badge upcoming">Upcoming</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-server"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Advanced SQL Queries</h4>
+                                            <p class="certificate-meta">DataCamp • Upcoming • Expert</p>
+                                            <span class="status-badge upcoming">Upcoming</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="certification-content">
+                            <div class="certification-header">
+                                <h3 class="certification-title">SQL Mastery Series</h3>
+                                <div class="certification-issuer">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>DataCamp & Programming Advices</span>
+                                </div>
+                            </div>
+                            <div class="certification-details">
+                                <p class="certification-description">Comprehensive SQL training series covering
+                                    fundamentals to advanced concepts including joins, subqueries, database
+                                    optimization, and performance tuning.</p>
+                                <div class="certification-skills">
+                                    <span class="skill-tag">Query Optimization</span>
+                                    <span class="skill-tag">Data Joins</span>
+                                    <span class="skill-tag">Subqueries</span>
+                                    <span class="skill-tag">Database Design</span>
+                                    <span class="skill-tag">Performance Tuning</span>
+                                    <span class="skill-tag">Advanced Queries</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Programming Fundamentals Group Card -->
+                    <div class="certification-card featured" data-category="programming">
+                        <div class="certification-badge">
+                            <i class="fas fa-laptop-code"></i>
+                            <span class="badge-label">Programming Series</span>
+                        </div>
+
+                        <div class="certificates-scroll-container">
+                            <div class="certificates-scroll-wrapper">
+                                <div class="certificates-grid">
+                                    <!-- Foundations -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-layer-group"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Foundations Level 1</h4>
+                                            <p class="certificate-meta">Programming Advices • Beginner</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Algorithms -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-sort-amount-up"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Algorithms Level 1</h4>
+                                            <p class="certificate-meta">Programming Advices • Beginner</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- C++ -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-cogs"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>C++ Level 1</h4>
+                                            <p class="certificate-meta">Programming Advices • Beginner</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Advanced Algorithms -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-brain"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Advanced Algorithms Level 1</h4>
+                                            <p class="certificate-meta">Programming Advices • Intermediate</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Algorithms Level 2 -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-project-diagram"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Algorithms Level 2</h4>
+                                            <p class="certificate-meta">Programming Advices • Intermediate</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- C++ Level 2 -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-cogs"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>C++ Level 2</h4>
+                                            <p class="certificate-meta">Programming Advices • Intermediate</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Algorithms Level 3 -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Algorithms Level 3</h4>
+                                            <p class="certificate-meta">Programming Advices • Advanced</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Algorithms Level 4 -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-trophy"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Algorithms Level 4</h4>
+                                            <p class="certificate-meta">Programming Advices • Advanced</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Foundations Level 2 -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-layer-group"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Foundations Level 2</h4>
+                                            <p class="certificate-meta">Programming Advices • Intermediate</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- OOP Level 1 -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-cube"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>OOP Level 1</h4>
+                                            <p class="certificate-meta">Programming Advices • Intermediate</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- OOP Level 2 -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-cubes"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>OOP Level 2</h4>
+                                            <p class="certificate-meta">Programming Advices • Advanced</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Data Structures -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-sitemap"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Data Structures Level 1</h4>
+                                            <p class="certificate-meta">Programming Advices • Advanced</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Algorithms Level 3 (Second) -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-chart-bar"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Advanced Algorithms Level 3</h4>
+                                            <p class="certificate-meta">Programming Advices • Expert</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- C# Level 1 -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fab fa-microsoft"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>C# Level 1</h4>
+                                            <p class="certificate-meta">Programming Advices • Intermediate</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Database Level 1 -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Database & SQL Level 1</h4>
+                                            <p class="certificate-meta">Programming Advices • Intermediate</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- OOP in C# -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-object-group"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>OOP in C#</h4>
+                                            <p class="certificate-meta">Programming Advices • Advanced</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Database Projects -->
+                                    <div class="certificate-item">
+                                        <div class="certificate-icon">
+                                            <i class="fas fa-project-diagram"></i>
+                                        </div>
+                                        <div class="certificate-details">
+                                            <h4>Database Projects</h4>
+                                            <p class="certificate-meta">Programming Advices • Advanced</p>
+                                            <span class="status-badge completed">Completed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-content">
+                            <div class="certification-header">
+                                <h3 class="certification-title">Programming Fundamentals Mastery</h3>
+                                <div class="certification-issuer">
+                                    <i class="fas fa-university"></i>
+                                    <span>Programming Advices Comprehensive Curriculum</span>
+                                </div>
+                            </div>
+                            <div class="certification-details">
+                                <p class="certification-description">Complete programming foundation series covering 17
+                                    comprehensive courses from basic programming concepts to advanced algorithms,
+                                    object-oriented programming, data structures, and database design across multiple
+                                    programming languages.</p>
+                                <div class="certification-skills">
+                                    <span class="skill-tag">Algorithm Design</span>
+                                    <span class="skill-tag">Data Structures</span>
+                                    <span class="skill-tag">Object-Oriented Programming</span>
+                                    <span class="skill-tag">C++ Programming</span>
+                                    <span class="skill-tag">C# Development</span>
+                                    <span class="skill-tag">Database Design</span>
+                                    <span class="skill-tag">Problem Solving</span>
+                                    <span class="skill-tag">Software Architecture</span>
+                                    <span class="skill-tag">SQL Fundamentals</span>
+                                    <span class="skill-tag">Project Implementation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- View All Certificates -->
+                    <div class="certifications-cta">
+                        <div class="cta-content">
+                            <i class="fas fa-certificate cta-icon"></i>
+                            <h3>Complete Certification Portfolio</h3>
+                            <p>Access all certificates and detailed verification documents</p>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1kaEkd6VMlei5J9nx1C3BprAGJ8yYnH3F?usp=drive_link"
+                            target="_blank" class="cta-button">
+                            <i class="fas fa-external-link-alt"></i>
+                            View All Certificates
+                        </a>
+                    </div>
+                </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section achievements-section" id="achievements">
+        <!-- Achievements content here -->
+        <div class="container">
+            <!-- Section Header -->
+            <div class="achievements-header">
+                <div class="header-content">
+                    <div class="modern-badge with-icon">AWARDS & RECOGNITION</div>
+                    <h2>
+                        <span class="title-gradient">Professional</span>
+                        <span class="title-solid">Achievements</span>
+                    </h2>
+                    <p class="section-subtitle">Recognized excellence in data analytics and project execution</p>
+                </div>
+            </div>
+
+            <!-- Achievements Grid -->
+            <div class="achievements-grid">
+                <!-- Main Achievement Card -->
+                <div class="achievement-main-card">
+                    <div class="achievement-media">
+                        <div class="achievement-badge">
+                            <i class="fas fa-trophy"></i>
+                            <span>3rd Place</span>
+                        </div>
+                        <div class="achievement-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2025</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Egypt</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievement-content">
+                        <div class="achievement-category">Competition Winner</div>
+                        <h3>Best Graduation Project Competition</h3>
+
+                        <div class="achievement-partners">
+                            <div class="partner">
+                                <div class="partner-icon"
+                                    style="background: linear-gradient(135deg, #4285F4, #34A853);">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="partner-info">
+                                    <div class="partner-name">DEPI</div>
+                                    <div class="partner-role">Organizer</div>
+                                </div>
+                            </div>
+                            <div class="partner">
+                                <div class="partner-icon"
+                                    style="background: linear-gradient(135deg, #FF6B00, #FF9D00);">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="partner-info">
+                                    <div class="partner-name">E-Youth</div>
+                                    <div class="partner-role">Partner</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievement-description">
+                            <p>Secured 3rd place in the prestigious national competition organized by the Ministry of
+                                Communications' Digital Egypt Pioneers Initiative. Recognized for delivering a data
+                                analytics project with measurable real-world impact and advanced dashboard development.
+                            </p>
+                        </div>
+
+                        <div class="achievement-impact">
+                            <h4>Key Impact:</h4>
+                            <div class="impact-grid">
+                                <div class="impact-item">
+                                    <div class="achievement-secondary-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="impact-content">
+                                        <div class="impact-value">Top 3</div>
+                                        <div class="impact-label">National Ranking</div>
+                                    </div>
+                                </div>
+                                <div class="impact-item">
+                                    <div class="achievement-secondary-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div class="impact-content">
+                                        <div class="impact-value">500+</div>
+                                        <div class="impact-label">Participants</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievement-tags">
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">Dashboard Development</span>
+                            <span class="tag">Business Insights</span>
+                            <span class="tag">Competition Winner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Achievements Cards -->
+                <div class="achievements-secondary">
+                    <!-- Recognition Card -->
+                    <div class="achievement-secondary-card">
+                        <div class="achievement-secondary-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="achievement-secondary-content">
+                            <h4>Excellence in Data Analytics</h4>
+                            <p>Recognized for exceptional performance in data analysis and visualization techniques
+                                during intensive training programs.</p>
+                            <div class="achievement-secondary-meta">
+                                <span class="meta">
+                                    <i class="fas fa-clock"></i>
+                                    2024-2025
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Validation Card -->
+                    <div class="achievement-secondary-card">
+                        <div class="achievement-secondary-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="achievement-secondary-content">
+                            <h4>Professional Certification Excellence</h4>
+                            <p>Completed comprehensive certification programs with top performance across multiple data
+                                analytics disciplines.</p>
+                            <div class="achievement-secondary-meta">
+                                <span class="meta">
+                                    <i class="fas fa-medal"></i>
+                                    8+ Certifications
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <!-- Contact content here -->
+        <div class="container">
+            <!-- Section Header -->
+            <div class="contact-header">
+                <div class="header-content">
+
+                    <div class="modern-badge with-icon">GET IN TOUCH</div>
+                    <h2>
+                        <span class="title-gradient">Let's</span>
+                        <span class="title-solid">Connect</span>
+                    </h2>
+                    <p class="section-subtitle">Ready to transform your data into actionable insights? Let's discuss
+                        your project.</p>
+                </div>
+            </div>
+
+            <!-- Contact Content -->
+            <div class="contact-content">
+                <!-- Left Column - Contact Information -->
+                <div class="contact-info-section">
+                    <div class="contact-card">
+                        <div class="contact-card-header">
+                            <h3>Contact Information</h3>
+                            <p>Feel free to reach out for collaborations, opportunities, or just to connect.</p>
+                        </div>
+
+                        <div class="contact-details-grid">
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-detail-content">
+                                    <h4>Email</h4>
+                                    <a href="mailto:omarhamdi328@gmail.com"
+                                        class="contact-link">omarhamdi328@gmail.com</a>
+                                    <div class="contact-response-time">
+                                        <i class="fas fa-clock"></i>
+                                        Typically replies within 24 hours
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-detail-content">
+                                    <h4>Phone / WhatsApp</h4>
+                                    <a href="tel:+201118938276" class="contact-link">+20 111 893 8276</a>
+                                    <a href="https://wa.me/201118938276" target="_blank" class="whatsapp-link">
+                                        <i class="fab fa-whatsapp"></i>
+                                        Message on WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </div>
+                                <div class="contact-detail-content">
+                                    <h4>Professional Network</h4>
+                                    <a href="https://linkedin.com/in/omarhamdy3" target="_blank"
+                                        class="contact-link">linkedin.com/in/omarhamdy3</a>
+                                    <div class="contact-response-time">
+                                        <i class="fas fa-briefcase"></i>
+                                        Open to professional opportunities
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-card-footer">
+                            <h4>Preferred Communication</h4>
+                            <div class="communication-preference">
+                                <div class="preference-item active">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Email</span>
+                                </div>
+                                <div class="preference-item">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span>LinkedIn</span>
+                                </div>
+                                <div class="preference-item">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span>WhatsApp</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="availability-card">
+                        <div class="availability-header">
+                            <i class="fas fa-calendar-check"></i>
+                            <h4>Current Availability</h4>
+                        </div>
+                        <div class="availability-content">
+                            <div class="availability-status available">
+                                <div class="status-indicator"></div>
+                                <div class="status-text">
+                                    <strong>Available for:</strong>
+                                    <span>Freelance Projects • Full-time Opportunities • Consultations</span>
+                                </div>
+                            </div>
+                            <div class="availability-note">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Response time: Within 24 hours for new inquiries</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-section">
+                    <div class="form-card">
+                        <div class="form-card-header">
+                            <h3>Send a Message</h3>
+                            <p>Have a project in mind? Let's discuss how we can work together.</p>
+                        </div>
+
+                        <!-- Formspree Form -->
+                        <form id="contactForm" class="professional-form" action="https://formspree.io/f/mnjzekpg"
+                            method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <i class="fas fa-user"></i>
+                                        Full Name
+                                    </label>
+                                    <input type="text" id="name" name="name" required placeholder="John Smith">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">
+                                        <i class="fas fa-envelope"></i>
+                                        Email Address
+                                    </label>
+                                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">
+                                    <i class="fas fa-tag"></i>
+                                    Subject
+                                </label>
+                                <select id="subject" name="subject" required>
+                                    <option value="" disabled selected>Select a topic</option>
+                                    <option value="project">Project Collaboration</option>
+                                    <option value="opportunity">Job Opportunity</option>
+                                    <option value="consultation">Consultation Request</option>
+                                    <option value="question">Question/Inquiry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">
+                                    <i class="fas fa-comment-alt"></i>
+                                    Your Message
+                                </label>
+                                <textarea id="message" name="message" required
+                                    placeholder="Tell me about your project, timeline, and specific requirements..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the processing of my data according to the privacy policy
+                                </label>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="submit-button">
+                                    <span class="button-text">Send Message</span>
+                                    <span class="button-icon">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Success message -->
+                        <div class="form-success" id="formSuccess" style="display: none;">
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h4>Message Sent Successfully!</h4>
+                            <p>Thank you for reaching out. I'll get back to you within 24 hours.</p>
+                            <button class="close-success" onclick="closeSuccess()">
+                                <i class="fas fa-times"></i>
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="quick-contact">
+                    <div class="quick-contact-header">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Quick Connect</h4>
+                    </div>
+                    <div class="quick-contact-links">
+                        <a href="mailto:omarhamdi328@gmail.com" class="quick-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email Directly</span>
+                        </a>
+                        <a href="https://wa.me/201118938276" target="_blank" class="quick-link">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp Message</span>
+                        </a>
+                        <a href="https://linkedin.com/in/omarhamdy3" target="_blank" class="quick-link">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn Connect</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+<!-- ================= ULTRA-PROFESSIONAL FOOTER HTML ================= -->
+
+<footer class="footer">
+    <!-- Decorative Elements (no content needed) -->
+    
+    <div class="footer-container">
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+            
+            <!-- ========== BRAND SECTION ========== -->
+            <div class="footer-brand">
+                <a href="/" class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="footer-logo-text">
+                        <div class="footer-logo-primary">
+                            <span class="gradient">Omar</span>
+                            <span class="light">Hamdy</span>
+                        </div>
+                        <div class="footer-logo-secondary">Data Analytics</div>
+                    </div>
+                </a>
+                
+                <p class="footer-tagline">
+                    Transforming complex data into strategic insights that drive business growth and operational excellence.
+                </p>
+                
+                <!-- Social Links -->
+                <div class="social-links-executive">
+                    <a href="https://linkedin.com/in/omarhamdy" target="_blank" rel="noopener" class="social-link-executive" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/omarhamdy" target="_blank" rel="noopener" class="social-link-executive" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/omarhamdy" target="_blank" rel="noopener" class="social-link-executive" aria-label="X (Twitter)">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="mailto:contact@omarhamdy.com" class="social-link-executive" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- ========== LINKS SECTION ========== -->
+            <div class="footer-links">
+                <!-- Column 1: Expertise -->
+                <div class="footer-links-column">
+                    <div class="footer-column-header">
+                        <div class="accent-line"></div>
+                        <h4>Expertise</h4>
+                    </div>
+                    <nav class="footer-nav" aria-label="Expertise navigation">
+                        <a href="#" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Data Analysis</span>
+                        </a>
+                        <a href="#" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Business Intelligence</span>
+                        </a>
+                        <a href="#" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Machine Learning</span>
+                        </a>
+                        <a href="#" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Data Visualization</span>
+                        </a>
+                        <a href="#" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Statistical Analysis</span>
+                        </a>
+                    </nav>
+                </div>
+                
+                <!-- Column 2: Company -->
+                <div class="footer-links-column">
+                    <div class="footer-column-header">
+                        <div class="accent-line"></div>
+                        <h4>Company</h4>
+                    </div>
+                    <nav class="footer-nav" aria-label="Company navigation">
+                        <a href="#about" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">About</span>
+                        </a>
+                        <a href="#experience" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Experience</span>
+                        </a>
+                        <a href="#projects" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Projects</span>
+                        </a>
+                        <a href="#certifications" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Certifications</span>
+                        </a>
+                        <a href="#contact" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Contact</span>
+                        </a>
+                    </nav>
+                </div>
+                
+                <!-- Column 3: Resources -->
+                <div class="footer-links-column">
+                    <div class="footer-column-header">
+                        <div class="accent-line"></div>
+                        <h4>Resources</h4>
+                    </div>
+                    <nav class="footer-nav" aria-label="Resources navigation">
+                        <a href="#" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Blog</span>
+                        </a>
+                        <a href="#" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Case Studies</span>
+                        </a>
+                        <a href="#" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Publications</span>
+                        </a>
+                        <a href="#" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Speaking</span>
+                        </a>
+                        <a href="#" class="footer-nav-item">
+                            <span class="item-dot"></span>
+                            <span class="item-text">Media Kit</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            
+            <!-- ========== CONTACT SECTION ========== -->
+            <div class="footer-contact">
+                <h4>
+                    <i class="fas fa-phone-alt"></i>
+                    Contact
+                </h4>
+                
+                <div class="contact-info-corporate">
+                    <!-- Email -->
+                    <div class="contact-item-corporate">
+                        <div class="contact-icon-wrapper">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-label">Email</div>
+                            <a href="mailto:omar.hamdy@example.com" class="contact-value">omar.hamdy@example.com</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Phone -->
+                    <div class="contact-item-corporate">
+                        <div class="contact-icon-wrapper">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-label">Phone</div>
+                            <a href="tel:+201234567890" class="contact-value">+20 123 456 7890</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Location -->
+                    <div class="contact-item-corporate">
+                        <div class="contact-icon-wrapper">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-label">Location</div>
+                            <span class="contact-value">Cairo, Egypt</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Executive Availability Badge -->
+                <div class="availability-executive">
+                    <div class="availability-indicator">
+                        <div class="availability-pulse"></div>
+                    </div>
+                    <div class="availability-text">
+                        <span class="availability-status">Available for opportunities</span>
+                        <span class="availability-response">Typically responds within 24h</span>
+                    </div>
+                </div>
+                
+                <!-- Optional Newsletter (remove if not needed) -->
+                <div class="newsletter-executive">
+                    <div class="footer-column-header">
+                        <div class="accent-line"></div>
+                        <h4>Newsletter</h4>
+                    </div>
+                    <form class="newsletter-form-executive" action="#" method="post">
+                        <input type="email" class="newsletter-input-executive" placeholder="Your email address" required aria-label="Email for newsletter">
+                        <button type="submit" class="newsletter-button-executive">
+                            <span>Subscribe</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Executive Divider -->
+        <div class="footer-divider" aria-hidden="true"></div>
+        
+        <!-- ========== FOOTER BOTTOM ========== -->
+        <div class="footer-bottom-executive">
+            <div class="copyright-executive">
+                <span class="copyright-symbol">©</span>
+                <span class="copyright-year">2026</span>
+                <span>Omar Hamdy. All rights reserved.</span>
+            </div>
+            
+            <div class="legal-links-executive">
+                <a href="#" class="legal-link">Privacy Policy</a>
+                <a href="#" class="legal-link">Terms of Service</a>
+                <a href="#" class="legal-link">Cookie Policy</a>
+                <a href="#" class="legal-link">Imprint</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top-executive" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</footer>
+
+
+    <!-- Project Modals -->
+    <!-- Enhanced Project Details Modals -->
+    <!-- Superstore Modal -->
+    <!-- Modals -->
+    <div id="superstore-modal" class="project-modal executive">
+        <!-- Modal content here -->
+        <div class="modal-content executive">
+            <!-- Header Section -->
+            <div class="modal-header executive">
+
+                 <!-- Close Button -->
+            <button class="close-modal executive" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+                
+                <div class="project-meta">
+                    <span class="project-category">Retail Analytics</span>
+                    <span class="project-status">
+                        <i class="fas fa-check-circle"></i>
+                        Case Study Completed
+                    </span>
+                </div>
+
+                <div class="header-main">
+                    <h1 class="project-title">Superstore Business Intelligence Suite</h1>
+                    <div class="project-subtitle">
+                        <span class="subtitle-text">Advanced Retail Analytics Platform</span>
+                        <span class="project-timeline">
+                            <i class="fas fa-calendar-alt"></i>
+                            3-Month Implementation
+                        </span>
+                    </div>
+                </div>
+
+                <div class="executive-summary">
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="summary-content">
+                            <span class="summary-value">23%</span>
+                            <span class="summary-label">Profit Optimization</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="summary-content">
+                            <span class="summary-value">10K+</span>
+                            <span class="summary-label">Data Points</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="summary-content">
+                            <span class="summary-value">85%</span>
+                            <span class="summary-label">Time Saved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+
+
+            <!-- Add this inside your .modal-body.executive div, after the dashboard-grid section -->
+
+            <!-- Replace the entire Video Container Section with this cleaned version -->
+            <div class="modal-section ultra-compact video-section">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-play-circle"></i>
+                        Project Demo
+                    </h2>
+                    <div class="section-description">
+                        Watch the project in action with this interactive demo
+                    </div>
+                </div>
+
+                <!-- Professional Video Container -->
+                <div class="video-container-premium">
+                    <div class="video-wrapper">
+                        <!-- Video Element -->
+                        <video class="project-video" controls playsinline preload="metadata"
+                            poster="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\Superstore-Project\Overview_Dashboard.png">
+                            <source
+                                src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\videos\Superstore-Project\Superstore_Project.mp4"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <!-- Single Custom Play Button -->
+                        <button class="video-play-btn" aria-label="Play video">
+                            <i class="fas fa-play"></i>
+                        </button>
+
+                        <!-- Video Loading Overlay -->
+                        <div class="video-loading">
+                            <div class="spinner"></div>
+                            <span>Loading video...</span>
+                        </div>
+                    </div>
+
+                    <!-- Video Information -->
+                    <div class="video-info">
+                        <div class="video-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span class="meta-text">Duration: <strong>2:30</strong></span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-video"></i>
+                                <span class="meta-text">Resolution: <strong>1080p</strong></span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-file-video"></i>
+                                <span class="meta-text">Format: <strong>MP4</strong></span>
+                            </div>
+                        </div>
+                        <div class="video-description">
+                            <p>This demo showcases the key features and user interactions of the project. Watch to see
+                                how the dashboard, analytics, and reporting modules work together seamlessly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Chapters/Timestamps -->
+                <div class="video-chapters">
+                    <div class="chapters-header">
+                        <h3><i class="fas fa-bookmark"></i> Video Chapters</h3>
+                    </div>
+                    <div class="chapters-list">
+                        <button class="chapter-item" data-time="0">
+                            <span class="chapter-time">0:00</span>
+                            <span class="chapter-title">Introduction & Overview</span>
+                        </button>
+                        <button class="chapter-item" data-time="30">
+                            <span class="chapter-time">0:30</span>
+                            <span class="chapter-title">Dashboard Walkthrough</span>
+                        </button>
+                        <button class="chapter-item" data-time="75">
+                            <span class="chapter-time">1:15</span>
+                            <span class="chapter-title">Analytics Features</span>
+                        </button>
+                        <button class="chapter-item" data-time="120">
+                            <span class="chapter-time">2:00</span>
+                            <span class="chapter-title">Reporting Module</span>
+                        </button>
+                        <button class="chapter-item" data-time="150">
+                            <span class="chapter-time">2:30</span>
+                            <span class="chapter-title">Conclusion & Results</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="modal-body executive">
+                <!-- Dashboard Showcase -->
+                <!-- Dashboard Showcase - NEW 2-PER-ROW LAYOUT -->
+                <section class="showcase-section">
+                    <div class="section-header">
+                        <h2>
+                            <i class="fas fa-tachometer-alt"></i>
+                            Safety Intelligence Dashboard Suite
+                        </h2>
+                        <p class="section-description">Comprehensive accident analysis dashboards with predictive
+                            insights and fullscreen capability</p>
+                    </div>
+
+                    <!-- Dashboard Navigation Info -->
+                    <div class="dashboard-navigation-info">
+                        <div class="navigation-tip">
+                            <i class="fas fa-mouse-pointer"></i>
+                            <span>Click on any dashboard image to zoom in</span>
+                        </div>
+                        <div class="navigation-tip">
+                            <i class="fas fa-expand"></i>
+                            <span>Click expand button for fullscreen view</span>
+                        </div>
+                        <div class="navigation-tip">
+                            <i class="fas fa-search"></i>
+                            <span>Hover over metrics for detailed information</span>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Executive Overview Dashboard -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-preview">
+                                <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\Superstore-Project\Overview_Dashboard.png"
+                                    alt="Executive Overview Dashboard" loading="lazy" class="dashboard-image"
+                                    data-fullscreen>
+                                <!-- Fullscreen Expand Button -->
+                                <button class="expand-btn" aria-label="View Executive Dashboard fullscreen"
+                                    title="Expand to fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <!-- Fullscreen Overlay -->
+                                <div class="fullscreen-overlay">
+                                    <button class="close-fullscreen" aria-label="Close fullscreen">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                    <img src="" alt="" class="fullscreen-image">
+                                </div>
+                            </div>
+                            <div class="dashboard-info">
+                                <h3>Executive Overview Dashboard</h3>
+                                <p class="dashboard-description">
+                                    Real-time KPI monitoring with predictive trend analysis and strategic insights
+                                </p>
+                                <div class="dashboard-metrics">
+                                    <span class="metric">
+                                        <i class="fas fa-eye"></i>
+                                        15+ Key Metrics
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-bolt"></i>
+                                        Real-time Updates
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-chart-line"></i>
+                                        Trend Analysis
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Performance Dashboard -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-preview">
+                                <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\Superstore-Project\OrderDetails_Dashboard.png"
+                                    alt="Product Performance Dashboard" loading="lazy" class="dashboard-image"
+                                    data-fullscreen>
+                                <!-- Fullscreen Expand Button -->
+                                <button class="expand-btn" aria-label="View Product Dashboard fullscreen"
+                                    title="Expand to fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            <div class="dashboard-info">
+                                <h3>Product Performance Dashboard</h3>
+                                <p class="dashboard-description">
+                                    Category profitability analysis, SKU performance tracking, and product mix
+                                    optimization
+                                </p>
+                                <div class="dashboard-metrics">
+                                    <span class="metric">
+                                        <i class="fas fa-box"></i>
+                                        SKU Analysis
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                        Profit Margins
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-chart-pie"></i>
+                                        Category Mix
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customer Segmentation Dashboard -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-preview">
+                                <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\Superstore-Project\Product_Dashboard.png"
+                                    alt="Customer Segmentation Dashboard" loading="lazy" class="dashboard-image"
+                                    data-fullscreen>
+                                <!-- Fullscreen Expand Button -->
+                                <button class="expand-btn" aria-label="View Customer Dashboard fullscreen"
+                                    title="Expand to fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            <div class="dashboard-info">
+                                <h3>Customer Segmentation Dashboard</h3>
+                                <p class="dashboard-description">
+                                    CLV analysis, customer behavior tracking, and personalized marketing insights
+                                </p>
+                                <div class="dashboard-metrics">
+                                    <span class="metric">
+                                        <i class="fas fa-users"></i>
+                                        Customer Groups
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-heart"></i>
+                                        Retention Rate
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Purchase Patterns
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Regional Performance Dashboard -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-preview">
+                                <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\Superstore-Project\Customer_Dashboard.png"
+                                    alt="Regional Performance Dashboard" loading="lazy" class="dashboard-image"
+                                    data-fullscreen>
+                                <!-- Fullscreen Expand Button -->
+                                <button class="expand-btn" aria-label="View Regional Dashboard fullscreen"
+                                    title="Expand to fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            <div class="dashboard-info">
+                                <h3>Regional Performance Dashboard</h3>
+                                <p class="dashboard-description">
+                                    Geographic sales analysis, market penetration, and regional strategy optimization
+                                </p>
+                                <div class="dashboard-metrics">
+                                    <span class="metric">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                        Market Analysis
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-arrow-up"></i>
+                                        Growth Trends
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-balance-scale"></i>
+                                        Regional Balance
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                </section>
+                </section>
+                </section>
+
+                <!-- Technical Implementation -->
+                <section class="technical-section">
+                    <div class="section-header">
+                        <h2>
+                            <i class="fas fa-cogs"></i>
+                            Technical Architecture
+                        </h2>
+                        <p class="section-description">End-to-end data pipeline and technology stack</p>
+                    </div>
+
+                    <div class="pipeline-diagram">
+                        <div class="pipeline-stage">
+                            <div class="stage-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="stage-content">
+                                <h4>Data Acquisition</h4>
+                                <p>SQL Server extraction with incremental loading</p>
+                                <div class="stage-tools">
+                                    <span class="tool-tag"><i class="fas fa-code"></i> Python</span>
+                                    <span class="tool-tag"><i class="fas fa-database"></i> SQL</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <div class="stage-icon">
+                                <i class="fas fa-broom"></i>
+                            </div>
+                            <div class="stage-content">
+                                <h4>Data Transformation</h4>
+                                <p>ETL processes with data quality validation</p>
+                                <div class="stage-tools">
+                                    <span class="tool-tag"><i class="fas fa-random"></i> Pandas</span>
+                                    <span class="tool-tag"><i class="fas fa-check-circle"></i> Validation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <div class="stage-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="stage-content">
+                                <h4>Visualization Layer</h4>
+                                <p>Interactive dashboards with drill-down capabilities</p>
+                                <div class="stage-tools">
+                                    <span class="tool-tag"><i class="fas fa-chart-line"></i> Tableau</span>
+                                    <span class="tool-tag"><i class="fab fa-figma"></i> Figma</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Strategic Recommendations -->
+                <section class="recommendations-section">
+                    <div class="section-header">
+                        <h2>
+                            <i class="fas fa-chess-queen"></i>
+                            Strategic Recommendations
+                        </h2>
+                        <p class="section-description">Data-driven insights for executive decision making</p>
+                    </div>
+
+                    <div class="recommendations-grid">
+                        <div class="recommendation-card priority-high">
+                            <div class="recommendation-header">
+                                <span class="priority-badge">Priority: High</span>
+                                <span class="expected-impact">Impact: 23% Revenue</span>
+                            </div>
+                            <h3>Product Portfolio Optimization</h3>
+                            <p class="recommendation-description">
+                                Reallocate marketing budget from Furniture (8% margin) to Technology (15% growth)
+                                categories
+                            </p>
+                            <div class="implementation-details">
+                                <div class="detail">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Timeline: Q1 2025</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>Stakeholders: Marketing, Sales</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-card priority-medium">
+                            <div class="recommendation-header">
+                                <span class="priority-badge">Priority: Medium</span>
+                                <span class="expected-impact">Impact: 15% Efficiency</span>
+                            </div>
+                            <h3>Regional Expansion Strategy</h3>
+                            <p class="recommendation-description">
+                                Leverage West region performance model for targeted market expansion
+                            </p>
+                            <div class="implementation-details">
+                                <div class="detail">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Timeline: Q2 2025</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>Stakeholders: Operations, Finance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer executive">
+                <div class="footer-actions">
+                    <button class="btn-primary">
+                        <i class="fas fa-download"></i>
+                        Download Case Study PDF
+                    </button>
+                    <button class="btn-secondary">
+                        <i class="fas fa-video"></i>
+                        Schedule Live Demo
+                    </button>
+                </div>
+                <div class="footer-meta">
+                    <span class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        Last Updated: January 2025
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-shield-alt"></i>
+                        Confidential Business Intelligence
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="road-accident-modal" class="project-modal executive">
+        <!-- Modal content here -->
+        <div class="modal-content executive">
+            <!-- Header Section -->
+            <div class="modal-header executive">
+                <div class="project-meta">
+                    <span class="project-category">Transportation Analytics</span>
+                    <span class="project-status">
+                        <i class="fas fa-check-circle"></i>
+                        Case Study Completed
+                    </span>
+                </div>
+
+                <div class="header-main">
+                    <h1 class="project-title">Road Accident Intelligence Platform</h1>
+                    <div class="project-subtitle">
+                        <span class="subtitle-text">Excel-Based Safety Analytics Solution</span>
+                        <span class="project-timeline">
+                            <i class="fas fa-calendar-alt"></i>
+                            2-Month Implementation
+                        </span>
+                    </div>
+                </div>
+
+                <div class="executive-summary">
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-car-crash"></i>
+                        </div>
+                        <div class="summary-content">
+                            <span class="summary-value">45%</span>
+                            <span class="summary-label">Risk Reduction</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="summary-content">
+                            <span class="summary-value">8K+</span>
+                            <span class="summary-label">Accident Records</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="summary-content">
+                            <span class="summary-value">90%</span>
+                            <span class="summary-label">Analysis Time Saved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Close Button -->
+            <button class="close-modal executive" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Video Container Section -->
+            <div class="modal-section ultra-compact video-section">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-play-circle"></i>
+                        Project Demo
+                    </h2>
+                    <div class="section-description">
+                        Watch the project in action with this interactive demo
+                    </div>
+                </div>
+
+                <!-- Professional Video Container -->
+                <div class="video-container-premium">
+                    <div class="video-wrapper">
+                        <!-- Video Element -->
+                        <video class="project-video" controls playsinline preload="metadata"
+                            poster="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\RoadAccident-Project\Main Sheet.png">
+                            <source
+                                src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\videos\RoadAccident-Project\RoadAccident_Project.mp4"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <!-- Single Custom Play Button -->
+                        <button class="video-play-btn" aria-label="Play video">
+                            <i class="fas fa-play"></i>
+                        </button>
+
+                        <!-- Video Loading Overlay -->
+                        <div class="video-loading">
+                            <div class="spinner"></div>
+                            <span>Loading video...</span>
+                        </div>
+                    </div>
+
+                    <!-- Video Information -->
+                    <div class="video-info">
+                        <div class="video-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span class="meta-text">Duration: <strong>2:15</strong></span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-video"></i>
+                                <span class="meta-text">Resolution: <strong>1080p</strong></span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-file-video"></i>
+                                <span class="meta-text">Format: <strong>MP4</strong></span>
+                            </div>
+                        </div>
+                        <div class="video-description">
+                            <p>This demo showcases the safety analytics dashboard, highlighting key features like
+                                location-based risk analysis, casualty tracking, and predictive insights for accident
+                                prevention.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Chapters/Timestamps -->
+                <div class="video-chapters">
+                    <div class="chapters-header">
+                        <h3><i class="fas fa-bookmark"></i> Video Chapters</h3>
+                    </div>
+                    <div class="chapters-list">
+                        <button class="chapter-item" data-time="0">
+                            <span class="chapter-time">0:00</span>
+                            <span class="chapter-title">Introduction & Safety Overview</span>
+                        </button>
+                        <button class="chapter-item" data-time="45">
+                            <span class="chapter-time">0:45</span>
+                            <span class="chapter-title">Main Dashboard Walkthrough</span>
+                        </button>
+                        <button class="chapter-item" data-time="60">
+                            <span class="chapter-time">1:00</span>
+                            <span class="chapter-title">Risk Zone Identification</span>
+                        </button>
+                        <button class="chapter-item" data-time="90">
+                            <span class="chapter-time">1:30</span>
+                            <span class="chapter-title">Casualty & Vehicle Analysis</span>
+                        </button>
+                        <button class="chapter-item" data-time="120">
+                            <span class="chapter-time">2:00</span>
+                            <span class="chapter-title">Predictive Insights</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="modal-body executive">
+                <!-- Dashboard Showcase -->
+                <section class="showcase-section">
+                    <div class="section-header">
+                        <h2>
+                            <i class="fas fa-tachometer-alt"></i>
+                            Safety Intelligence Dashboard Suite
+                        </h2>
+                        <p class="section-description">Comprehensive accident analysis dashboards with predictive
+                            insights and fullscreen capability</p>
+                    </div>
+
+
+                    <!-- Dashboard Navigation Info -->
+                    <div class="dashboard-navigation-info">
+                        <div class="navigation-tip">
+                            <i class="fas fa-mouse-pointer"></i>
+                            <span>Click on any dashboard image to zoom in</span>
+                        </div>
+                        <div class="navigation-tip">
+                            <i class="fas fa-expand"></i>
+                            <span>Click expand button for fullscreen view</span>
+                        </div>
+                        <div class="navigation-tip">
+                            <i class="fas fa-search"></i>
+                            <span>Hover over metrics for detailed information</span>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Main Safety Dashboard -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-preview">
+                                <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\RoadAccident-Project\Main Sheet.png"
+                                    alt="Road Accident Main Dashboard" loading="lazy" class="dashboard-image"
+                                    data-fullscreen>
+                                <!-- Fullscreen Expand Button -->
+                                <button class="expand-btn" aria-label="View Main Dashboard fullscreen"
+                                    title="Expand to fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <!-- Fullscreen Overlay -->
+                                <div class="fullscreen-overlay">
+                                    <button class="close-fullscreen" aria-label="Close fullscreen">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                    <img src="" alt="" class="fullscreen-image">
+                                </div>
+                            </div>
+                            <div class="dashboard-info">
+                                <h3>Executive Safety Dashboard</h3>
+                                <p class="dashboard-description">
+                                    Real-time accident monitoring with location-based risk analysis and KPI tracking
+                                </p>
+                                <div class="dashboard-metrics">
+                                    <span class="metric">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Location Tracking
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-chart-line"></i>
+                                        Trend Analysis
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        Risk Alerts
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Casualty Analysis Dashboard -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-preview">
+                                <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\RoadAccident-Project\Accident Analysis.png"
+                                    alt="Casualty Analysis Dashboard" loading="lazy" class="dashboard-image"
+                                    data-fullscreen>
+                                <!-- Fullscreen Expand Button -->
+                                <button class="expand-btn" aria-label="View Casualty Dashboard fullscreen"
+                                    title="Expand to fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            <div class="dashboard-info">
+                                <h3>Casualty Analysis Dashboard</h3>
+                                <p class="dashboard-description">
+                                    Injury severity tracking, medical response planning, and casualty statistics
+                                </p>
+                                <div class="dashboard-metrics">
+                                    <span class="metric">
+                                        <i class="fas fa-user-injured"></i>
+                                        Severity Levels
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-ambulance"></i>
+                                        Response Times
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-hospital"></i>
+                                        Medical Data
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vehicle Intelligence Dashboard -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-preview">
+                                <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\RoadAccident-Project\Driver Analysis.png"
+                                    alt="Vehicle Analysis Dashboard" loading="lazy" class="dashboard-image"
+                                    data-fullscreen>
+                                <!-- Fullscreen Expand Button -->
+                                <button class="expand-btn" aria-label="View Vehicle Dashboard fullscreen"
+                                    title="Expand to fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            <div class="dashboard-info">
+                                <h3>Vehicle Intelligence Dashboard</h3>
+                                <p class="dashboard-description">
+                                    Vehicle type risk assessment, safety recommendations, and accident patterns by
+                                    vehicle
+                                </p>
+                                <div class="dashboard-metrics">
+                                    <span class="metric">
+                                        <i class="fas fa-car-side"></i>
+                                        Vehicle Types
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-shield-alt"></i>
+                                        Safety Ratings
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-chart-pie"></i>
+                                        Distribution
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Weather Impact Dashboard -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-preview">
+                                <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\RoadAccident-Project\Location Analysis.png"
+                                    alt="Weather Impact Dashboard" loading="lazy" class="dashboard-image"
+                                    data-fullscreen>
+                                <!-- Fullscreen Expand Button -->
+                                <button class="expand-btn" aria-label="View Weather Dashboard fullscreen"
+                                    title="Expand to fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            <div class="dashboard-info">
+                                <h3>Weather Impact Dashboard</h3>
+                                <p class="dashboard-description">
+                                    Environmental factor analysis, predictive alerts, and weather-related accident
+                                    patterns
+                                </p>
+                                <div class="dashboard-metrics">
+                                    <span class="metric">
+                                        <i class="fas fa-cloud"></i>
+                                        Weather Conditions
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-temperature-high"></i>
+                                        Temperature
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-bolt"></i>
+                                        Alerts
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Time Analysis Dashboard -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-preview">
+                                <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\RoadAccident-Project\Road Analysis.png"
+                                    alt="Time Analysis Dashboard" loading="lazy" class="dashboard-image"
+                                    data-fullscreen>
+                                <!-- Fullscreen Expand Button -->
+                                <button class="expand-btn" aria-label="View Time Dashboard fullscreen"
+                                    title="Expand to fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            <div class="dashboard-info">
+                                <h3>Time Analysis Dashboard</h3>
+                                <p class="dashboard-description">
+                                    Temporal accident patterns, peak hour analysis, and seasonal trend tracking
+                                </p>
+                                <div class="dashboard-metrics">
+                                    <span class="metric">
+                                        <i class="fas fa-clock"></i>
+                                        Time of Day
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-calendar"></i>
+                                        Day of Week
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-sun"></i>
+                                        Seasonal Trends
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Geographic Analysis Dashboard -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-preview">
+                                <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\RoadAccident-Project\Time Analysis.png"
+                                    alt="Geographic Analysis Dashboard" loading="lazy" class="dashboard-image"
+                                    data-fullscreen>
+                                <!-- Fullscreen Expand Button -->
+                                <button class="expand-btn" aria-label="View Geographic Dashboard fullscreen"
+                                    title="Expand to fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            <div class="dashboard-info">
+                                <h3>Geographic Analysis Dashboard</h3>
+                                <p class="dashboard-description">
+                                    Regional heat mapping, high-risk zone identification, and geographic distribution
+                                </p>
+                                <div class="dashboard-metrics">
+                                    <span class="metric">
+                                        <i class="fas fa-map"></i>
+                                        Heat Maps
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-search-location"></i>
+                                        Risk Zones
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-chart-bar"></i>
+                                        Regional Stats
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Driver Demographics Dashboard -->
+                        <div class="dashboard-card">
+                            <div class="dashboard-preview">
+                                <img src="C:\Users\MSI\Downloads\Omar Portfolio\Portfolio 2027\assest\images\Projects\RoadAccident-Project\Weather Analysis.png"
+                                    alt="Driver Demographics Dashboard" loading="lazy" class="dashboard-image"
+                                    data-fullscreen>
+                                <!-- Fullscreen Expand Button -->
+                                <button class="expand-btn" aria-label="View Driver Dashboard fullscreen"
+                                    title="Expand to fullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            <div class="dashboard-info">
+                                <h3>Driver Demographics Dashboard</h3>
+                                <p class="dashboard-description">
+                                    Age, gender, and experience analysis for targeted safety campaigns
+                                </p>
+                                <div class="dashboard-metrics">
+                                    <span class="metric">
+                                        <i class="fas fa-user"></i>
+                                        Age Groups
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-venus-mars"></i>
+                                        Gender Analysis
+                                    </span>
+                                    <span class="metric">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        Experience Level
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                </section>
+
+                <!-- Business Impact -->
+                <section class="impact-section">
+                    <div class="section-header">
+                        <h2>
+                            <i class="fas fa-chart-line"></i>
+                            Safety Impact Metrics
+                        </h2>
+                        <p class="section-description">Quantified safety improvements and risk reduction</p>
+                    </div>
+
+                    <div class="impact-grid">
+                        <div class="impact-card high-impact">
+                            <div class="impact-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="impact-content">
+                                <h3>Accident Reduction</h3>
+                                <div class="impact-value">-45%</div>
+                                <p class="impact-description">
+                                    Targeted interventions based on high-risk location identification
+                                </p>
+                                <div class="impact-tags">
+                                    <span class="tag">Risk Mitigation</span>
+                                    <span class="tag">Prevention Strategy</span>
+                                    <span class="tag">Location Analysis</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="impact-card medium-impact">
+                            <div class="impact-icon">
+                                <i class="fas fa-user-injured"></i>
+                            </div>
+                            <div class="impact-content">
+                                <h3>Severity Reduction</h3>
+                                <div class="impact-value">-30%</div>
+                                <p class="impact-description">
+                                    Decrease in serious injuries through improved response planning
+                                </p>
+                                <div class="impact-tags">
+                                    <span class="tag">Emergency Response</span>
+                                    <span class="tag">Medical Planning</span>
+                                    <span class="tag">First Aid</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="impact-card low-impact">
+                            <div class="impact-icon">
+                                <i class="fas fa-car-side"></i>
+                            </div>
+                            <div class="impact-content">
+                                <h3>Vehicle Type Analysis</h3>
+                                <div class="impact-value">Motorcycle: 65%</div>
+                                <p class="impact-description">
+                                    Motorcycles involved in majority of severe accidents requiring targeted safety
+                                    campaigns
+                                </p>
+                                <div class="impact-tags">
+                                    <span class="tag">Vehicle Safety</span>
+                                    <span class="tag">Policy Recommendations</span>
+                                    <span class="tag">Rider Education</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Technical Implementation -->
+                <section class="technical-section">
+                    <div class="section-header">
+                        <h2>
+                            <i class="fas fa-cogs"></i>
+                            Excel-Based Analytics Stack
+                        </h2>
+                        <p class="section-description">Advanced Excel techniques for comprehensive safety analysis</p>
+                    </div>
+
+                    <div class="pipeline-diagram">
+                        <div class="pipeline-stage">
+                            <div class="stage-icon">
+                                <i class="fas fa-file-import"></i>
+                            </div>
+                            <div class="stage-content">
+                                <h4>Data Import & Cleaning</h4>
+                                <p>Power Query for automated data transformation and validation</p>
+                                <div class="stage-tools">
+                                    <span class="tool-tag"><i class="fas fa-random"></i> Power Query</span>
+                                    <span class="tool-tag"><i class="fas fa-filter"></i> Data Cleansing</span>
+                                    <span class="tool-tag"><i class="fas fa-check-circle"></i> Validation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <div class="stage-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="stage-content">
+                                <h4>Data Modeling</h4>
+                                <p>Power Pivot for relational data modeling and DAX calculations</p>
+                                <div class="stage-tools">
+                                    <span class="tool-tag"><i class="fas fa-project-diagram"></i> Power Pivot</span>
+                                    <span class="tool-tag"><i class="fas fa-link"></i> Relationships</span>
+                                    <span class="tool-tag"><i class="fas fa-calculator"></i> DAX Formulas</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+
+                        <div class="pipeline-stage">
+                            <div class="stage-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="stage-content">
+                                <h4>Interactive Reporting</h4>
+                                <p>Pivot Tables & Charts with slicers for dynamic analysis</p>
+                                <div class="stage-tools">
+                                    <span class="tool-tag"><i class="fas fa-table"></i> Pivot Tables</span>
+                                    <span class="tool-tag"><i class="fas fa-sliders-h"></i> Slicers</span>
+                                    <span class="tool-tag"><i class="fas fa-chart-pie"></i> Charts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="technology-stack">
+                        <div class="tech-stack-header">
+                            <h4><i class="fas fa-tools"></i> Technology Stack</h4>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Microsoft Excel</span>
+                            <span class="tech-tag">Power Query</span>
+                            <span class="tech-tag">Power Pivot</span>
+                            <span class="tech-tag">DAX Formulas</span>
+                            <span class="tech-tag">Pivot Tables</span>
+                            <span class="tech-tag">Conditional Formatting</span>
+                            <span class="tech-tag">Data Validation</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Strategic Recommendations -->
+                <section class="recommendations-section">
+                    <div class="section-header">
+                        <h2>
+                            <i class="fas fa-chess-queen"></i>
+                            Safety Recommendations
+                        </h2>
+                        <p class="section-description">Data-driven safety improvements for transportation authorities
+                        </p>
+                    </div>
+
+                    <div class="recommendations-grid">
+                        <div class="recommendation-card priority-high">
+                            <div class="recommendation-header">
+                                <span class="priority-badge">Priority: High</span>
+                                <span class="expected-impact">Impact: 45% Accident Reduction</span>
+                            </div>
+                            <h3>High-Risk Zone Intervention</h3>
+                            <p class="recommendation-description">
+                                Install additional safety measures (speed cameras, warning signs, improved lighting) in
+                                identified high-accident zones based on geographic heat mapping.
+                            </p>
+                            <div class="implementation-details">
+                                <div class="detail">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Timeline: Immediate (1-3 months)</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>Stakeholders: Transportation Department, City Planning</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>Budget: $150,000 estimated</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-card priority-medium">
+                            <div class="recommendation-header">
+                                <span class="priority-badge">Priority: Medium</span>
+                                <span class="expected-impact">Impact: 30% Severity Reduction</span>
+                            </div>
+                            <h3>Motorcycle Safety Program</h3>
+                            <p class="recommendation-description">
+                                Targeted safety campaigns for motorcycle riders including mandatory training, helmet law
+                                enforcement, and awareness programs based on high involvement rate in severe accidents.
+                            </p>
+                            <div class="implementation-details">
+                                <div class="detail">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Timeline: Q2 2025 (3-6 months)</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>Stakeholders: Safety Commission, Motorcycle Associations</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>Budget: $75,000 estimated</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-card priority-low">
+                            <div class="recommendation-header">
+                                <span class="priority-badge">Priority: Low</span>
+                                <span class="expected-impact">Impact: 20% Weather-related Reduction</span>
+                            </div>
+                            <h3>Weather-Based Alert System</h3>
+                            <p class="recommendation-description">
+                                Implement predictive alerts for weather conditions that significantly increase accident
+                                risks, integrating with existing traffic management systems.
+                            </p>
+                            <div class="implementation-details">
+                                <div class="detail">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Timeline: Q3 2025 (6-9 months)</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-users"></i>
+                                    <span>Stakeholders: Weather Bureau, Traffic Management</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>Budget: $50,000 estimated</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer executive">
+                <div class="footer-actions">
+                    <button class="btn-primary">
+                        <i class="fas fa-download"></i>
+                        Download Case Study PDF
+                    </button>
+                    <button class="btn-secondary">
+                        <i class="fas fa-video"></i>
+                        Schedule Live Demo
+                    </button>
+                    <button class="btn-tertiary">
+                        <i class="fas fa-file-excel"></i>
+                        Download Excel Template
+                    </button>
+                </div>
+                <div class="footer-meta">
+                    <span class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        Last Updated: January 2025
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-shield-alt"></i>
+                        Public Safety Intelligence
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Contains Sensitive Safety Data
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/theme.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/filters.js"></script>
+</body>
+
+</html>

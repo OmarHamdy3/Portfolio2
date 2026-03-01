@@ -1,0 +1,406 @@
+/* Hero Section */
+.hero {
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 0 3rem;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 70% 30%, rgba(251, 237, 82, 0.08) 0%, transparent 60%);
+}
+
+[data-theme="light"] .hero {
+    background: radial-gradient(circle at 70% 30%, rgba(255, 157, 0, 0.08) 0%, transparent 60%);
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    width: 100%;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    background: var(--primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+
+.hero-text h2 {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    max-width: 100%;
+}
+
+.hero-text p {
+     margin-bottom: 2.5rem;
+    max-width: 600px;
+    color: rgba(240, 240, 245, 0.8);
+    font-size: 1.1rem;
+}
+
+[data-theme="light"] .hero-text p {
+    color: rgba(33, 37, 41, 0.8);
+}
+
+.social-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: var(--darker);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    font-size: 1rem;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .social-links a {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.social-links a:hover {
+    background: var(--primary-solid, var(--primary));
+    color: var(--dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(251, 237, 82, 0.2);
+}
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Hero Image */
+.hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, 
+        rgba(251, 237, 82, 0.3) 0%, 
+        rgba(251, 237, 82, 0.2) 30%, 
+        rgba(251, 237, 82, 0.1) 60%, 
+        transparent 80%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulse-yellow 4s infinite ease-in-out;
+    box-shadow: 
+        0 0 40px rgba(251, 237, 82, 0.3),
+        0 0 80px rgba(251, 237, 82, 0.15);
+    filter: blur(1px);
+}
+
+[data-theme="light"] .hero-image::before {
+    background: radial-gradient(circle, 
+        rgba(255, 157, 0, 0.3) 0%, 
+        rgba(255, 157, 0, 0.2) 30%, 
+        rgba(255, 157, 0, 0.1) 60%, 
+        transparent 80%);
+    box-shadow: 
+        0 0 40px rgba(255, 157, 0, 0.3),
+        0 0 80px rgba(255, 157, 0, 0.15);
+    animation: pulse-orange 4s infinite ease-in-out;
+}
+
+.hero-image img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(251, 237, 82, 0.4);
+    box-shadow: 
+        0 0 20px rgba(251, 237, 82, 0.2),
+        0 0 40px rgba(251, 237, 82, 0.15),
+        inset 0 0 15px rgba(251, 237, 82, 0.15);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+[data-theme="light"] .hero-image img {
+    border: 3px solid rgba(255, 157, 0, 0.4);
+    box-shadow: 
+        0 0 20px rgba(255, 157, 0, 0.2),
+        0 0 40px rgba(255, 157, 0, 0.15),
+        inset 0 0 15px rgba(255, 157, 0, 0.15);
+}
+
+.hero-image img:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 0 30px rgba(251, 237, 82, 0.3),
+        0 0 60px rgba(251, 237, 82, 0.2),
+        inset 0 0 20px rgba(251, 237, 82, 0.2);
+}
+
+[data-theme="light"] .hero-image img:hover {
+    box-shadow: 
+        0 0 30px rgba(255, 157, 0, 0.3),
+        0 0 60px rgba(255, 157, 0, 0.2),
+        inset 0 0 20px rgba(255, 157, 0, 0.2);
+}
+
+
+
+/* ================= PROFESSIONAL SOCIAL LINKS - CIRCULAR ICONS ================= */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+/* Base Social Link Styles - Circular */
+.social-links a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* جعلها دائرية */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1); /* حدود شفافة */
+}
+
+/* LinkedIn - Professional Blue */
+.social-links a.linkedin {
+    background: linear-gradient(135deg, #0077B5 0%, #00A0DC 100%);
+    box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+}
+
+.social-links a.linkedin:hover {
+    background: linear-gradient(135deg, #006699 0%, #0088B2 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 119, 181, 0.4);
+}
+
+/* GitHub - Dark Theme */
+.social-links a.github {
+    background: linear-gradient(135deg, #333333 0%, #666666 100%);
+    box-shadow: 0 4px 15px rgba(51, 51, 51, 0.3);
+}
+
+.social-links a.github:hover {
+    background: linear-gradient(135deg, #242424 0%, #555555 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(51, 51, 51, 0.4);
+}
+
+/* WhatsApp - Green Brand */
+.social-links a.whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.social-links a.whatsapp:hover {
+    background: linear-gradient(135deg, #20B85A 0%, #0E796B 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+}
+
+/* Email - Red/Gradient */
+.social-links a.email {
+    background: linear-gradient(135deg, #EA4335 0%, #D14836 100%);
+    box-shadow: 0 4px 15px rgba(234, 67, 53, 0.3);
+}
+
+.social-links a.email:hover {
+    background: linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(234, 67, 53, 0.4);
+}
+
+/* Phone - Blue Gradient */
+.social-links a.phone {
+    background: linear-gradient(135deg, #34B7F1 0%, #1E90FF 100%);
+    box-shadow: 0 4px 15px rgba(52, 183, 241, 0.3);
+}
+
+.social-links a.phone:hover {
+    background: linear-gradient(135deg, #29A8E0 0%, #0D7AE6 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(52, 183, 241, 0.4);
+}
+
+/* Twitter/X - Black Theme */
+.social-links a.twitter {
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-links a.twitter:hover {
+    background: linear-gradient(135deg, #111111 0%, #444444 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Instagram - Purple/Orange Gradient - Circular Fix */
+.social-links a.instagram {
+    background: linear-gradient(135deg, #E4405F 0%, #833AB4 50%, #F77737 100%);
+    box-shadow: 0 4px 15px rgba(228, 64, 95, 0.3);
+    background-size: 200% 200%;
+    animation: instagram-gradient 3s ease infinite;
+}
+
+@keyframes instagram-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.social-links a.instagram:hover {
+    background: linear-gradient(135deg, #D42A4F 0%, #732BA0 50%, #E5671A 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(228, 64, 95, 0.4);
+}
+
+/* YouTube - Red Brand */
+.social-links a.youtube {
+    background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.social-links a.youtube:hover {
+    background: linear-gradient(135deg, #E60000 0%, #B30000 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+}
+
+/* Facebook - Blue Brand */
+.social-links a.facebook {
+    background: linear-gradient(135deg, #1877F2 0%, #0D65C2 100%);
+    box-shadow: 0 4px 15px rgba(24, 119, 242, 0.3);
+}
+
+.social-links a.facebook:hover {
+    background: linear-gradient(135deg, #1667D9 0%, #0B55A9 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(24, 119, 242, 0.4);
+}
+
+/* Common hover effects for all social icons */
+.social-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s ease;
+    border-radius: 50%; /* تطبيق الشكل الدائري على التأثير */
+}
+
+.social-links a:hover::before {
+    left: 100%;
+}
+
+/* Inner circle for depth effect */
+.social-links a::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover::after {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.social-links a i {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover i {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Active state */
+.social-links a:active {
+    transform: translateY(-2px) scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+/* Focus accessibility */
+.social-links a:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+/* Tooltip effect */
+.social-links a {
+    position: relative;
+}
+
+
+
+/* For better mobile experience */
+@media (max-width: 640px) {
+    .social-links {
+        gap: 0.8rem;
+        justify-content: center;
+    }
+    
+    .social-links a {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+}
