@@ -41,6 +41,58 @@
  }
 
 
+ /* FIX FOR MOBILE EMPTY SPACE - ADD THIS AT THE END OF YOUR CSS */
+@media (max-width: 768px) {
+    /* Force the experience section to full width */
+    #experience {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    
+    /* Override any container padding */
+    #experience .section-container,
+    #experience .experience-timeline {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Make cards full width */
+    #experience .experience-card {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 0 2rem 0 !important; /* Remove auto margins, keep bottom margin */
+        padding: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    /* Ensure card content also spans full width */
+    #experience .experience-card-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0; /* Optional: remove border-radius for edge-to-edge look */
+        padding: 1.5rem; /* Keep inner padding but no outer margins */
+    }
+    
+    /* If you want some padding on the sides of the content */
+    #experience .experience-card-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* For extra small screens */
+@media (max-width: 480px) {
+    #experience .experience-card-content {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
 
  /* Mobile adjustments */
  @media (max-width: 768px) {
