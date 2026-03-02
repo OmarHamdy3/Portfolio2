@@ -42,7 +42,7 @@
 .certifications-header-section .badge {
     display: inline-block;
     padding: 0.4rem 1rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: var(--primary);
     color: #000;
     font-size: 0.7rem;
     font-weight: 700;

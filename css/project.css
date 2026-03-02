@@ -42,7 +42,7 @@
 .projects-header-section .badge {
     display: inline-block;
     padding: 0.4rem 1rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: var(--primary);
     color: #000;
     font-size: 0.7rem;
     font-weight: 700;
@@ -822,4 +822,130 @@
         background: none;
         color: #000;
     }
+}
+
+
+/* Filter Count Badge */
+.filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    margin-left: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+[data-theme="light"] .filter-count {
+    background: rgba(0, 0, 0, 0.05);
+    color: #FF8C00;
+}
+
+.filter-btn.active .filter-count {
+    background: rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+/* Empty State Messages */
+.no-projects-message,
+.no-certificates-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.empty-state {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+[data-theme="light"] .empty-state {
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.empty-state i {
+    font-size: 3.5rem;
+    color: var(--primary);
+    margin-bottom: 1.2rem;
+    opacity: 0.8;
+}
+
+.empty-state h3 {
+    color: var(--light);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: var(--gray);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+[data-theme="light"] .empty-state h3 {
+    color: #111;
+}
+
+[data-theme="light"] .empty-state p {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Search Input Styles (if using search) */
+.projects-search-wrapper {
+    margin-bottom: 1.5rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.projects-search-input {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: var(--light);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.projects-search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .projects-search-input {
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #111;
+}
+
+[data-theme="light"] .projects-search-input:focus {
+    border-color: #FF8C00;
+    background: rgba(0, 0, 0, 0.01);
 }
