@@ -617,3 +617,177 @@
         border-bottom: 1px solid #000;
     }
 }
+
+
+/* ================= NEW ADDITIONS FOR ENHANCED EXPERIENCE SECTION ================= */
+
+/* Role Overview */
+.role-overview {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(251, 237, 82, 0.03);
+    border-radius: 12px;
+    border-left: 3px solid var(--primary);
+}
+
+[data-theme="light"] .role-overview {
+    background: rgba(255, 157, 0, 0.02);
+    border-left: 3px solid #FF8C00;
+}
+
+.role-overview-text {
+    color: var(--light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0.5rem 0 0 0;
+}
+
+[data-theme="light"] .role-overview-text {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* Skills Gained Section */
+.skills-gained {
+    margin-bottom: 1.5rem;
+}
+
+.skills-gained-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+/* Testimonials Compact */
+.testimonial-compact {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: linear-gradient(145deg,
+            rgba(251, 237, 82, 0.08) 0%,
+            rgba(251, 237, 82, 0.03) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(251, 237, 82, 0.15);
+}
+
+[data-theme="light"] .testimonial-compact {
+    background: linear-gradient(145deg,
+            rgba(255, 157, 0, 0.06) 0%,
+            rgba(255, 157, 0, 0.02) 100%);
+    border: 1px solid rgba(255, 157, 0, 0.12);
+}
+
+.testimonial-quote {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.testimonial-quote i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    opacity: 0.5;
+    margin-right: 0.5rem;
+    float: left;
+}
+
+.testimonial-text {
+    color: var(--light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0;
+    padding-left: 0.5rem;
+}
+
+[data-theme="light"] .testimonial-text {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.author-avatar {
+    width: 35px;
+    height: 35px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 1.1rem;
+}
+
+.author-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    color: var(--light);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+[data-theme="light"] .author-name {
+    color: #111;
+}
+
+.author-title {
+    color: var(--gray);
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+/* Dot Separator for footer */
+.dot-separator {
+    color: var(--primary);
+    margin: 0 0.5rem;
+    font-size: 0.8rem;
+}
+
+/* Responsive adjustments for new elements */
+@media (max-width: 768px) {
+    .testimonial-author {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .author-details {
+        align-items: center;
+    }
+    
+    .testimonial-quote i {
+        float: none;
+        display: block;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .role-overview {
+        padding: 0.75rem 1rem;
+    }
+    
+    .role-overview-text {
+        font-size: 0.85rem;
+    }
+    
+    .testimonial-compact {
+        padding: 1rem;
+    }
+    
+    .dot-separator {
+        display: none;
+    }
+    
+    .experience-note {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}

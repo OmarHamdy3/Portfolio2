@@ -953,3 +953,34 @@
         -webkit-text-fill-color: #000;
     }
 }
+
+
+/* Alternative styling with circular checkmarks */
+.professional-statement li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.professional-statement li i {
+    color: rgb(36, 36, 36);
+    background:var(--primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+}
+
+.professional-statement li:hover i {
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(232, 255, 101, 0.3);
+}
