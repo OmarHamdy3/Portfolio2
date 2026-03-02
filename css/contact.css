@@ -290,13 +290,13 @@
 }
 
 [data-theme="light"] .preference-item {
-    background: rgba(0, 0, 0, 0.02);
+     background: linear-gradient(135deg, var(--primary), var(--secondary));
     border: 1px solid rgba(0, 0, 0, 0.06);
     color: rgba(0, 0, 0, 0.6);
 }
 
 .preference-item.active {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: var(--primary);
     color: #000;
     border-color: transparent;
     font-weight: 600;
@@ -654,7 +654,7 @@
 }
 
 .checkbox-label input:checked~.checkmark {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: var(--primary);
     border-color: transparent;
 }
 
