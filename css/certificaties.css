@@ -102,18 +102,13 @@
     flex-wrap: wrap;
     gap: 0.5rem;
     padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+   
     backdrop-filter: blur(10px);
     max-width: 800px;
     margin: 0 auto;
 }
 
-[data-theme="light"] .certifications-filter {
-    background: rgba(0, 0, 0, 0.01);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
+
 
 .certifications-filter .filter-btn {
     padding: 0.5rem 1.2rem;
@@ -156,7 +151,7 @@
 }
 
 [data-theme="light"] .certifications-filter .filter-btn.active {
-    background: linear-gradient(135deg, #FF9D00, #FFB347);
+    background: var(--primary);
     color: #fff;
 }
 
@@ -640,7 +635,7 @@
     align-items: center;
     gap: 0.6rem;
     padding: 0.8rem 2rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: var(--primary);
     color: #000;
     border: none;
     border-radius: 10px;
@@ -654,13 +649,19 @@
     margin-top: 0.5rem;
 }
 
+[data-theme="light"] .cta-button {
+    background: linear-gradient(135deg, #ff9d00, #fbed52);
+}
+
 .cta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(251, 237, 82, 0.2);
+    color: #000000;
 }
 
 [data-theme="light"] .cta-button:hover {
     box-shadow: 0 8px 20px rgba(255, 157, 0, 0.15);
+    color: #000000;
 }
 
 .cta-button i {

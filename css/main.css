@@ -276,9 +276,223 @@ a:hover {
 .btn-outline:hover {
     background: var(--primary-solid, var(--primary));
     color: var(--dark);
-    border-color: var(--primary-solid, var(--primary));
+    border-color: var(--primary);
 }
 
+
+/* =================================
+   Buttons – Light Theme Only with Gradient
+   (Sized to match dark mode)
+================================= */
+
+[data-theme="light"] .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;  /* Changed from 0.6rem to match dark mode */
+
+    padding: 0.8rem 1.5rem;  /* Changed to match dark mode */
+    min-height: auto;  /* Removed fixed min-height */
+
+    background: linear-gradient(135deg, #FF9D00 0%, #FBED52 100%);
+    color: #111;
+    border: none;
+    border-radius: var(--border-radius);
+
+    font-size: 0.95rem;  /* Kept the same */
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+
+    transition:
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+
+    box-shadow: 0 4px 15px rgba(255, 157, 0, 0.25);  /* Adjusted to match dark mode intensity */
+}
+
+/* Gradient overlay for hover effect */
+[data-theme="light"] .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--border-radius);
+    background: linear-gradient(135deg, #FF8A00 0%, #FFD700 100%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.25s ease;
+}
+
+/* Hover - gradient shifts to darker/warmer tones */
+[data-theme="light"] .btn:hover {
+    color: #000000;
+    transform: translateY(-3px);  /* Changed from -2px to match dark mode */
+    box-shadow: 0 10px 25px rgba(255, 140, 0, 0.35);  /* Adjusted to match dark mode */
+}
+
+[data-theme="light"] .btn:hover::before {
+    opacity: 1;
+}
+
+/* Active - quick press feedback */
+[data-theme="light"] .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+}
+
+[data-theme="light"] .btn:active::before {
+    background: linear-gradient(135deg, #F57C00 0%, #FFC107 100%);
+    opacity: 1;
+}
+
+/* Focus for accessibility */
+[data-theme="light"] .btn:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 3px rgba(255, 157, 0, 0.4),
+        0 4px 15px rgba(255, 140, 0, 0.25);  /* Adjusted to match */
+}
+
+/* Outline Variant - matching dark mode sizing */
+[data-theme="light"] .btn-outline {
+    background: transparent;
+    color: #FF8A00;
+    margin-left: 1rem;  /* Kept the same */
+    box-shadow: none;
+    border: 2px solid transparent;  /* Kept border width */
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(135deg, #FF9D00, #FBED52);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    position: relative;
+    padding: 0.8rem 1.5rem;  /* Explicitly set to match */
+    gap: 0.5rem;
+}
+
+[data-theme="light"] .btn-outline::before {
+    display: none;
+}
+
+[data-theme="light"] .btn-outline:hover {
+    background: linear-gradient(135deg, #FF9D00, #FBED52);
+    color: #111;
+    border: 2px solid transparent;
+    transform: translateY(-3px);  /* Changed from -2px to match dark mode */
+    box-shadow: 0 10px 25px rgba(255, 157, 0, 0.3);  /* Adjusted to match */
+    background-clip: padding-box;
+}
+
+/* Alternative outline if you prefer solid border version */
+[data-theme="light"] .btn-outline-alt {
+    background: transparent;
+    border: 2px solid #FF9D00;
+    color: #FF9D00;
+    margin-left: 1rem;
+    box-shadow: none;
+    padding: 0.8rem 1.5rem;  /* Explicitly set to match */
+    gap: 0.5rem;
+}
+
+[data-theme="light"] .btn-outline-alt:hover {
+    background: linear-gradient(135deg, #FF9D00, #FBED52);
+    border-color: transparent;
+    color: #111;
+    transform: translateY(-3px);  /* Changed from -2px to match dark mode */
+    box-shadow: 0 10px 25px rgba(255, 157, 0, 0.25);  /* Adjusted to match */
+}
+
+/* Gradient text option for outline (more subtle) */
+[data-theme="light"] .btn-outline-gradient-text {
+    background: transparent;
+    border: 2px solid #FF9D00;
+    color: #FF8A00;
+    margin-left: 1rem;
+    box-shadow: none;
+    background-image: linear-gradient(135deg, #FF8A00, #FFD700);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0.8rem 1.5rem;  /* Explicitly set to match */
+    gap: 0.5rem;
+}
+
+[data-theme="light"] .btn-outline-gradient-text:hover {
+    background: linear-gradient(135deg, #FF9D00, #FBED52);
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: #111;
+    color: #111;
+    border-color: transparent;
+    transform: translateY(-3px);  /* Changed from -2px to match dark mode */
+    box-shadow: 0 10px 25px rgba(255, 157, 0, 0.25);  /* Adjusted to match */
+}
+
+/* Disabled State */
+[data-theme="light"] .btn:disabled,
+[data-theme="light"] .btn[aria-disabled="true"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+    background: linear-gradient(135deg, #cccccc, #dddddd);
+    transform: none;  /* Ensure no transform on disabled */
+}
+
+[data-theme="light"] .btn:disabled::before,
+[data-theme="light"] .btn[aria-disabled="true"]::before {
+    display: none;
+}
+
+/* Icon support */
+[data-theme="light"] .btn svg {
+    width: 1em;  /* Adjusted for better proportion */
+    height: 1em;
+    fill: currentColor;
+    transition: transform 0.2s ease;
+}
+
+[data-theme="light"] .btn:hover svg {
+    transform: translateX(3px);
+}
+
+/* Button group adjustments */
+[data-theme="light"] .btn-group .btn-outline {
+    margin-left: 0;
+}
+
+/* Optional: Add subtle shine effect */
+[data-theme="light"] .btn:not(.btn-outline)::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+    border-radius: calc(var(--border-radius) + 2px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+[data-theme="light"] .btn:not(.btn-outline):hover::after {
+    opacity: 1;
+}
+
+/* Ensure consistent sizing with dark mode when used together */
+[data-theme="light"] .btn,
+.btn {
+    /* This ensures both themes use the same box-sizing */
+    box-sizing: border-box;
+}
 
 /* Professional Badge */
 .modern-badge {

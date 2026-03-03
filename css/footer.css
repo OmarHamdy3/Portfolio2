@@ -1,4 +1,7 @@
 /* ================= PROFESSIONAL FOOTER - CONTACT SECTION STYLE ================= */
+
+
+
 .footer {
     position: relative;
     padding: 3rem 0 1.5rem;
@@ -61,7 +64,20 @@
 .footer-logo-icon {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: #FBED52; /* Always gradient */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 1.1rem;
+}
+
+
+[data-theme="light"] .footer-logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #FF9D00, #FBED52); /* Always gradient */
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -71,7 +87,15 @@
 }
 
 .footer-logo-text {
-    background: var(--primary);
+    background:  #FBED52;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Light mode adjustments for logo text */
+[data-theme="light"] .footer-logo-text {
+    background: linear-gradient(135deg, #FF9D00, #FBED52);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -107,8 +131,18 @@
 }
 
 .footer-column h4 i {
-    color: var(--primary);
+    background: #FBED52;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-size: 0.8rem;
+}
+
+[data-theme="light"] .footer-column h4 i {
+    background: linear-gradient(135deg, #FF9D00, #FBED52);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .footer-nav {
@@ -133,20 +167,36 @@
 }
 
 .footer-nav a i {
-    color: var(--primary);
+    background: linear-gradient(135deg, #FBED52, #FF9D00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-size: 0.65rem;
     opacity: 0;
     transform: translateX(-5px);
     transition: all 0.2s ease;
 }
 
+[data-theme="light"] .footer-nav a i {
+    background: linear-gradient(135deg, #FF9D00, #FBED52);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 .footer-nav a:hover {
-    color: var(--primary);
+    background: linear-gradient(135deg, #FBED52, #FF9D00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     transform: translateX(3px);
 }
 
 [data-theme="light"] .footer-nav a:hover {
-    color: #FF8C00;
+    background: linear-gradient(135deg, #FF9D00, #FBED52);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .footer-nav a:hover i {
@@ -165,7 +215,7 @@
 .footer-contact-icon {
     width: 32px;
     height: 32px;
-    background: var(--primary);
+    background: #FBED52;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -174,6 +224,21 @@
     font-size: 0.8rem;
     flex-shrink: 0;
 }
+
+[data-theme="light"] .footer-contact-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #FBED52, #FF9D00);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+
 
 .footer-contact-text {
     flex: 1;
@@ -205,7 +270,17 @@
 }
 
 .footer-contact-value:hover {
-    color: var(--primary);
+    background: #FBED52;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+[data-theme="light"] .footer-contact-value:hover {
+    background: linear-gradient(135deg, #FBED52, #FF9D00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Social Links - Clean */
@@ -237,59 +312,121 @@
 }
 
 .footer-social a:hover {
-    background: var(--primary);
+    background:  #FBED52;
     color: #000;
     transform: translateY(-2px);
     border-color: transparent;
 }
 
-/* Availability Badge - Clean */
+[data-theme="light"] .footer-social a:hover {
+    background: linear-gradient(135deg, #FBED52, #FF9D00);
+    color: #000;
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+
+/* Availability Badge - Professional (default green) */
 .footer-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.4rem 1rem;
-    background: rgba(46, 204, 113, 0.05);
-    border: 1px solid rgba(46, 204, 113, 0.1);
-    border-radius: 30px;
+    padding: 0.3rem 0.9rem;  /* Reduced horizontal padding */
+    background: rgba(46, 204, 113, 0.04);  /* More subtle background */
+    border: 1px solid rgba(46, 204, 113, 0.15);  /* Slightly more defined border */
+    border-radius: 40px;  /* Slightly more rounded */
     margin-top: 1rem;
+    width: fit-content;  /* Ensures badge only takes needed space */
+    backdrop-filter: blur(2px);  /* Subtle blur for depth */
+    transition: all 0.2s ease;
+}
+
+/* Optional hover effect for interactivity */
+.footer-badge:hover {
+    background: rgba(46, 204, 113, 0.06);
+    border-color: rgba(46, 204, 113, 0.25);
+    transform: translateY(-1px);
 }
 
 [data-theme="light"] .footer-badge {
-    background: rgba(46, 204, 113, 0.03);
-    border: 1px solid rgba(46, 204, 113, 0.08);
+    background: rgba(46, 204, 113, 0.02);
+    border: 1px solid rgba(46, 204, 113, 0.1);
+}
+
+[data-theme="light"] .footer-badge:hover {
+    background: rgba(46, 204, 113, 0.04);
+    border-color: rgba(46, 204, 113, 0.15);
 }
 
 .footer-badge-dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;  /* Slightly smaller dot */
+    height: 6px;  /* Slightly smaller dot */
     background: #2ecc71;
     border-radius: 50%;
     position: relative;
 }
 
+/* More subtle pulse animation */
 .footer-badge-dot::before {
     content: '';
     position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    background: rgba(46, 204, 113, 0.3);
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: rgba(46, 204, 113, 0.2);  /* More subtle glow */
     border-radius: 50%;
-    animation: footerPulse 2s ease-out infinite;
+    animation: professionalPulse 2.5s ease-out infinite;  /* Slower, more elegant pulse */
 }
 
-@keyframes footerPulse {
-    0% { transform: scale(0.5); opacity: 1; }
-    100% { transform: scale(2); opacity: 0; }
+@keyframes professionalPulse {
+    0% { 
+        transform: scale(0.6); 
+        opacity: 0.8; 
+    }
+    100% { 
+        transform: scale(2); 
+        opacity: 0; 
+    }
 }
 
 .footer-badge-text {
-    font-size: 0.75rem;
+    font-size: 0.7rem;  /* Slightly smaller text */
     color: #2ecc71;
     font-weight: 500;
+    letter-spacing: 0.02em;  /* Subtle letter spacing for professionalism */
+    text-transform: uppercase;  /* Uppercase for more professional look */
+    line-height: 2;
 }
+
+/* Alternative professional texts you can use: */
+/*
+.footer-badge-text {
+    content: "READY";
+    or
+    content: "ACTIVE";
+    or  
+    content: "OPEN";
+}
+*/
+
+/* Even more compact version for small screens */
+@media (max-width: 480px) {
+    .footer-badge {
+        padding: 0.25rem 0.75rem;
+        gap: 0.4rem;
+    }
+    
+    .footer-badge-dot {
+        width: 5px;
+        height: 5px;
+    }
+    
+    .footer-badge-text {
+        font-size: 0.65rem;
+    }
+}
+
+
 
 /* ===== FOOTER DIVIDER ===== */
 .footer-divider {
@@ -334,8 +471,18 @@
 }
 
 .footer-copyright i {
-    color: var(--primary);
+    background: linear-gradient(135deg, #FBED52, #FF9D00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-size: 0.7rem;
+}
+
+[data-theme="light"] .footer-copyright i {
+    background: linear-gradient(135deg, #FF9D00, #FBED52);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .footer-copyright span {
@@ -372,16 +519,19 @@
     left: 0;
     width: 0;
     height: 1px;
-    background: var(--primary);
+    background: linear-gradient(135deg, #FBED52, #FF9D00);
     transition: width 0.2s ease;
 }
 
 [data-theme="light"] .footer-legal a::after {
-    background: #FF8C00;
+    background: linear-gradient(135deg, #FF9D00, #FBED52);
 }
 
 .footer-legal a:hover {
-    color: var(--primary);
+    background: linear-gradient(135deg, #FBED52, #FF9D00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .footer-legal a:hover::after {
@@ -425,7 +575,7 @@
 }
 
 .back-to-top:hover {
-    background: var(--primary);
+    background: linear-gradient(135deg, #FBED52, #FF9D00);
     color: #000;
     transform: translateY(-3px);
     border-color: transparent;
@@ -548,5 +698,198 @@
     .footer-copyright,
     .footer-legal a {
         color: #000;
+    }
+}
+
+/* ================= UNAVAILABLE BADGE - RED VARIANT ================= */
+.footer-badge.unavailable {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(220, 53, 69, 0.1);
+    border-radius: 100px;
+    border: 1px solid rgba(220, 53, 69, 0.25);
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+}
+
+.footer-badge.unavailable .footer-badge-dot {
+    width: 8px;
+    height: 8px;
+    background: #dc3545;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
+}
+
+.footer-badge.unavailable .footer-badge-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 12px;
+    height: 2px;
+    background: #dc3545;
+    border-radius: 1px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.footer-badge.unavailable:hover .footer-badge-dot::after {
+    opacity: 0.5;
+}
+
+.footer-badge.unavailable .footer-badge-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #dc3545;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.footer-badge.unavailable:hover {
+    background: rgba(220, 53, 69, 0.15);
+    border-color: rgba(220, 53, 69, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.2);
+}
+
+/* ================= ALTERNATIVE: SOLID RED BADGE (More Bold) ================= */
+.footer-badge.solid.unavailable {
+    background: #dc3545;
+    border-color: #dc3545;
+}
+
+.footer-badge.solid.unavailable .footer-badge-dot {
+    background: #ffffff;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.footer-badge.solid.unavailable .footer-badge-text {
+    color: #ffffff;
+}
+
+.footer-badge.solid.unavailable:hover {
+    background: #bb2d3b;
+    border-color: #bb2d3b;
+}
+
+/* ================= ALTERNATIVE: OUTLINED RED BADGE (Minimal) ================= */
+.footer-badge.outlined.unavailable {
+    background: transparent;
+    border: 2px solid rgba(220, 53, 69, 0.5);
+}
+
+.footer-badge.outlined.unavailable .footer-badge-dot {
+    background: #dc3545;
+    box-shadow: none;
+}
+
+.footer-badge.outlined.unavailable .footer-badge-text {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.footer-badge.outlined.unavailable:hover {
+    background: rgba(220, 53, 69, 0.05);
+    border-color: #dc3545;
+}
+
+/* ================= LIGHT THEME SUPPORT ================= */
+[data-theme="light"] .footer-badge.unavailable {
+    background: rgba(220, 53, 69, 0.08);
+    border-color: rgba(220, 53, 69, 0.3);
+}
+
+[data-theme="light"] .footer-badge.unavailable .footer-badge-text {
+    color: #b02a37;
+}
+
+[data-theme="light"] .footer-badge.unavailable .footer-badge-dot {
+    background: #b02a37;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.15);
+}
+
+[data-theme="light"] .footer-badge.unavailable:hover {
+    background: rgba(220, 53, 69, 0.12);
+}
+
+[data-theme="light"] .footer-badge.solid.unavailable {
+    background: #dc3545;
+}
+
+[data-theme="light"] .footer-badge.solid.unavailable .footer-badge-text {
+    color: #ffffff;
+}
+
+[data-theme="light"] .footer-badge.outlined.unavailable {
+    background: transparent;
+}
+
+[data-theme="light"] .footer-badge.outlined.unavailable .footer-badge-text {
+    color: #b02a37;
+}
+
+/* ================= PULSING RED VARIANT (For Urgent/Emergency) ================= */
+.footer-badge.pulsing.unavailable {
+    animation: softPulse 2s infinite;
+}
+
+.footer-badge.pulsing.unavailable .footer-badge-dot {
+    animation: pulseDot 2s infinite;
+}
+
+@keyframes softPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.3);
+    }
+    70% {
+        box-shadow: 0 0 0 6px rgba(220, 53, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+    }
+}
+
+@keyframes pulseDot {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
+@media (max-width: 480px) {
+    .footer-badge {
+        padding: 0.3rem 0.8rem;
+    }
+    
+    .footer-badge-text {
+        font-size: 0.7rem;
+    }
+    
+    .footer-badge-dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+@media (max-width: 320px) {
+    .footer-badge {
+        padding: 0.25rem 0.6rem;
+    }
+    
+    .footer-badge-text {
+        font-size: 0.65rem;
     }
 }

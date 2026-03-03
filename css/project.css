@@ -102,18 +102,12 @@
     flex-wrap: wrap;
     gap: 0.5rem;
     padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(10px);
     max-width: 800px;
     margin: 0 auto;
 }
 
-[data-theme="light"] .projects-filter {
-    background: rgba(0, 0, 0, 0.01);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
+
 
 .filter-btn {
     padding: 0.5rem 1.2rem;
@@ -156,7 +150,7 @@
 }
 
 [data-theme="light"] .filter-btn.active {
-    background: linear-gradient(135deg, #FF9D00, #FFB347);
+    background: var(--primary);
     color: #fff;
 }
 
