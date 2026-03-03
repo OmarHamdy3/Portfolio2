@@ -259,6 +259,41 @@
     border: 1px solid rgba(255, 157, 0, 0.12);
 }
 
+/* For mobile phones */
+@media (max-width: 768px) {
+    .project-status {
+        width: auto;           /* Prevents full width */
+        max-width: fit-content; /* Shrinks to content size */
+        padding: 0.25rem 0.8rem; /* Slightly smaller padding */
+        font-size: 0.65rem;    /* Smaller font */
+        white-space: nowrap;    /* Prevents text wrapping */
+    }
+}
+
+/* For small phones */
+@media (max-width: 480px) {
+    .project-status {
+        padding: 0.2rem 0.6rem; /* Even smaller padding */
+        font-size: 0.6rem;      /* Smaller font */
+        width: auto;
+        max-width: fit-content;
+        display: inline-flex;    /* Ensures it stays inline */
+    }
+    
+    /* If you want to prevent it from stretching in a flex container */
+    .project-meta {
+        align-items: flex-start; /* Align to start instead of stretch */
+    }
+}
+
+/* For very small phones */
+@media (max-width: 360px) {
+    .project-status {
+        padding: 0.15rem 0.5rem;
+        font-size: 0.55rem;
+    }
+}
+
 /* Project Content */
 .project-content {
     padding: 1.5rem;
