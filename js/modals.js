@@ -822,3 +822,357 @@ document.addEventListener('visibilitychange', () => {
         });
     }
 });
+
+
+
+// ============================================
+// UNIVERSAL MODAL SYSTEM - WORKS FOR ALL PROJECTS
+// ============================================
+
+// Configuration - Add all your modal IDs here
+const MODAL_IDS = {
+    superstore: 'superstore-modal',
+    roadAccident: 'road-accident-modal',
+    // Add more projects here as needed
+    // hrAnalytics: 'hr-analytics-modal',
+    // financialDashboard: 'financial-dashboard-modal',
+};
+
+// Track currently open modal
+let currentOpenModal = null;
+
+// ============================================
+// OPEN MODAL FUNCTIONS - Call these from your main page
+// ============================================
+
+function openSuperstoreModal() {
+    openModal(MODAL_IDS.superstore);
+}
+
+function openRoadAccidentModal() {
+    openModal(MODAL_IDS.roadAccident);
+}
+
+// Generic function to open any modal by ID
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        // Close any currently open modal first
+        if (currentOpenModal) {
+            closeModal(currentOpenModal);
+        }
+        
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        currentOpenModal = modal;
+        
+        // Optional: Add analytics tracking
+        console.log(`Modal opened: ${modalId}`);
+    }
+}
+
+// ============================================
+// CLOSE MODAL FUNCTIONALITY
+// ============================================
+
+function closeModal(modal) {
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Pause any playing videos in this modal
+        pauseVideosInModal(modal);
+        
+        if (currentOpenModal === modal) {
+            currentOpenModal = null;
+        }
+    }
+}
+
+// Close all close buttons for all modals
+document.querySelectorAll('.close-modal').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const modal = this.closest('.project-modal');
+        closeModal(modal);
+    });
+});
+
+// Close when clicking outside modal content for ALL modals
+document.querySelectorAll('.project-modal').forEach(modal => {
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal(this);
+        }
+    });
+});
+
+// ============================================
+// ESCAPE KEY HANDLER - Closes current modal
+// ============================================
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && currentOpenModal) {
+        closeModal(currentOpenModal);
+        // Also close any open fullscreen overlay
+        document.querySelectorAll('.fullscreen-overlay.active').forEach(overlay => {
+            overlay.classList.remove('active');
+        });
+    }
+});
+
+// ============================================
+// FULLSCREEN IMAGE FUNCTIONALITY - Works for all modals
+// ============================================
+
+// Get all fullscreen overlays (each modal can have its own)
+const fullscreenOverlays = document.querySelectorAll('.fullscreen-overlay');
+
+// Setup expand buttons for all modals
+document.querySelectorAll('.expand-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
+        // Find the closest modal to get its fullscreen overlay
+        const modal = this.closest('.project-modal');
+        const overlay = modal ? modal.querySelector('.fullscreen-overlay') : document.querySelector('.fullscreen-overlay');
+        
+        if (overlay) {
+            const img = this.closest('.dashboard-preview').querySelector('img');
+            const fullscreenImage = overlay.querySelector('.fullscreen-image');
+            
+            if (img && fullscreenImage) {
+                fullscreenImage.src = img.src;
+                fullscreenImage.alt = img.alt || 'Fullscreen image';
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+    });
+});
+
+// Close fullscreen buttons for all overlays
+document.querySelectorAll('.close-fullscreen').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const overlay = this.closest('.fullscreen-overlay');
+        if (overlay) {
+            overlay.classList.remove('active');
+            document.body.style.overflow = currentOpenModal ? 'hidden' : 'auto';
+        }
+    });
+});
+
+// Close fullscreen when clicking overlay background
+document.querySelectorAll('.fullscreen-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.remove('active');
+            document.body.style.overflow = currentOpenModal ? 'hidden' : 'auto';
+        }
+    });
+});
+
+// ============================================
+// VIDEO PLAYER FUNCTIONALITY - Works for all modals
+// ============================================
+
+function initializeVideoPlayers(modal = null) {
+    const videos = modal ? 
+        modal.querySelectorAll('.project-video') : 
+        document.querySelectorAll('.project-video');
+    
+    videos.forEach(video => {
+        // Remove existing listeners to prevent duplicates
+        const newVideo = video.cloneNode(true);
+        video.parentNode.replaceChild(newVideo, video);
+        
+        setupVideoPlayer(newVideo);
+    });
+}
+
+function setupVideoPlayer(video) {
+    const wrapper = video.closest('.video-wrapper');
+    if (!wrapper) return;
+    
+    const playBtn = wrapper.querySelector('.video-play-btn');
+    const loading = wrapper.querySelector('.video-loading');
+    
+    if (!playBtn) return;
+    
+    // Play button click
+    playBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
+        if (video.paused) {
+            if (loading) loading.classList.add('active');
+            
+            video.play()
+                .then(() => {
+                    if (loading) loading.classList.remove('active');
+                    playBtn.style.opacity = '0';
+                    playBtn.style.pointerEvents = 'none';
+                })
+                .catch(error => {
+                    console.error('Video playback failed:', error);
+                    if (loading) loading.classList.remove('active');
+                });
+        } else {
+            video.pause();
+        }
+    });
+    
+    // Video events
+    video.addEventListener('pause', () => {
+        playBtn.style.opacity = '1';
+        playBtn.style.pointerEvents = 'auto';
+    });
+    
+    video.addEventListener('play', () => {
+        playBtn.style.opacity = '0';
+        playBtn.style.pointerEvents = 'none';
+    });
+    
+    video.addEventListener('waiting', () => {
+        if (loading) loading.classList.add('active');
+    });
+    
+    video.addEventListener('canplay', () => {
+        if (loading) loading.classList.remove('active');
+    });
+    
+    video.addEventListener('ended', () => {
+        playBtn.style.opacity = '1';
+        playBtn.style.pointerEvents = 'auto';
+    });
+    
+    // Error handling
+    video.addEventListener('error', () => {
+        console.error('Video error occurred');
+        if (loading) loading.classList.remove('active');
+        playBtn.style.opacity = '1';
+        playBtn.style.pointerEvents = 'auto';
+    });
+}
+
+// Initialize all video players on page load
+document.addEventListener('DOMContentLoaded', () => {
+    initializeVideoPlayers();
+});
+
+// ============================================
+// VIDEO CHAPTERS FUNCTIONALITY
+// ============================================
+
+document.querySelectorAll('.chapter-item').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
+        const time = this.getAttribute('data-time');
+        const modal = this.closest('.project-modal');
+        const video = modal ? modal.querySelector('.project-video') : document.querySelector('.project-video');
+        
+        if (video && time) {
+            video.currentTime = parseInt(time);
+            video.play().catch(error => {
+                console.log('Video playback requires user interaction first');
+            });
+        }
+    });
+});
+
+// ============================================
+// HELPER FUNCTIONS
+// ============================================
+
+// Pause all videos in a specific modal
+function pauseVideosInModal(modal) {
+    if (!modal) return;
+    
+    const videos = modal.querySelectorAll('.project-video');
+    videos.forEach(video => {
+        if (!video.paused) {
+            video.pause();
+        }
+    });
+}
+
+// Reset modal state when closed (optional)
+function resetModalState(modal) {
+    if (!modal) return;
+    
+    // Reset any forms, scroll positions, etc.
+    const scrollableContent = modal.querySelector('.modal-body');
+    if (scrollableContent) {
+        scrollableContent.scrollTop = 0;
+    }
+    
+    // Remove any active states
+    const activeElements = modal.querySelectorAll('.active');
+    activeElements.forEach(el => el.classList.remove('active'));
+}
+
+// Extend closeModal to include reset
+const originalCloseModal = closeModal;
+closeModal = function(modal) {
+    originalCloseModal(modal);
+    resetModalState(modal);
+};
+
+// ============================================
+// THEME TOGGLE SUPPORT (if needed)
+// ============================================
+
+const themeToggle = document.querySelector('[data-theme-toggle]');
+if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = document.body.dataset.theme;
+        document.body.dataset.theme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        // Optional: Save preference to localStorage
+        localStorage.setItem('theme', document.body.dataset.theme);
+    });
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.body.dataset.theme = savedTheme;
+    }
+}
+
+// ============================================
+// INITIALIZATION ON PAGE LOAD
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Hide all modals initially (in case any are visible)
+    document.querySelectorAll('.project-modal').forEach(modal => {
+        modal.style.display = 'none';
+    });
+    
+    // Ensure body overflow is auto
+    document.body.style.overflow = 'auto';
+    
+    console.log('Modal system initialized for all projects');
+});
+
+// ============================================
+// DEBUGGING HELPER (remove in production)
+// ============================================
+
+function getCurrentModalInfo() {
+    return {
+        currentOpenModal: currentOpenModal ? currentOpenModal.id : null,
+        modalCount: document.querySelectorAll('.project-modal').length,
+        fullscreenActive: document.querySelector('.fullscreen-overlay.active') !== null
+    };
+}
+
+// Expose useful functions globally
+window.modalSystem = {
+    openSuperstore: openSuperstoreModal,
+    openRoadAccident: openRoadAccidentModal,
+    openModal: openModal,
+    closeCurrentModal: () => currentOpenModal && closeModal(currentOpenModal),
+    getInfo: getCurrentModalInfo
+};
