@@ -7,6 +7,10 @@ class ModalSystem {
         this.fullscreenOverlay = null;
         this.isFullscreenActive = false;
         this.videoPlayers = new Map();
+        this.modalIds = {
+            superstore: 'superstore-modal',
+            roadAccident: 'road-accident-modal'
+        };
         
         this.init();
     }
@@ -16,12 +20,82 @@ class ModalSystem {
         this.initDashboardFullscreen();
         this.initVideoPlayers();
         this.initAccessibility();
-        this.initPerformanceMonitoring();
+        this.hideAllModalsOnLoad();
+        this.initModalTriggers(); // Added this method
+    }
+    
+    // Hide all modals initially
+    hideAllModalsOnLoad() {
+        document.querySelectorAll('.project-modal').forEach(modal => {
+            modal.style.display = 'none';
+        });
+        document.body.style.overflow = 'auto';
+    }
+    
+    // ================= NEW METHOD: Initialize all possible modal triggers =================
+    initModalTriggers() {
+        // Find all possible triggers that might open modals
+        const triggers = document.querySelectorAll(
+            '[data-modal], ' +
+            '[data-modal-target], ' +
+            '.open-modal, ' +
+            '.view-case-study, ' +
+            '.btn-view-case-study, ' +
+            'a[href*="#road-accident-modal"], ' +
+            'a[href*="#superstore-modal"]'
+        );
+        
+        triggers.forEach(trigger => {
+            // Remove any existing listeners to prevent duplicates
+            trigger.removeEventListener('click', this.handleTriggerClick);
+            
+            // Add click handler
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Get modal ID from various possible attributes
+                let modalId = trigger.getAttribute('data-modal') || 
+                             trigger.getAttribute('data-modal-target') ||
+                             trigger.getAttribute('href')?.replace('#', '') ||
+                             trigger.getAttribute('data-target');
+                
+                if (modalId) {
+                    // Clean up modal ID (remove # if present)
+                    modalId = modalId.replace('#', '');
+                    
+                    // Check if it's one of our known modals
+                    if (modalId === 'road-accident-modal' || modalId === 'superstore-modal') {
+                        this.openModal(modalId);
+                    }
+                }
+            });
+            
+            // Keyboard accessibility
+            trigger.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    
+                    let modalId = trigger.getAttribute('data-modal') || 
+                                 trigger.getAttribute('data-modal-target') ||
+                                 trigger.getAttribute('href')?.replace('#', '') ||
+                                 trigger.getAttribute('data-target');
+                    
+                    if (modalId) {
+                        modalId = modalId.replace('#', '');
+                        if (modalId === 'road-accident-modal' || modalId === 'superstore-modal') {
+                            this.openModal(modalId);
+                        }
+                    }
+                }
+            });
+        });
+        
+        console.log('Modal triggers initialized');
     }
     
     // ================= PROJECT MODALS =================
     initProjectModals() {
-        // Open Modal Handlers
+        // Open Modal Handlers - Using data-modal attribute
         document.querySelectorAll('[data-modal]').forEach(trigger => {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -29,7 +103,7 @@ class ModalSystem {
                 this.openModal(modalId);
             });
             
-            // Add keyboard accessibility
+            // Keyboard accessibility
             trigger.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -39,9 +113,28 @@ class ModalSystem {
             });
         });
         
-        // Close Modal Handlers
-        document.querySelectorAll('.close-modal.executive').forEach(btn => {
-            btn.addEventListener('click', () => {
+        // Also handle legacy onclick attributes
+        if (typeof window.openRoadAccidentModal === 'undefined') {
+            window.openRoadAccidentModal = () => this.openRoadAccidentModal();
+        }
+        if (typeof window.openSuperstoreModal === 'undefined') {
+            window.openSuperstoreModal = () => this.openSuperstoreModal();
+        }
+        
+        // Close Modal Handlers - For X buttons
+        document.querySelectorAll('.close-modal').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const modal = btn.closest('.project-modal');
+                if (modal) this.closeModal(modal);
+            });
+        });
+        
+        // Close Modal Handlers - For Back to Portfolio buttons
+        document.querySelectorAll('.close-modal-trigger, .btn-portfolio').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 const modal = btn.closest('.project-modal');
                 if (modal) this.closeModal(modal);
             });
@@ -50,8 +143,7 @@ class ModalSystem {
         // Close on outside click
         document.addEventListener('click', (e) => {
             if (this.activeModal && 
-                e.target.classList.contains('project-modal') &&
-                !e.target.closest('.modal-content')) {
+                e.target.classList.contains('project-modal')) {
                 this.closeModal(this.activeModal);
             }
         });
@@ -61,14 +153,6 @@ class ModalSystem {
             if (e.key === 'Escape') {
                 this.handleEscapeKey();
             }
-        });
-        
-        // Footer action buttons
-        document.querySelectorAll('.modal-footer .btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const modal = btn.closest('.project-modal');
-                if (modal) this.closeModal(modal);
-            });
         });
     }
     
@@ -105,6 +189,8 @@ class ModalSystem {
         requestAnimationFrame(() => {
             modal.classList.add('active');
         });
+        
+        console.log(`Modal opened: ${modalId}`);
     }
     
     closeModal(modal) {
@@ -113,17 +199,17 @@ class ModalSystem {
         // Pause all videos in modal
         modal.querySelectorAll('video').forEach(video => {
             video.pause();
-            const playBtn = video.parentElement.querySelector('.video-play-btn');
+            const playBtn = video.closest('.video-wrapper')?.querySelector('.video-play-btn');
             if (playBtn) {
-                playBtn.classList.remove('playing');
                 playBtn.style.opacity = '1';
+                playBtn.style.pointerEvents = 'auto';
             }
         });
         
         // Hide modal
         modal.style.display = 'none';
         modal.classList.remove('active');
-        document.body.style.overflow = '';
+        document.body.style.overflow = 'auto';
         
         // Dispatch custom event
         this.dispatchEvent('modal:close', { modal });
@@ -140,31 +226,47 @@ class ModalSystem {
         }
     }
     
-    closeAllModals() {
-        document.querySelectorAll('.project-modal').forEach(modal => {
-            if (modal.style.display === 'block') {
-                this.closeModal(modal);
-            }
-        });
+    // Specific open functions for backward compatibility
+    openSuperstoreModal() {
+        this.openModal(this.modalIds.superstore);
+    }
+    
+    openRoadAccidentModal() {
+        this.openModal(this.modalIds.roadAccident);
     }
     
     // ================= DASHBOARD FULLSCREEN FUNCTIONALITY =================
     initDashboardFullscreen() {
-        // Expand button handlers
-        document.addEventListener('click', (e) => {
-            const expandBtn = e.target.closest('.expand-btn');
-            if (expandBtn) {
-                e.stopPropagation();
-                const preview = expandBtn.closest('.dashboard-preview, .mini-preview');
-                const img = preview.querySelector('.dashboard-image');
-                this.openFullscreenImage(img.src, img.alt);
-            }
-        });
-        
         // Create fullscreen overlay if it doesn't exist
         if (!this.fullscreenOverlay) {
             this.createFullscreenOverlay();
         }
+        
+        // Expand button handlers
+        document.addEventListener('click', (e) => {
+            const expandBtn = e.target.closest('.expand-btn');
+            if (expandBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                const preview = expandBtn.closest('.dashboard-preview');
+                if (!preview) return;
+                
+                const img = preview.querySelector('img.dashboard-image, img');
+                if (img) {
+                    this.openFullscreenImage(img.src, img.alt);
+                }
+            }
+        });
+        
+        // Also handle direct image clicks if they have data-fullscreen attribute
+        document.addEventListener('click', (e) => {
+            const img = e.target.closest('img[data-fullscreen]');
+            if (img) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.openFullscreenImage(img.src, img.alt);
+            }
+        });
     }
     
     createFullscreenOverlay() {
@@ -185,7 +287,10 @@ class ModalSystem {
         
         // Close button handler
         const closeBtn = this.fullscreenOverlay.querySelector('.close-fullscreen');
-        closeBtn.addEventListener('click', () => this.closeFullscreenImage());
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.closeFullscreenImage();
+        });
         
         // Close on background click
         this.fullscreenOverlay.addEventListener('click', (e) => {
@@ -194,7 +299,7 @@ class ModalSystem {
             }
         });
         
-        // Close on Escape key
+        // Close on Escape key when fullscreen is active
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.isFullscreenActive) {
                 this.closeFullscreenImage();
@@ -230,7 +335,7 @@ class ModalSystem {
         
         this.fullscreenOverlay.classList.remove('active');
         this.isFullscreenActive = false;
-        document.body.style.overflow = '';
+        document.body.style.overflow = this.activeModal ? 'hidden' : 'auto';
         
         // Clear image source to free memory
         const fullscreenImg = this.fullscreenOverlay.querySelector('.fullscreen-image');
@@ -251,32 +356,29 @@ class ModalSystem {
     }
     
     initModalVideo(modal) {
-        const video = modal.querySelector('.project-video');
-        if (video) {
-            this.initSingleVideo(video);
-        }
+        const videos = modal.querySelectorAll('.project-video');
+        videos.forEach(video => this.initSingleVideo(video));
     }
     
     initSingleVideo(video) {
         if (this.videoPlayers.has(video)) return;
         
         const wrapper = video.closest('.video-wrapper');
-        const playBtn = wrapper?.querySelector('.video-play-btn');
-        const loadingOverlay = wrapper?.querySelector('.video-loading');
-        const chapterItems = wrapper?.closest('.video-section')?.querySelectorAll('.chapter-item');
+        if (!wrapper) return;
+        
+        const playBtn = wrapper.querySelector('.video-play-btn');
+        const loadingOverlay = wrapper.querySelector('.video-loading');
         
         // Store video instance
         this.videoPlayers.set(video, {
             wrapper,
             playBtn,
             loadingOverlay,
-            chapterItems,
             isPlaying: false
         });
         
         // Ensure no autoplay
         video.removeAttribute('autoplay');
-        video.controls = true; // Use native controls for consistency
         
         // Add custom play button functionality
         if (playBtn) {
@@ -299,22 +401,16 @@ class ModalSystem {
             }
         });
         
-        // Chapter navigation
-        if (chapterItems) {
-            this.setupChapterNavigation(video, chapterItems);
-        }
-        
         // Track play state
         video.addEventListener('play', () => {
             const data = this.videoPlayers.get(video);
             if (data) {
                 data.isPlaying = true;
                 if (data.playBtn) {
-                    data.playBtn.classList.add('playing');
                     data.playBtn.style.opacity = '0';
+                    data.playBtn.style.pointerEvents = 'none';
                 }
             }
-            this.dispatchEvent('video:play', { video });
         });
         
         video.addEventListener('pause', () => {
@@ -322,26 +418,23 @@ class ModalSystem {
             if (data) {
                 data.isPlaying = false;
                 if (data.playBtn) {
-                    data.playBtn.classList.remove('playing');
                     data.playBtn.style.opacity = '1';
+                    data.playBtn.style.pointerEvents = 'auto';
                 }
             }
-            this.dispatchEvent('video:pause', { video });
         });
         
         video.addEventListener('ended', () => {
             const data = this.videoPlayers.get(video);
             if (data && data.playBtn) {
                 data.playBtn.style.opacity = '1';
+                data.playBtn.style.pointerEvents = 'auto';
             }
-            this.dispatchEvent('video:ended', { video });
         });
         
         // Error handling
         video.addEventListener('error', (e) => {
             console.error('Video error:', video.error);
-            this.dispatchEvent('video:error', { video, error: video.error });
-            
             if (loadingOverlay) {
                 loadingOverlay.innerHTML = `
                     <div class="error-icon">
@@ -352,10 +445,6 @@ class ModalSystem {
             }
         });
         
-        // Accessibility
-        video.setAttribute('tabindex', '0');
-        video.setAttribute('aria-label', 'Project demonstration video');
-        
         // Keyboard controls
         video.addEventListener('keydown', (e) => {
             if (e.code === 'Space') {
@@ -363,6 +452,9 @@ class ModalSystem {
                 this.toggleVideoPlay(video);
             }
         });
+        
+        // Chapter navigation
+        this.setupChapterNavigation(video);
     }
     
     toggleVideoPlay(video) {
@@ -372,7 +464,6 @@ class ModalSystem {
         if (video.paused) {
             video.play().catch(error => {
                 console.warn('Video play failed:', error);
-                // Fallback: show error message
                 if (data.playBtn) {
                     data.playBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
                     setTimeout(() => {
@@ -385,47 +476,32 @@ class ModalSystem {
         }
     }
     
-    setupChapterNavigation(video, chapterItems) {
-        const updateActiveChapter = () => {
-            const currentTime = video.currentTime;
-            let activeChapter = null;
-            
-            chapterItems.forEach(chapter => {
-                const chapterTime = parseInt(chapter.getAttribute('data-time'));
-                const nextChapter = chapter.nextElementSibling;
-                const nextTime = nextChapter ? 
-                    parseInt(nextChapter.getAttribute('data-time')) : 
-                    video.duration;
-                
-                if (currentTime >= chapterTime && currentTime < nextTime) {
-                    activeChapter = chapter;
-                }
-                
-                chapter.classList.remove('active');
-            });
-            
-            if (activeChapter) {
-                activeChapter.classList.add('active');
-            }
-        };
+    setupChapterNavigation(video) {
+        const section = video.closest('.video-section');
+        if (!section) return;
         
-        // Update chapter on time update
-        video.addEventListener('timeupdate', updateActiveChapter);
+        const chapterItems = section.querySelectorAll('.chapter-item');
+        if (!chapterItems.length) return;
         
         // Chapter click handlers
         chapterItems.forEach(chapter => {
-            chapter.addEventListener('click', () => {
-                const time = parseInt(chapter.getAttribute('data-time'));
-                video.currentTime = time;
+            chapter.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 
-                // Play video if paused
-                if (video.paused) {
-                    video.play();
+                const time = chapter.getAttribute('data-time');
+                if (time) {
+                    video.currentTime = parseInt(time);
+                    
+                    // Play video if paused
+                    if (video.paused) {
+                        video.play();
+                    }
+                    
+                    // Update active chapter
+                    chapterItems.forEach(c => c.classList.remove('active'));
+                    chapter.classList.add('active');
                 }
-                
-                // Update active chapter
-                chapterItems.forEach(c => c.classList.remove('active'));
-                chapter.classList.add('active');
             });
             
             // Keyboard accessibility
@@ -467,7 +543,7 @@ class ModalSystem {
         
         // Trap focus within fullscreen overlay
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Tab' && this.isFullscreenActive) {
+            if (e.key === 'Tab' && this.isFullscreenActive && this.fullscreenOverlay) {
                 this.trapFocus(e, this.fullscreenOverlay);
             }
         });
@@ -477,20 +553,6 @@ class ModalSystem {
             modal.setAttribute('role', 'dialog');
             modal.setAttribute('aria-modal', 'true');
             modal.setAttribute('aria-hidden', 'true');
-        });
-        
-        // Update ARIA attributes when modal opens/closes
-        this.on('modal:open', (data) => {
-            data.modal.setAttribute('aria-hidden', 'false');
-            document.querySelectorAll('.project-modal').forEach(m => {
-                if (m !== data.modal) {
-                    m.setAttribute('aria-hidden', 'true');
-                }
-            });
-        });
-        
-        this.on('modal:close', (data) => {
-            data.modal.setAttribute('aria-hidden', 'true');
         });
     }
     
@@ -519,6 +581,20 @@ class ModalSystem {
         }
     }
     
+    // ================= KEYBOARD HANDLING =================
+    handleEscapeKey() {
+        // Close fullscreen first if active
+        if (this.isFullscreenActive) {
+            this.closeFullscreenImage();
+            return;
+        }
+        
+        // Then close modal if active
+        if (this.activeModal) {
+            this.closeModal(this.activeModal);
+        }
+    }
+    
     // ================= EVENT SYSTEM =================
     on(eventName, callback) {
         document.addEventListener(`modal-system:${eventName}`, (e) => {
@@ -534,38 +610,6 @@ class ModalSystem {
         document.dispatchEvent(event);
     }
     
-    // ================= KEYBOARD HANDLING =================
-    handleEscapeKey() {
-        // Close fullscreen first if active
-        if (this.isFullscreenActive) {
-            this.closeFullscreenImage();
-            return;
-        }
-        
-        // Then close modal if active
-        if (this.activeModal) {
-            this.closeModal(this.activeModal);
-        }
-    }
-    
-    // ================= PERFORMANCE MONITORING =================
-    initPerformanceMonitoring() {
-        // Log modal open/close times for performance monitoring
-        this.on('modal:open', (data) => {
-            console.log(`Modal opened: ${data.modalId}`, {
-                timestamp: Date.now(),
-                element: data.modal
-            });
-        });
-        
-        this.on('modal:close', (data) => {
-            console.log(`Modal closed`, {
-                timestamp: Date.now(),
-                element: data.modal
-            });
-        });
-    }
-    
     // ================= PUBLIC API =================
     open(modalId) {
         this.openModal(modalId);
@@ -578,7 +622,11 @@ class ModalSystem {
     }
     
     closeAll() {
-        this.closeAllModals();
+        document.querySelectorAll('.project-modal').forEach(modal => {
+            if (modal.style.display === 'block') {
+                this.closeModal(modal);
+            }
+        });
     }
     
     destroy() {
@@ -609,206 +657,27 @@ class ModalSystem {
 // ================= INITIALIZATION =================
 let modalSystem = null;
 
+// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize modal system
     modalSystem = new ModalSystem();
     
-    // Initialize contact form modal if exists
-    initContactFormModal();
+    console.log('Modal system initialized for all projects');
+    
+    // Expose globally for console access
+    window.modalSystem = modalSystem;
+    window.openSuperstoreModal = () => modalSystem.openSuperstoreModal();
+    window.openRoadAccidentModal = () => modalSystem.openRoadAccidentModal();
+    window.openModal = (modalId) => modalSystem.openModal(modalId);
+    
+    // Also attach to window for legacy onclick handlers
+    window.openRoadAccidentModal = window.openRoadAccidentModal || (() => modalSystem.openRoadAccidentModal());
+    window.openSuperstoreModal = window.openSuperstoreModal || (() => modalSystem.openSuperstoreModal());
 });
-
-// ================= CONTACT FORM MODAL (if needed) =================
-function initContactFormModal() {
-    const contactForm = document.getElementById('contactForm');
-    if (!contactForm) return;
-    
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Form validation
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const subject = document.getElementById('subject').value.trim();
-        const message = document.getElementById('message').value.trim();
-        
-        // Basic validation
-        let isValid = true;
-        const errors = [];
-        
-        if (!name) {
-            errors.push('Name is required');
-            isValid = false;
-        }
-        
-        if (!email || !isValidEmail(email)) {
-            errors.push('Valid email is required');
-            isValid = false;
-        }
-        
-        if (!subject) {
-            errors.push('Subject is required');
-            isValid = false;
-        }
-        
-        if (!message) {
-            errors.push('Message is required');
-            isValid = false;
-        }
-        
-        if (!isValid) {
-            showFormError(errors.join(', '));
-            return;
-        }
-        
-        // Show success message
-        document.getElementById('contactForm').style.display = 'none';
-        const successEl = document.getElementById('formSuccess');
-        if (successEl) {
-            successEl.style.display = 'flex';
-        }
-        
-        // Reset form
-        contactForm.reset();
-        
-        // Dispatch custom event
-        const event = new CustomEvent('contact-form:submit', {
-            detail: { name, email, subject, message }
-        });
-        document.dispatchEvent(event);
-    });
-    
-    // Communication preference selection
-    document.querySelectorAll('.preference-item').forEach(item => {
-        item.addEventListener('click', function() {
-            document.querySelectorAll('.preference-item').forEach(i => {
-                i.classList.remove('active');
-            });
-            this.classList.add('active');
-        });
-        
-        // Keyboard accessibility
-        item.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                item.click();
-            }
-        });
-    });
-    
-    // Form input validation
-    const formInputs = document.querySelectorAll('.professional-form input, .professional-form textarea, .professional-form select');
-    formInputs.forEach(input => {
-        input.addEventListener('blur', function() {
-            validateInput(this);
-        });
-        
-        input.addEventListener('focus', function() {
-            this.style.borderColor = 'var(--primary)';
-        });
-        
-        // Real-time validation for email
-        if (input.type === 'email') {
-            input.addEventListener('input', function() {
-                if (this.value.trim() && !isValidEmail(this.value.trim())) {
-                    this.setCustomValidity('Please enter a valid email address');
-                } else {
-                    this.setCustomValidity('');
-                }
-            });
-        }
-    });
-    
-    // Close success message
-    window.closeSuccess = function() {
-        const successEl = document.getElementById('formSuccess');
-        const formEl = document.getElementById('contactForm');
-        
-        if (successEl) {
-            successEl.style.display = 'none';
-        }
-        
-        if (formEl) {
-            formEl.style.display = 'block';
-            formEl.reset();
-        }
-    };
-}
-
-function validateInput(input) {
-    const value = input.value.trim();
-    
-    if (input.hasAttribute('required') && !value) {
-        input.style.borderColor = 'rgba(234, 67, 53, 0.5)';
-        input.setCustomValidity('This field is required');
-        return false;
-    }
-    
-    if (input.type === 'email' && value && !isValidEmail(value)) {
-        input.style.borderColor = 'rgba(234, 67, 53, 0.5)';
-        input.setCustomValidity('Please enter a valid email address');
-        return false;
-    }
-    
-    input.style.borderColor = 'rgba(251, 237, 82, 0.3)';
-    input.setCustomValidity('');
-    return true;
-}
-
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-function showFormError(message) {
-    // Create or show error message
-    let errorEl = document.querySelector('.form-error');
-    
-    if (!errorEl) {
-        errorEl = document.createElement('div');
-        errorEl.className = 'form-error';
-        errorEl.style.cssText = `
-            background: rgba(234, 67, 53, 0.1);
-            border: 1px solid rgba(234, 67, 53, 0.3);
-            color: #ea4335;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        `;
-        
-        const form = document.getElementById('contactForm');
-        if (form) {
-            form.insertBefore(errorEl, form.firstChild);
-        }
-    }
-    
-    errorEl.textContent = message;
-    errorEl.style.display = 'block';
-    
-    // Auto-hide after 5 seconds
-    setTimeout(() => {
-        errorEl.style.display = 'none';
-    }, 5000);
-}
-
-// ================= EXPORT FOR MODULE USAGE =================
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { ModalSystem, modalSystem };
-}
-
-// ================= GLOBAL ACCESS (if needed) =================
-window.ModalSystem = ModalSystem;
-window.modalSystem = modalSystem;
 
 // ================= ERROR HANDLING =================
 window.addEventListener('error', function(e) {
     console.error('Modal System Error:', e.error);
-    
-    // Try to recover by reinitializing
-    if (modalSystem) {
-        modalSystem.destroy();
-    }
-    modalSystem = new ModalSystem();
 });
 
 // ================= PAGE VISIBILITY API =================
@@ -823,356 +692,7 @@ document.addEventListener('visibilitychange', () => {
     }
 });
 
-
-
-// ============================================
-// UNIVERSAL MODAL SYSTEM - WORKS FOR ALL PROJECTS
-// ============================================
-
-// Configuration - Add all your modal IDs here
-const MODAL_IDS = {
-    superstore: 'superstore-modal',
-    roadAccident: 'road-accident-modal',
-    // Add more projects here as needed
-    // hrAnalytics: 'hr-analytics-modal',
-    // financialDashboard: 'financial-dashboard-modal',
-};
-
-// Track currently open modal
-let currentOpenModal = null;
-
-// ============================================
-// OPEN MODAL FUNCTIONS - Call these from your main page
-// ============================================
-
-function openSuperstoreModal() {
-    openModal(MODAL_IDS.superstore);
+// ================= EXPORT FOR MODULE USAGE =================
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { ModalSystem, modalSystem };
 }
-
-function openRoadAccidentModal() {
-    openModal(MODAL_IDS.roadAccident);
-}
-
-// Generic function to open any modal by ID
-function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        // Close any currently open modal first
-        if (currentOpenModal) {
-            closeModal(currentOpenModal);
-        }
-        
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        currentOpenModal = modal;
-        
-        // Optional: Add analytics tracking
-        console.log(`Modal opened: ${modalId}`);
-    }
-}
-
-// ============================================
-// CLOSE MODAL FUNCTIONALITY
-// ============================================
-
-function closeModal(modal) {
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        
-        // Pause any playing videos in this modal
-        pauseVideosInModal(modal);
-        
-        if (currentOpenModal === modal) {
-            currentOpenModal = null;
-        }
-    }
-}
-
-// Close all close buttons for all modals
-document.querySelectorAll('.close-modal').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const modal = this.closest('.project-modal');
-        closeModal(modal);
-    });
-});
-
-// Close when clicking outside modal content for ALL modals
-document.querySelectorAll('.project-modal').forEach(modal => {
-    modal.addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeModal(this);
-        }
-    });
-});
-
-// ============================================
-// ESCAPE KEY HANDLER - Closes current modal
-// ============================================
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && currentOpenModal) {
-        closeModal(currentOpenModal);
-        // Also close any open fullscreen overlay
-        document.querySelectorAll('.fullscreen-overlay.active').forEach(overlay => {
-            overlay.classList.remove('active');
-        });
-    }
-});
-
-// ============================================
-// FULLSCREEN IMAGE FUNCTIONALITY - Works for all modals
-// ============================================
-
-// Get all fullscreen overlays (each modal can have its own)
-const fullscreenOverlays = document.querySelectorAll('.fullscreen-overlay');
-
-// Setup expand buttons for all modals
-document.querySelectorAll('.expand-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        
-        // Find the closest modal to get its fullscreen overlay
-        const modal = this.closest('.project-modal');
-        const overlay = modal ? modal.querySelector('.fullscreen-overlay') : document.querySelector('.fullscreen-overlay');
-        
-        if (overlay) {
-            const img = this.closest('.dashboard-preview').querySelector('img');
-            const fullscreenImage = overlay.querySelector('.fullscreen-image');
-            
-            if (img && fullscreenImage) {
-                fullscreenImage.src = img.src;
-                fullscreenImage.alt = img.alt || 'Fullscreen image';
-                overlay.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            }
-        }
-    });
-});
-
-// Close fullscreen buttons for all overlays
-document.querySelectorAll('.close-fullscreen').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const overlay = this.closest('.fullscreen-overlay');
-        if (overlay) {
-            overlay.classList.remove('active');
-            document.body.style.overflow = currentOpenModal ? 'hidden' : 'auto';
-        }
-    });
-});
-
-// Close fullscreen when clicking overlay background
-document.querySelectorAll('.fullscreen-overlay').forEach(overlay => {
-    overlay.addEventListener('click', function(e) {
-        if (e.target === this) {
-            this.classList.remove('active');
-            document.body.style.overflow = currentOpenModal ? 'hidden' : 'auto';
-        }
-    });
-});
-
-// ============================================
-// VIDEO PLAYER FUNCTIONALITY - Works for all modals
-// ============================================
-
-function initializeVideoPlayers(modal = null) {
-    const videos = modal ? 
-        modal.querySelectorAll('.project-video') : 
-        document.querySelectorAll('.project-video');
-    
-    videos.forEach(video => {
-        // Remove existing listeners to prevent duplicates
-        const newVideo = video.cloneNode(true);
-        video.parentNode.replaceChild(newVideo, video);
-        
-        setupVideoPlayer(newVideo);
-    });
-}
-
-function setupVideoPlayer(video) {
-    const wrapper = video.closest('.video-wrapper');
-    if (!wrapper) return;
-    
-    const playBtn = wrapper.querySelector('.video-play-btn');
-    const loading = wrapper.querySelector('.video-loading');
-    
-    if (!playBtn) return;
-    
-    // Play button click
-    playBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        
-        if (video.paused) {
-            if (loading) loading.classList.add('active');
-            
-            video.play()
-                .then(() => {
-                    if (loading) loading.classList.remove('active');
-                    playBtn.style.opacity = '0';
-                    playBtn.style.pointerEvents = 'none';
-                })
-                .catch(error => {
-                    console.error('Video playback failed:', error);
-                    if (loading) loading.classList.remove('active');
-                });
-        } else {
-            video.pause();
-        }
-    });
-    
-    // Video events
-    video.addEventListener('pause', () => {
-        playBtn.style.opacity = '1';
-        playBtn.style.pointerEvents = 'auto';
-    });
-    
-    video.addEventListener('play', () => {
-        playBtn.style.opacity = '0';
-        playBtn.style.pointerEvents = 'none';
-    });
-    
-    video.addEventListener('waiting', () => {
-        if (loading) loading.classList.add('active');
-    });
-    
-    video.addEventListener('canplay', () => {
-        if (loading) loading.classList.remove('active');
-    });
-    
-    video.addEventListener('ended', () => {
-        playBtn.style.opacity = '1';
-        playBtn.style.pointerEvents = 'auto';
-    });
-    
-    // Error handling
-    video.addEventListener('error', () => {
-        console.error('Video error occurred');
-        if (loading) loading.classList.remove('active');
-        playBtn.style.opacity = '1';
-        playBtn.style.pointerEvents = 'auto';
-    });
-}
-
-// Initialize all video players on page load
-document.addEventListener('DOMContentLoaded', () => {
-    initializeVideoPlayers();
-});
-
-// ============================================
-// VIDEO CHAPTERS FUNCTIONALITY
-// ============================================
-
-document.querySelectorAll('.chapter-item').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.stopPropagation();
-        
-        const time = this.getAttribute('data-time');
-        const modal = this.closest('.project-modal');
-        const video = modal ? modal.querySelector('.project-video') : document.querySelector('.project-video');
-        
-        if (video && time) {
-            video.currentTime = parseInt(time);
-            video.play().catch(error => {
-                console.log('Video playback requires user interaction first');
-            });
-        }
-    });
-});
-
-// ============================================
-// HELPER FUNCTIONS
-// ============================================
-
-// Pause all videos in a specific modal
-function pauseVideosInModal(modal) {
-    if (!modal) return;
-    
-    const videos = modal.querySelectorAll('.project-video');
-    videos.forEach(video => {
-        if (!video.paused) {
-            video.pause();
-        }
-    });
-}
-
-// Reset modal state when closed (optional)
-function resetModalState(modal) {
-    if (!modal) return;
-    
-    // Reset any forms, scroll positions, etc.
-    const scrollableContent = modal.querySelector('.modal-body');
-    if (scrollableContent) {
-        scrollableContent.scrollTop = 0;
-    }
-    
-    // Remove any active states
-    const activeElements = modal.querySelectorAll('.active');
-    activeElements.forEach(el => el.classList.remove('active'));
-}
-
-// Extend closeModal to include reset
-const originalCloseModal = closeModal;
-closeModal = function(modal) {
-    originalCloseModal(modal);
-    resetModalState(modal);
-};
-
-// ============================================
-// THEME TOGGLE SUPPORT (if needed)
-// ============================================
-
-const themeToggle = document.querySelector('[data-theme-toggle]');
-if (themeToggle) {
-    themeToggle.addEventListener('click', function() {
-        const currentTheme = document.body.dataset.theme;
-        document.body.dataset.theme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        // Optional: Save preference to localStorage
-        localStorage.setItem('theme', document.body.dataset.theme);
-    });
-    
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        document.body.dataset.theme = savedTheme;
-    }
-}
-
-// ============================================
-// INITIALIZATION ON PAGE LOAD
-// ============================================
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Hide all modals initially (in case any are visible)
-    document.querySelectorAll('.project-modal').forEach(modal => {
-        modal.style.display = 'none';
-    });
-    
-    // Ensure body overflow is auto
-    document.body.style.overflow = 'auto';
-    
-    console.log('Modal system initialized for all projects');
-});
-
-// ============================================
-// DEBUGGING HELPER (remove in production)
-// ============================================
-
-function getCurrentModalInfo() {
-    return {
-        currentOpenModal: currentOpenModal ? currentOpenModal.id : null,
-        modalCount: document.querySelectorAll('.project-modal').length,
-        fullscreenActive: document.querySelector('.fullscreen-overlay.active') !== null
-    };
-}
-
-// Expose useful functions globally
-window.modalSystem = {
-    openSuperstore: openSuperstoreModal,
-    openRoadAccident: openRoadAccidentModal,
-    openModal: openModal,
-    closeCurrentModal: () => currentOpenModal && closeModal(currentOpenModal),
-    getInfo: getCurrentModalInfo
-};
