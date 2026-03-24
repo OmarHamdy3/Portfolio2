@@ -1345,3 +1345,20 @@
         color: #000;
     }
 }
+
+
+
+.project-status--award {
+    top: 0.75rem;
+    left: 0.75rem;
+    right: auto;
+    background: rgba(255, 215, 0, 0.12);
+    border-color: rgba(255, 215, 0, 0.2);
+    color: #fbed52;
+}
+
+[data-theme="light"] .project-status--award {
+    background: rgba(255, 165, 0, 0.1);
+    border-color: rgba(255, 165, 0, 0.18);
+    color: #E6A800;
+}

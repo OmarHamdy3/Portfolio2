@@ -866,20 +866,35 @@
     color: #333;
 }
 
+/* Dark Mode Hover - Yellow */
 .quick-link:hover {
     background: rgba(251, 237, 82, 0.1);
     border-color: rgba(251, 237, 82, 0.2);
     transform: translateX(3px);
+    color: #FFD700;
 }
 
+/* Light Mode Hover - Orange */
 [data-theme="light"] .quick-link:hover {
     background: rgba(255, 157, 0, 0.08);
     border-color: rgba(255, 157, 0, 0.15);
+    color: #FF8C00;
 }
 
 .quick-link i {
     font-size: 1rem;
     color: var(--primary);
+    transition: color 0.3s ease;
+}
+
+/* Dark Mode Icon Hover - Yellow */
+.quick-link:hover i {
+    color: #FFD700;
+}
+
+/* Light Mode Icon Hover - Orange */
+[data-theme="light"] .quick-link:hover i {
+    color: #FF8C00;
 }
 
 /* ================= RESPONSIVE DESIGN ================= */
