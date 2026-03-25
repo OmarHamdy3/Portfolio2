@@ -1,4 +1,4 @@
-/* ================= PROFESSIONAL ABOUT SECTION - CONTACT SECTION STYLE ================= */
+/* ================= ABOUT SECTION ================= */
 .about-section {
     position: relative;
     padding: 3rem 0;
@@ -15,20 +15,7 @@
             rgba(255, 157, 0, 0.008) 100%);
 }
 
-.about-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(circle at 20% 30%, rgba(251, 237, 82, 0.015) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(255, 157, 0, 0.01) 0%, transparent 50%);
-    z-index: -1;
-}
-
-/* About Header */
+/* Section Header */
 .about-header-section {
     margin-bottom: 2.5rem;
     text-align: center;
@@ -41,25 +28,25 @@
 
 .about-header-section .badge {
     display: inline-block;
-    padding: 0.4rem 1rem;
+    padding: 0.35rem 0.9rem;
     background: var(--primary);
     color: #000;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border-radius: 12px;
-    margin-bottom: 1rem;
+    border-radius: 20px;
+    margin-bottom: 0.9rem;
 }
 
 .about-header-section h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
+    gap: 0.6rem;
 }
 
 .about-header-section .title-gradient {
@@ -80,7 +67,7 @@
 }
 
 .about-header-section .section-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--gray);
     max-width: 500px;
     margin: 0 auto;
@@ -88,60 +75,77 @@
 }
 
 [data-theme="light"] .about-header-section .section-subtitle {
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.55);
 }
 
-/* About Grid Layout */
+/* Grid Layout */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Main About Card */
-.about-main-card {
-    grid-column: 1 / -1;
+/* ---- Shared Card Base ---- */
+.about-main-card,
+.about-expertise-card,
+.about-approach-card,
+.about-philosophy-card {
     background: linear-gradient(145deg,
             rgba(255, 255, 255, 0.08) 0%,
             rgba(255, 255, 255, 0.04) 100%);
     border-radius: 16px;
-    padding: 2rem;
+    padding: 1.75rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    animation: fadeInUp 0.45s ease-out forwards;
+    opacity: 0;
 }
 
-[data-theme="light"] .about-main-card {
-    background: linear-gradient(145deg,
-            rgba(255, 255, 255, 0.98) 0%,
-            rgba(255, 255, 255, 0.96) 100%);
+[data-theme="light"] .about-main-card,
+[data-theme="light"] .about-expertise-card,
+[data-theme="light"] .about-approach-card,
+[data-theme="light"] .about-philosophy-card {
+    background: rgba(255, 255, 255, 0.98);
     border: 1px solid rgba(255, 157, 0, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-.about-main-card:hover {
+.about-main-card:hover,
+.about-expertise-card:hover,
+.about-approach-card:hover,
+.about-philosophy-card:hover {
     transform: translateY(-3px);
     border-color: rgba(251, 237, 82, 0.2);
-    box-shadow: 0 15px 30px rgba(251, 237, 82, 0.1);
+    box-shadow: 0 12px 28px rgba(251, 237, 82, 0.08);
 }
 
-[data-theme="light"] .about-main-card:hover {
+[data-theme="light"] .about-main-card:hover,
+[data-theme="light"] .about-expertise-card:hover,
+[data-theme="light"] .about-approach-card:hover,
+[data-theme="light"] .about-philosophy-card:hover {
     border-color: rgba(255, 157, 0, 0.15);
-    box-shadow: 0 15px 30px rgba(255, 157, 0, 0.08);
+    box-shadow: 0 12px 28px rgba(255, 157, 0, 0.07);
 }
 
-/* Professional Header */
+/* Animation delays */
+.about-main-card       { animation-delay: 0.05s; grid-column: 1 / -1; padding: 2rem; }
+.about-expertise-card  { animation-delay: 0.15s; }
+.about-philosophy-card { animation-delay: 0.25s; }
+.about-approach-card   { animation-delay: 0.35s; grid-column: 1 / -1; }
+
+/* ---- Main Card ---- */
 .professional-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
     padding-bottom: 1.25rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 [data-theme="light"] .professional-header {
@@ -149,51 +153,39 @@
 }
 
 .professional-badge {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     background: rgba(251, 237, 82, 0.1);
-    padding: 0.5rem 1rem;
-    border-radius: 12px;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
     color: var(--primary);
-    font-weight: 600;
-    font-size: 0.75rem;
+    font-weight: 700;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
-    border: 1px solid rgba(251, 237, 82, 0.15);
+    letter-spacing: 0.4px;
+    border: 1px solid rgba(251, 237, 82, 0.2);
 }
 
 [data-theme="light"] .professional-badge {
     background: rgba(255, 157, 0, 0.08);
     color: #FF8C00;
-    border: 1px solid rgba(255, 157, 0, 0.12);
-}
-
-.professional-badge i {
-    font-size: 0.8rem;
+    border-color: rgba(255, 157, 0, 0.15);
 }
 
 .experience-highlight {
     display: flex;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
 .experience-item {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
     font-size: 0.8rem;
     color: var(--gray);
     font-weight: 500;
 }
 
 [data-theme="light"] .experience-item {
-    color: rgba(0, 0, 0, 0.6);
-}
-
-.experience-item i {
-    color: var(--primary);
-    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.55);
 }
 
 .experience-item strong {
@@ -206,11 +198,10 @@
     color: #111;
 }
 
-/* Professional Statement */
 .professional-statement h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     background: var(--primary);
     -webkit-background-clip: text;
     background-clip: text;
@@ -219,44 +210,86 @@
 }
 
 .lead-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.65;
     color: var(--light);
-    margin-bottom: 1.5rem;
-    font-weight: 400;
+    margin-bottom: 1.25rem;
 }
 
 [data-theme="light"] .lead-text {
+    color: rgba(0, 0, 0, 0.65);
+}
+
+/* Specialties label */
+.specialties-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary);
+    margin-bottom: 0.6rem;
+}
+
+/* Specialties list */
+.specialties-minimal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.specialties-minimal-list li {
+    font-size: 0.83rem;
+    color: var(--light);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.55;
+}
+
+[data-theme="light"] .specialties-minimal-list li {
     color: rgba(0, 0, 0, 0.7);
 }
 
-/* Value Proposition */
+.specialties-minimal-list li i {
+    color: var(--primary);
+    font-size: 0.75rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+/* Value proposition */
 .value-proposition {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .value-proposition {
+    border-top: 1px solid rgba(255, 157, 0, 0.1);
 }
 
 .value-item {
-    display: flex;
-    gap: 0.75rem;
-    padding: 1rem;
+    padding: 0.85rem 1rem;
     background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
+    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 [data-theme="light"] .value-item {
-    background: rgba(0, 0, 0, 0.01);
+    background: rgba(0, 0, 0, 0.015);
     border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .value-item:hover {
     background: rgba(251, 237, 82, 0.05);
     border-color: rgba(251, 237, 82, 0.15);
-    transform: translateY(-2px);
 }
 
 [data-theme="light"] .value-item:hover {
@@ -264,24 +297,11 @@
     border-color: rgba(255, 157, 0, 0.1);
 }
 
-.value-icon {
-    width: 42px;
-    height: 42px;
-    background: var(--primary);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000;
-    font-size: 1rem;
-    flex-shrink: 0;
-}
-
 .value-content h4 {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--light);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
 }
 
 [data-theme="light"] .value-content h4 {
@@ -289,98 +309,67 @@
 }
 
 .value-content p {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--gray);
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.45;
 }
 
 [data-theme="light"] .value-content p {
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.55);
 }
 
-/* Expertise Card */
-.about-expertise-card {
-    background: linear-gradient(145deg,
-            rgba(255, 255, 255, 0.08) 0%,
-            rgba(255, 255, 255, 0.04) 100%);
-    border-radius: 16px;
-    padding: 1.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    height: 100%;
+/* ---- Shared Card Header ---- */
+.expertise-header,
+.approach-header,
+.philosophy-header {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-[data-theme="light"] .about-expertise-card {
-    background: linear-gradient(145deg,
-            rgba(255, 255, 255, 0.98) 0%,
-            rgba(255, 255, 255, 0.96) 100%);
-    border: 1px solid rgba(255, 157, 0, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.about-expertise-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(251, 237, 82, 0.2);
-    box-shadow: 0 15px 30px rgba(251, 237, 82, 0.1);
-}
-
-[data-theme="light"] .about-expertise-card:hover {
-    border-color: rgba(255, 157, 0, 0.15);
-    box-shadow: 0 15px 30px rgba(255, 157, 0, 0.08);
-}
-
-.expertise-header {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="light"] .expertise-header {
+[data-theme="light"] .expertise-header,
+[data-theme="light"] .approach-header,
+[data-theme="light"] .philosophy-header {
     border-bottom: 1px solid rgba(255, 157, 0, 0.1);
 }
 
-.expertise-header h3 {
-    font-size: 1.2rem;
+.expertise-header h3,
+.approach-header h3,
+.philosophy-header h3 {
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--light);
-    margin-bottom: 0.3rem;
+    margin: 0;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-[data-theme="light"] .expertise-header h3 {
+[data-theme="light"] .expertise-header h3,
+[data-theme="light"] .approach-header h3,
+[data-theme="light"] .philosophy-header h3 {
     color: #111;
 }
 
-.expertise-header h3 i {
+.expertise-header h3 i,
+.approach-header h3 i,
+.philosophy-header h3 i {
     color: var(--primary);
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
-.expertise-subtitle {
-    font-size: 0.8rem;
-    color: var(--gray);
-    margin: 0;
-}
-
-[data-theme="light"] .expertise-subtitle {
-    color: rgba(0, 0, 0, 0.5);
-}
-
-/* Competency Grid */
+/* ---- Competency Grid ---- */
 .competency-grid {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1rem;
 }
 
 .competency-category {
     background: rgba(255, 255, 255, 0.02);
-    border-radius: 12px;
-    padding: 1.25rem;
+    border-radius: 10px;
+    padding: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
@@ -390,37 +379,32 @@
 }
 
 .category-title {
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
     color: var(--primary);
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.category-title i {
-    font-size: 0.85rem;
+    margin-bottom: 0.65rem;
 }
 
 .competency-items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 .competency-item {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    padding: 0.5rem 0.75rem;
+    padding: 0.45rem 0.65rem;
     background: rgba(255, 255, 255, 0.03);
     border-radius: 8px;
     font-size: 0.75rem;
     color: var(--light);
     font-weight: 500;
     border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 [data-theme="light"] .competency-item {
@@ -430,9 +414,8 @@
 }
 
 .competency-item:hover {
-    background: rgba(251, 237, 82, 0.08);
+    background: rgba(251, 237, 82, 0.07);
     border-color: rgba(251, 237, 82, 0.15);
-    transform: translateX(2px);
 }
 
 [data-theme="light"] .competency-item:hover {
@@ -446,104 +429,32 @@
     font-size: 0.7rem;
 }
 
-/* Approach Card */
-.about-approach-card {
-    background: linear-gradient(145deg,
-            rgba(255, 255, 255, 0.08) 0%,
-            rgba(255, 255, 255, 0.04) 100%);
-    border-radius: 16px;
-    padding: 1.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    height: 100%;
-}
-
-[data-theme="light"] .about-approach-card {
-    background: linear-gradient(145deg,
-            rgba(255, 255, 255, 0.98) 0%,
-            rgba(255, 255, 255, 0.96) 100%);
-    border: 1px solid rgba(255, 157, 0, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.about-approach-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(251, 237, 82, 0.2);
-    box-shadow: 0 15px 30px rgba(251, 237, 82, 0.1);
-}
-
-[data-theme="light"] .about-approach-card:hover {
-    border-color: rgba(255, 157, 0, 0.15);
-    box-shadow: 0 15px 30px rgba(255, 157, 0, 0.08);
-}
-
-.approach-header {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="light"] .approach-header {
-    border-bottom: 1px solid rgba(255, 157, 0, 0.1);
-}
-
-.approach-header h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--light);
-    margin-bottom: 0.3rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-[data-theme="light"] .approach-header h3 {
-    color: #111;
-}
-
-.approach-header h3 i {
-    color: var(--primary);
-    font-size: 1rem;
-}
-
-.approach-subtitle {
-    font-size: 0.8rem;
-    color: var(--gray);
-    margin: 0;
-}
-
-[data-theme="light"] .approach-subtitle {
-    color: rgba(0, 0, 0, 0.5);
-}
-
-/* Approach Steps */
+/* ---- Approach Steps ---- */
 .approach-steps {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.75rem;
 }
 
 .approach-step {
     display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.9rem;
     background: rgba(255, 255, 255, 0.02);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    transition: all 0.2s ease;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 [data-theme="light"] .approach-step {
-    background: rgba(0, 0, 0, 0.01);
+    background: rgba(0, 0, 0, 0.015);
     border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .approach-step:hover {
     background: rgba(251, 237, 82, 0.05);
     border-color: rgba(251, 237, 82, 0.15);
-    transform: translateX(3px);
 }
 
 [data-theme="light"] .approach-step:hover {
@@ -552,24 +463,24 @@
 }
 
 .step-number {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     background: var(--primary);
     color: #000;
-    border-radius: 10px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-weight: 700;
     flex-shrink: 0;
 }
 
 .step-content h4 {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--light);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
 }
 
 [data-theme="light"] .step-content h4 {
@@ -577,113 +488,41 @@
 }
 
 .step-content p {
-    font-size: 0.8rem;
+    font-size: 0.77rem;
     color: var(--gray);
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.45;
 }
 
 [data-theme="light"] .step-content p {
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.55);
 }
 
-/* Philosophy Card */
-.about-philosophy-card {
-    background: linear-gradient(145deg,
-            rgba(255, 255, 255, 0.08) 0%,
-            rgba(255, 255, 255, 0.04) 100%);
-    border-radius: 16px;
-    padding: 1.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    height: 100%;
-}
-
-[data-theme="light"] .about-philosophy-card {
-    background: linear-gradient(145deg,
-            rgba(255, 255, 255, 0.98) 0%,
-            rgba(255, 255, 255, 0.96) 100%);
-    border: 1px solid rgba(255, 157, 0, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.about-philosophy-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(251, 237, 82, 0.2);
-    box-shadow: 0 15px 30px rgba(251, 237, 82, 0.1);
-}
-
-[data-theme="light"] .about-philosophy-card:hover {
-    border-color: rgba(255, 157, 0, 0.15);
-    box-shadow: 0 15px 30px rgba(255, 157, 0, 0.08);
-}
-
-.philosophy-header {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="light"] .philosophy-header {
-    border-bottom: 1px solid rgba(255, 157, 0, 0.1);
-}
-
-.philosophy-header h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--light);
-    margin-bottom: 0.3rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-[data-theme="light"] .philosophy-header h3 {
-    color: #111;
-}
-
-.philosophy-header h3 i {
-    color: var(--primary);
-    font-size: 1rem;
-}
-
-.philosophy-subtitle {
-    font-size: 0.8rem;
-    color: var(--gray);
-    margin: 0;
-}
-
-[data-theme="light"] .philosophy-subtitle {
-    color: rgba(0, 0, 0, 0.5);
-}
-
-/* Philosophy Principles */
+/* ---- Philosophy Principles ---- */
 .philosophy-principles {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    gap: 0.6rem;
 }
 
 .principle-item {
     display: flex;
-    gap: 0.75rem;
-    padding: 1rem;
+    gap: 0.65rem;
+    padding: 0.85rem;
     background: rgba(255, 255, 255, 0.02);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    transition: all 0.2s ease;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 [data-theme="light"] .principle-item {
-    background: rgba(0, 0, 0, 0.01);
+    background: rgba(0, 0, 0, 0.015);
     border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .principle-item:hover {
     background: rgba(251, 237, 82, 0.05);
     border-color: rgba(251, 237, 82, 0.15);
-    transform: translateY(-2px);
 }
 
 [data-theme="light"] .principle-item:hover {
@@ -692,23 +531,23 @@
 }
 
 .principle-icon {
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
     background: var(--primary);
-    border-radius: 10px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #000;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     flex-shrink: 0;
 }
 
 .principle-content h4 {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 600;
     color: var(--light);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
 }
 
 [data-theme="light"] .principle-content h4 {
@@ -716,129 +555,58 @@
 }
 
 .principle-content p {
-    font-size: 0.75rem;
+    font-size: 0.73rem;
     color: var(--gray);
     margin: 0;
     line-height: 1.4;
 }
 
 [data-theme="light"] .principle-content p {
-    color: rgba(0, 0, 0, 0.6);
-}
-
-/* Statistical Data */
-.statistical-data {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="light"] .statistical-data {
-    border-top: 1px solid rgba(255, 157, 0, 0.1);
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.stat-number {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--primary);
-    line-height: 1;
-}
-
-.stat-label {
-    font-size: 0.7rem;
-    color: var(--gray);
-    margin-top: 0.2rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-}
-
-[data-theme="light"] .stat-label {
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.55);
 }
 
 /* ================= ANIMATIONS ================= */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-.about-main-card,
-.about-expertise-card,
-.about-approach-card,
-.about-philosophy-card {
-    animation: fadeInUp 0.5s ease-out forwards;
-    opacity: 0;
-}
-
-.about-main-card { animation-delay: 0.1s; }
-.about-expertise-card { animation-delay: 0.2s; }
-.about-approach-card { animation-delay: 0.3s; }
-.about-philosophy-card { animation-delay: 0.4s; }
-
-/* ================= RESPONSIVE DESIGN ================= */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 992px) {
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 1.25rem;
     }
 
-    .value-proposition,
-    .competency-items,
-    .philosophy-principles {
+    .about-approach-card {
+        grid-column: 1;
+    }
+
+    .approach-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .value-proposition {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 768px) {
-    .about-section {
-        padding: 3rem 0;
-    }
-
     .about-header-section h2 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         flex-direction: column;
-        gap: 0.4rem;
+        gap: 0.3rem;
     }
 
     .professional-header {
         flex-direction: column;
-        gap: 0.75rem;
         align-items: flex-start;
-    }
-
-    .experience-highlight {
-        width: 100%;
-        justify-content: space-between;
     }
 
     .about-main-card,
     .about-expertise-card,
     .about-approach-card,
     .about-philosophy-card {
-        padding: 1.5rem;
-    }
-
-    .professional-statement h3 {
-        font-size: 1.2rem;
-    }
-
-    .value-proposition {
-        grid-template-columns: 1fr;
+        padding: 1.4rem;
     }
 
     .competency-items {
@@ -848,139 +616,45 @@
     .philosophy-principles {
         grid-template-columns: 1fr;
     }
-
-    .statistical-data {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 1rem;
-    }
 }
 
 @media (max-width: 480px) {
-    .about-section {
-        padding: 2.5rem 0;
-    }
-
     .about-main-card,
     .about-expertise-card,
     .about-approach-card,
     .about-philosophy-card {
-        padding: 1.25rem;
+        padding: 1.2rem;
     }
 
-    .professional-badge {
-        width: 100%;
-        justify-content: center;
+    .approach-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .value-proposition {
+        grid-template-columns: 1fr;
     }
 
     .experience-highlight {
         flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
-    }
-
-    .experience-item {
-        width: 100%;
-        justify-content: center;
+        gap: 0.35rem;
     }
 
     .professional-statement h3 {
         font-size: 1.1rem;
-        text-align: center;
-    }
-
-    .lead-text {
-        font-size: 0.85rem;
-        text-align: center;
-    }
-
-    .approach-step {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 0.5rem;
-    }
-
-    .principle-item {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
-
-    .value-item {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
-
-    .stat-item {
-        width: 100%;
     }
 }
 
-/* ================= PRINT STYLES ================= */
+/* ================= PRINT ================= */
 @media print {
-    .about-section {
-        background: none;
-        padding: 2rem 0;
-    }
-
-    .about-section::before,
-    .badge,
-    .professional-badge {
-        display: none;
-    }
+    .about-section { background: none; padding: 2rem 0; }
 
     .about-main-card,
     .about-expertise-card,
     .about-approach-card,
     .about-philosophy-card {
         background: none;
-        border: 1px solid #000;
+        border: 1px solid #ccc;
         box-shadow: none;
         backdrop-filter: none;
     }
-
-    .professional-header,
-    .expertise-header,
-    .approach-header,
-    .philosophy-header {
-        border-bottom: 1px solid #000;
-    }
-
-    .stat-number {
-        color: #000;
-        -webkit-text-fill-color: #000;
-    }
-}
-
-
-/* Alternative styling with circular checkmarks */
-.professional-statement li {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.professional-statement li i {
-    color: rgb(36, 36, 36);
-    background:var(--primary);
-    padding: 0.5rem;
-    border-radius: 50%;
-    font-size: 0.9rem;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
-}
-
-.professional-statement li:hover i {
-    transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(232, 255, 101, 0.3);
 }

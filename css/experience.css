@@ -791,3 +791,10 @@
         gap: 0.5rem;
     }
 }
+
+/* Fix company icon centering on mobile */
+@media (max-width: 768px) {
+    .company-icon {
+        margin: 0 auto;
+    }
+}
