@@ -8,3 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add any additional initialization code here
 });
+
+
+document.querySelectorAll('.responsibilities-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        const content = toggle.nextElementSibling;
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        
+        toggle.setAttribute('aria-expanded', !isExpanded);
+        toggle.classList.toggle('active');
+        content.classList.toggle('expanded');
+    });
+});

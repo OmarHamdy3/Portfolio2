@@ -794,3 +794,24 @@ body.sidebar-open main {
     transition: filter 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
+/* ===== FIX: Sidebar layout to always show social icons ===== */
+
+.mobile-sidebar {
+    /* ADD these two properties to your existing rule */
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-nav {
+    flex: 1;              /* Takes remaining space */
+    min-height: 0;        /* ← KEY FIX: allows flex child to shrink below content size */
+    overflow-y: auto;
+    max-height: none;     /* Remove the calc() — flex handles it now */
+}
+
+/* Remove or override the media query overrides for max-height too */
+@media (max-height: 600px) {
+    .sidebar-nav {
+        max-height: none; /* Let flex handle it */
+    }
+}

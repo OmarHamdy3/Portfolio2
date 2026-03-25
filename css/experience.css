@@ -330,9 +330,77 @@
     font-size: 0.85rem;
 }
 
-/* Responsibilities Section */
+/* ================= COLLAPSIBLE RESPONSIBILITIES SECTION ================= */
 .responsibilities-section {
     margin-bottom: 1.5rem;
+}
+
+.responsibilities-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: rgba(251, 237, 82, 0.08);
+    border: 1px solid rgba(251, 237, 82, 0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-bottom: 0.75rem;
+}
+
+[data-theme="light"] .responsibilities-toggle {
+    background: rgba(255, 157, 0, 0.06);
+    border: 1px solid rgba(255, 157, 0, 0.12);
+}
+
+.responsibilities-toggle:hover {
+    background: rgba(251, 237, 82, 0.12);
+    border-color: rgba(251, 237, 82, 0.25);
+}
+
+[data-theme="light"] .responsibilities-toggle:hover {
+    background: rgba(255, 157, 0, 0.1);
+    border-color: rgba(255, 157, 0, 0.2);
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: 0.3px;
+}
+
+.toggle-label i {
+    font-size: 0.9rem;
+    transition: transform 0.25s ease;
+}
+
+.responsibilities-toggle.active .toggle-label i {
+    transform: rotate(180deg);
+}
+
+.toggle-indicator {
+    font-size: 0.7rem;
+    color: var(--gray);
+    transition: all 0.25s ease;
+}
+
+.responsibilities-toggle.active .toggle-indicator {
+    opacity: 0;
+}
+
+.responsibilities-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.responsibilities-content.expanded {
+    max-height: 1000px;
 }
 
 .responsibilities-list {
@@ -410,6 +478,9 @@
     margin-top: 0.2rem;
     flex-shrink: 0;
 }
+
+
+
 
 /* Experience Skills */
 .experience-skills {
@@ -517,133 +588,64 @@
     color: #111;
 }
 
-/* ================= RESPONSIVE DESIGN ================= */
-@media (max-width: 768px) {
-    .experience-section {
-        padding: 3rem 0;
-    }
-
-    .experience-header-section h2 {
-        font-size: 1.75rem;
-        flex-direction: column;
-        gap: 0.4rem;
-    }
-
-    .experience-header {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .role-wrapper {
-        width: 100%;
-    }
-
-    .experience-date {
-        align-self: flex-start;
-    }
-
-    .company-info {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.8rem;
-    }
-
-    .company-details {
-        text-align: center;
-    }
-
-    .company-location {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .experience-section {
-        padding: 2.5rem 0;
-    }
-
-    .experience-card-content {
-        padding: 1.5rem;
-    }
-
-    .role-title {
-        font-size: 1.1rem;
-    }
-
-    .experience-date {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.75rem;
-    }
-
-    .responsibility-item {
-        font-size: 0.85rem;
-        padding-left: 1.2rem;
-    }
-
-    .skill-tag {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.75rem;
-    }
-
-    .experience-note {
-        flex-direction: column;
-        text-align: center;
-        padding: 1rem;
-    }
-}
-
-/* Print Styles */
-@media print {
-    .experience-section {
-        background: none;
-        padding: 2rem 0;
-    }
-
-    .experience-section::before,
-    .badge,
-    .role-badge,
-    .skill-tag {
-        display: none;
-    }
-
-    .experience-card-content {
-        background: none;
-        border: 1px solid #000;
-        box-shadow: none;
-        backdrop-filter: none;
-    }
-
-    .experience-header {
-        border-bottom: 1px solid #000;
-    }
-}
-
-
-/* ================= NEW ADDITIONS FOR ENHANCED EXPERIENCE SECTION ================= */
+/* ================= NEW ADDITIONS ================= */
 
 /* Role Overview */
 .role-overview {
-    margin-bottom: 1.5rem;
-    padding: 1rem 1.25rem;
+    margin-bottom: 1.75rem;
+    padding: 1.25rem 1.5rem;
     background: rgba(251, 237, 82, 0.03);
-    border-radius: 12px;
+    border-radius: 8px;
     border-left: 3px solid var(--primary);
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 [data-theme="light"] .role-overview {
     background: rgba(255, 157, 0, 0.02);
     border-left: 3px solid #FF8C00;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .role-overview {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.role-overview:hover {
+    background: rgba(251, 237, 82, 0.05);
+}
+
+[data-theme="light"] .role-overview:hover {
+    background: rgba(255, 157, 0, 0.04);
+    border-top-color: rgba(0, 0, 0, 0.08);
+    border-right-color: rgba(0, 0, 0, 0.08);
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .role-overview:hover {
+    background: rgba(251, 237, 82, 0.06);
+    border-top-color: rgba(255, 255, 255, 0.08);
+    border-right-color: rgba(255, 255, 255, 0.08);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 .role-overview-text {
     color: var(--light);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0.5rem 0 0 0;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    letter-spacing: -0.01em;
 }
 
 [data-theme="light"] .role-overview-text {
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.75);
 }
 
 /* Skills Gained Section */
@@ -742,15 +744,52 @@
     font-weight: 500;
 }
 
-/* Dot Separator for footer */
+/* Dot Separator */
 .dot-separator {
     color: var(--primary);
     margin: 0 0.5rem;
     font-size: 0.8rem;
 }
 
-/* Responsive adjustments for new elements */
+/* ================= RESPONSIVE DESIGN ================= */
 @media (max-width: 768px) {
+    .experience-section {
+        padding: 3rem 0;
+    }
+
+    .experience-header-section h2 {
+        font-size: 1.75rem;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .role-wrapper {
+        width: 100%;
+    }
+
+    .experience-date {
+        align-self: flex-start;
+    }
+
+    .company-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+
+    .company-details {
+        text-align: center;
+    }
+
+    .company-location {
+        justify-content: center;
+    }
+
     .testimonial-author {
         flex-direction: column;
         text-align: center;
@@ -767,9 +806,59 @@
         text-align: center;
         margin-bottom: 0.5rem;
     }
+
+    .company-icon {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .role-overview {
+        padding: 1rem 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .role-overview-text {
+        font-size: 0.875rem;
+    }
 }
 
 @media (max-width: 480px) {
+    .experience-section {
+        padding: 2.5rem 0;
+    }
+
+    .experience-card-content {
+        padding: 1.5rem;
+    }
+
+    .role-title {
+        font-size: 1.1rem;
+    }
+
+    .experience-date {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .responsibility-item {
+        font-size: 0.85rem;
+        padding-left: 1.2rem;
+    }
+
+    .skill-tag {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .experience-note {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
     .role-overview {
         padding: 0.75rem 1rem;
     }
@@ -785,16 +874,36 @@
     .dot-separator {
         display: none;
     }
-    
-    .experience-note {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
 }
 
-/* Fix company icon centering on mobile */
-@media (max-width: 768px) {
-    .company-icon {
-        margin: 0 auto;
+/* Print Styles */
+@media print {
+    .experience-section {
+        background: none;
+        padding: 2rem 0;
+    }
+
+    .experience-section::before,
+    .badge,
+    .role-badge,
+    .skill-tag,
+    .responsibilities-toggle {
+        display: none;
+    }
+
+    .responsibilities-content {
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    .experience-card-content {
+        background: none;
+        border: 1px solid #000;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+    .experience-header {
+        border-bottom: 1px solid #000;
     }
 }
