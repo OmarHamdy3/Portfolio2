@@ -597,16 +597,21 @@
         font-size: 0.6rem;
     }
 
-    .footer-contact-item {
+   .footer-contact-item {
         justify-content: center;
         max-width: 280px;
         margin-left: auto;
         margin-right: auto;
-        text-align: left;
+        align-items: center;  /* Add this */
     }
 
     .footer-contact-text {
-        text-align: left;
+        text-align: left;  /* Keep left alignment for the text content */
+    }
+    
+    /* This ensures the icon and text stay together */
+    .footer-contact-icon {
+        flex-shrink: 0;
     }
 
     .footer-social {
@@ -632,6 +637,9 @@
     .footer-copyright {
         justify-content: center;
     }
+
+
+
 }
 
 @media (max-width: 480px) {

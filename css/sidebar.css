@@ -142,8 +142,12 @@
     -webkit-backdrop-filter: blur(16px);
     z-index: 2000;
     transition: right 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+
+    /* ===== FIX: Flex layout so footer/social icons are always visible ===== */
     display: flex;
     flex-direction: column;
+    /* ===================================================================== */
+
     border-left: 1px solid rgba(251, 237, 82, 0.12);
     box-shadow: -12px 0 40px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -207,6 +211,10 @@
     border-radius: 0;
     border: none;
     box-shadow: none;
+
+    /* ===== FIX: Prevent header from growing/shrinking ===== */
+    flex-shrink: 0;
+    /* ====================================================== */
 }
 
 .mobile-sidebar .profile-image-container {
@@ -356,10 +364,15 @@
 
 /* ================= COMPACT NAVIGATION - Improved Spacing & Hierarchy ================= */
 .sidebar-nav {
+    /* ===== FIX: flex: 1 + min-height: 0 is the KEY combination ===== */
+    /* flex: 1 fills remaining space; min-height: 0 allows shrinking  */
+    /* so the footer is never pushed off screen                        */
     flex: 1;
+    min-height: 0;
+    /* ================================================================ */
+
     padding: 0 1rem;
     overflow-y: auto;
-    max-height: calc(100vh - 340px);
     scrollbar-width: thin;
     scrollbar-color: var(--primary) rgba(255, 255, 255, 0.1);
 }
@@ -545,6 +558,10 @@
     text-align: center;
     border: 1px solid rgba(251, 237, 82, 0.15);
     transition: all 0.2s ease;
+
+    /* ===== FIX: Prevent shrinking ===== */
+    flex-shrink: 0;
+    /* =================================== */
 }
 
 .sidebar-contact:hover {
@@ -567,6 +584,10 @@
 
 .sidebar-cv-download {
     padding: 0 1rem 0.8rem;
+
+    /* ===== FIX: Prevent shrinking ===== */
+    flex-shrink: 0;
+    /* =================================== */
 }
 
 .sidebar-cv-download .btn {
@@ -602,6 +623,10 @@
     padding: 0.7rem 1rem 0.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     background: rgba(255, 255, 255, 0.02);
+
+    /* ===== FIX: Always pinned at the bottom, never shrinks ===== */
+    flex-shrink: 0;
+    /* ============================================================ */
 }
 
 .sidebar-socials {
@@ -632,11 +657,11 @@
 }
 
 /* Social Colors - Preserved */
-.social-link.linkedin { background: #0077B5; }
-.social-link.whatsapp { background: #25D366; }
-.social-link.email { background: #EA4335; }
-.social-link.github { background: #333; }
-.social-link.phone { background: #34B7F1; }
+.social-link.linkedin  { background: #0077B5; }
+.social-link.whatsapp  { background: #25D366; }
+.social-link.email     { background: #EA4335; }
+.social-link.github    { background: #333;    }
+.social-link.phone     { background: #34B7F1; }
 
 /* ================= COPYRIGHT - Compact & Subtle ================= */
 .sidebar-copyright {
@@ -646,6 +671,10 @@
     color: rgba(255, 255, 255, 0.3);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     letter-spacing: 0.3px;
+
+    /* ===== FIX: Prevent shrinking ===== */
+    flex-shrink: 0;
+    /* =================================== */
 }
 
 [data-theme="light"] .sidebar-copyright {
@@ -717,10 +746,7 @@
 }
 
 @media (max-height: 600px) {
-    .sidebar-nav {
-        max-height: calc(100vh - 310px);
-    }
-
+    /* ===== FIX: Removed max-height override — flex handles it now ===== */
     .mobile-sidebar .profile-image-container {
         width: 48px;
         height: 48px;
@@ -792,26 +818,4 @@ body.sidebar-open {
 body.sidebar-open main {
     filter: blur(3px);
     transition: filter 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-
-/* ===== FIX: Sidebar layout to always show social icons ===== */
-
-.mobile-sidebar {
-    /* ADD these two properties to your existing rule */
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar-nav {
-    flex: 1;              /* Takes remaining space */
-    min-height: 0;        /* ← KEY FIX: allows flex child to shrink below content size */
-    overflow-y: auto;
-    max-height: none;     /* Remove the calc() — flex handles it now */
-}
-
-/* Remove or override the media query overrides for max-height too */
-@media (max-height: 600px) {
-    .sidebar-nav {
-        max-height: none; /* Let flex handle it */
-    }
 }
