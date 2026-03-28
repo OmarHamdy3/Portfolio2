@@ -323,3 +323,122 @@
 
 
 
+/* ============================================================
+   PORTFOLIO ANIMATIONS — CSS
+   Typewriter cursor + Scroll Reveal system
+   ============================================================ */
+
+
+/* ── Typewriter Cursor ──────────────────────────────────────── */
+
+.tw-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--primary-solid, #fbED52);
+  font-weight: 300;
+  animation: tw-blink 0.75s step-end infinite;
+  vertical-align: baseline;
+}
+
+.tw-cursor--done {
+  animation: none;
+  transition: opacity 0.5s ease;
+}
+
+@keyframes tw-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Keep h1 gradient clip working while typing */
+.hero-text h1 .tw-cursor {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: var(--primary-solid, #fbED52);
+}
+
+
+/* ── Social Links & Btn-Group — hidden until hero types finish ── */
+
+.social-links,
+.btn-group {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+
+/* ── Scroll Reveal Base ─────────────────────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity   0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+.reveal--left {
+  transform: translateX(-40px);
+}
+
+.reveal--right {
+  transform: translateX(40px);
+}
+
+.reveal--scale {
+  transform: scale(0.92) translateY(20px);
+}
+
+.reveal--fade {
+  transform: none;
+}
+
+/* Triggered state */
+.reveal--visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+
+/* ── Navbar Scroll State ────────────────────────────────────── */
+
+nav.scrolled,
+.navbar.scrolled,
+header.scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
+  background: rgba(var(--dark-rgb, 15, 15, 20), 0.9);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="light"] nav.scrolled,
+[data-theme="light"] .navbar.scrolled,
+[data-theme="light"] header.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+
+/* ── Reduce Motion ──────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal--left,
+  .reveal--right,
+  .reveal--scale {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .tw-cursor {
+    animation: none !important;
+  }
+
+  .social-links,
+  .btn-group {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
